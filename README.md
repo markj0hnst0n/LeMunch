@@ -4,6 +4,9 @@
 
 ![]()
 
+Le Munch is here to help you decide what to have for your next meal!  You can upload your own recipes so you have your own online cookbook and
+search and browse through other users recipes to give you ideas of what to cook.
+
 To go to the live site click [here](#)
 
 
@@ -17,9 +20,9 @@ See separate Testing.md file for information on how these user stories were test
 
 ## Wireframes
 
-Basic wireframes for this project were created using Balsamiq and you can find a link to the balsamiq project file (right click on the button and save file) [here](wireframes/adventure-call-wireframes.bmpr)
+Basic wireframes for this project were created using Balsamiq and you can find a link to the balsamiq project file (right click on the button and save file) [here](!)
 
-[Wireframes Pictures Repository](https://github.com/markj0hnst0n/AdventureCall/tree/master/wireframes)
+[Wireframes Pictures Repository](!)
 
 ## Colour Scheme
 
@@ -27,19 +30,18 @@ An explantion fof the colour scheme will go here.
 
 [Coolors](https://coolors.co/)
 
-The container for the questions was made a slightly darker grey to match the skull used for the death screens.
 
 ### Features
 
 #### Feature 1
 
-- Description
+- Store your Recipes and allow other users to see them
 
 #### Feature 2
 
-- Description
+- Browse other users recipes
 
-
+#### Feature 3
 
 # Technologies Used
 
@@ -117,6 +119,7 @@ Information about media used
 
 ## Influences
 
+https://www.youtube.com/watch?v=2Zz97NVbH0U&feature=emb_logo
 
 ## Acknowledgements
 
