@@ -1,6 +1,6 @@
 import os
 from os import path
-from flask import Flask, render_template, redirect, request, session, url_for
+from flask import Flask, flash, g, render_template, redirect, request, session, url_for
 from flask_pymongo import PyMongo
 
 if path.exists("env.py"):
@@ -9,8 +9,8 @@ if path.exists("env.py"):
 app = Flask(__name__)
 
 app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
-app.config['secret_key'] = os.environ.get('secret_key')
-app.secret_key = 'secret_key'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+app.secret_key = 'SECRET_KEY'
 
 mongo = PyMongo(app)
 
@@ -18,19 +18,11 @@ mongo = PyMongo(app)
 @app.route('/login', methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        session.pop('user_id', None)
-        database_user = mongo.db.user_info.find_one(
-            {"username": request.form.get("username")}
-        )
-        user = request.form.get('username')
-        database_password = mongo.db.user_info.find_one(
-            {"password": request.form.get("password")}
-        )
+        database_user = mongo.db.user_info.find_one({"username": request.form.get("username")})
         password = request.form.get('password')
-
-        if user == database_user:
-            if password == database_password:
-                session["user_id"] = mongo.db.user_info.find_one('username')
+        if database_user:
+            if database_user["password"] == password:
+                session["user"] = request.form.get("username")
                 return redirect(url_for('profile'))
         else:
             flash("User does not exist!  Please Sign Up")
