@@ -14,7 +14,15 @@ To go to the live site click [here](#)
 
 ## User Stories
 
-- User Stories will go here
+- As a member of the site I want to be able to upload recipes so that I have a resource of my dishes to use like and online cookbook.
+
+- As a member of the site I want to be able to edit and delete recipes so that I have control over my online cookbook to customise it to fit my ongoing needs.
+
+- As a member of the site I want to be able to browse other users recipes so that I can get ideas about what dishes I would like to make.
+
+- As a member of the site I want to be able to search recipes so that I can find my favourite dishes easily.
+
+- As a site owner I want be able to link to key ingredients or equipment in the recipes so that I can advertise these products.
 
 See separate Testing.md file for information on how these user stories were tested [here](testing/testing.md)
 
