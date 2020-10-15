@@ -70,13 +70,15 @@ An explantion fof the colour scheme will go here.
 
 #### Feature 1
 
-- Store your Recipes and allow other users to see them
+- Sign Up / Sign Into the website so that a unique user is created or their unique profile is added
 
 #### Feature 2
 
-- Browse other users recipes
+- Upload Recipes including picture
 
 #### Feature 3
+
+- 
 
 # Technologies Used
 

@@ -6,6 +6,10 @@
     <title>Profile</title>
 </head>
 <body>
-    <h1>{{session.user}}'s Profile</h1>
+    {% for user in users %}
+        {{user.username}}
+        {{user.password}}
+        {{user.email}}
+    {% endfor %}
 </body>
 </html>
