@@ -5,24 +5,47 @@
 ![]()
 
 Le Munch is here to help you decide what to have for your next meal!  You can upload your own recipes so you have your own online cookbook and
-search and browse through other users recipes to give you ideas of what to cook.
+search and browse through other users recipes to give you ideas of what to cook.  Develop your love of food by deep diving on food pics and 
+connecting with other users through the recipes they've uploaded.
 
 To go to the live site click [here](#)
 
 
 # UX
 
+## Conceptual Database Design
+
+![](readme/images/conceptual-database-design.png)
+
 ## User Stories
 
-- As a member of the site I want to be able to upload recipes so that I have a resource of my dishes to use like and online cookbook.
+There will be 2 main user types and the user types are not mutually exclusive.  The same user could fall into both categories dependent on the their behaviour.
 
-- As a member of the site I want to be able to edit and delete recipes so that I have control over my online cookbook to customise it to fit my ongoing needs.
+The uploader user will be the primary content creators and will produce the recipes for the site.  Their goal is to show off what they can do and see how popular their recipes are.
 
-- As a member of the site I want to be able to browse other users recipes so that I can get ideas about what dishes I would like to make.
+- As an uploader user I want to upload a recipe so that other users can see if for inspiration about their own meals and so that I have a record for my online cookbook.
 
-- As a member of the site I want to be able to search recipes so that I can find my favourite dishes easily.
+- As an uploader user I want functionality to upload a photo to so that users are enticed to read my recipes.
 
-- As a site owner I want be able to link to key ingredients or equipment in the recipes so that I can advertise these products.
+- As an uploader userI want to be able to edit and delete recipes so that I can customise my online cookbook to suit my ongoing needs.
+
+- As an uploader user I want other users to be able to ‘upvote’ or ‘like’ my recipes so that I can understand how popular they are.
+
+- As an uploader user I want to be able to add, edit the type of recipe so that other users easily can browse the right category to find recipes to suit their needs.
+
+The browser user will be mainly focused on looking at recipe pictures and recipe content.  They can give their approval to recipes through ‘likes’ or ‘upvotes’ and are mainly there to find inspiration for what to cook or look at nice food pictures.
+
+- As a browser user I want to be able to browse by recipes ranked by likes so that I can see the most popular recipes to get inspiration about what to cook.
+
+- As a browser user I want to be able to browse other users so that I can see who is creating the most popular recipes to get inspiration about what to cook.
+
+- As a browser user I want to be able to search other users so that I can look up my favourite users.
+
+- As a browser user I want to be able to search by recipes so that I can find my favourite recipes to see how other cooks do them.
+
+Site owner goal
+
+- As site owner I want to create a welcome space for users to connect over food and develop their love of cooking.
 
 See separate Testing.md file for information on how these user stories were tested [here](testing/testing.md)
 
@@ -107,7 +130,7 @@ step by step deployment info
 
 ## Run Locally
 
-In the GitHub Repository from the project (https://github.com/markj0hnst0n/AdventureCall)
+In the GitHub Repository from the project (#)
 
 1. Click Clone or Download
 2. Copy Git URL from the dialogue box
