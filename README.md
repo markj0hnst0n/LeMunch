@@ -17,6 +17,10 @@ To go to the live site click [here](#)
 
 ![](readme/images/conceptual-database-design.png)
 
+## Logical Data Model
+
+![](readme/images/logical-data-model.png)
+
 ## User Stories
 
 There will be 2 main user types and the user types are not mutually exclusive.  The same user could fall into both categories dependent on the their behaviour.
