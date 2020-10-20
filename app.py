@@ -1,6 +1,6 @@
 import os
 from os import path
-from flask import Flask, flash, render_template, redirect, request, session, url_for
+from flask import Flask, render_template, redirect, request, session, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
@@ -18,8 +18,14 @@ mongo = PyMongo(app)
 
 @app.route('/get_user')
 def get_user():
-    users = mongo.db.user_info.find()
+    users = mongo.db.users.find()
     return render_template("profile.html", users=users)
+
+@app.route('/add_user')
+def add_user():
+    return render_template("signup.html")
+
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
