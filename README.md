@@ -68,17 +68,39 @@ An explantion fof the colour scheme will go here.
 
 ### Features
 
-#### Feature 1
+#### Navbar
 
-- Sign Up / Sign Into the website so that a unique user is created or their unique profile is added
+- Easily navigate the website via the navbar
 
-#### Feature 2
+#### Sign up or Login
 
-- Upload Recipes including picture
+- Sign Up / Sign In to the website so that a unique user is created or their unique profile is added
 
-#### Feature 3
+#### Edit Profile
 
-- 
+- Edit user info
+
+#### Profile page
+
+- Use the tabs to navigate easily once a user is logged in
+
+#### Recipe upload
+
+- Add/upload recipes
+
+#### Browse
+
+- Browse my recipes and recipes of other users.  Sorting by number of likes or unsorted.  Also browse users.
+
+#### Search function
+
+- Search for my favourite recipe
+
+#### Like/Upvote
+
+- Upvote/like recipe.  Each user can only like a recipe once.
+
+
 
 # Technologies Used
 

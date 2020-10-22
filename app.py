@@ -16,14 +16,16 @@ mongo = PyMongo(app)
 
 @app.route('/')
 
+@app.route('/add_user')
+def add_user():
+    return render_template("signup.html")
+
 @app.route('/get_user')
 def get_user():
     users = mongo.db.users.find()
     return render_template("profile.html", users=users)
 
-@app.route('/add_user')
-def add_user():
-    return render_template("signup.html")
+
 
 
 
