@@ -1,14 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
-        <div class="container">
-        <h1>Sign Up</h1>
-        <section class="row">
+<section>
+    <div class="container">
+        <div class="row">
             <form class="col s12" method="POST" action="">
-                <label for="username">Username</label>
-                <input type="text" id="username" />
-                <label for="password">password</label>
-                <input type="password" id="password" /><input type="submit" value="Submit" />
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="username" name="usernmae" type="text" class="validate" />
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">settings</i>
+                        <input id="password" name="password" type="tel" class="validate" />
+                        <label for="password">Password</label>
+                    </div>
+                </div>
             </form>
-        </section>
         </div>
+    </div>
+</section>
 {% endblock %}
