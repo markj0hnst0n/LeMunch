@@ -16,18 +16,20 @@ mongo = PyMongo(app)
 
 @app.route('/')
 
-@app.route('/add_user')
-def add_user():
-    return render_template("signup.html")
-
 @app.route('/get_user')
 def get_user():
     users = mongo.db.users.find()
     return render_template("profile.html", users=users)
 
+@app.route('/add_user')
+def add_user():
+    return render_template("signup.html", users=mongo.db.users.find())
 
-
-
+@app.route('/new_user', methods=['POST'])
+def new_user():
+    users = mongo.db.users
+    users.insert_one(request.form.to_dict())
+    return redirect(url_for('get_user'))
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
