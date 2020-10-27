@@ -183,6 +183,10 @@ Information about media used
 
 https://www.youtube.com/watch?v=2Zz97NVbH0U&feature=emb_logo
 
+User Authentication via session
+
+https://github.com/MiroslavSvec/DCD_lead
+
 ## Acknowledgements
 
 Thanks to the following people for making the project happen:
