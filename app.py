@@ -23,7 +23,7 @@ def signin():
         db_user = mongo.db.users.find_one({"username": session['user']})
         if db_user:
             flash("You are already logged in")
-            return redirect(url_for(profile, user=db_user['username']))
+            return redirect(url_for('profile', user=db_user['username']))
     else:
         return render_template("signin.html")
 
@@ -78,6 +78,12 @@ def add_user():
 def profile(user):
     if 'user' in session:
         return render_template('profile.html', user = mongo.db.users.find_one({"username": user}))
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash ('User Logged Out')
+    return redirect(url_for('signin'))
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
