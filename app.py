@@ -40,6 +40,7 @@ def login():
             flash('Username or password incorrect')
             return redirect(url_for('signin'))
 
+
 @app.route('/add_user', methods=['GET', 'POST'])
 def add_user():
     if 'user' in session:
