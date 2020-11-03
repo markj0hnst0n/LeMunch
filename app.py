@@ -28,7 +28,7 @@ type_collection = mongo.db.type
 @app.route('/signin', methods=['GET'])
 def signin():
     if 'user' in session:
-        db_user = mongo.db.users.find_one({"username": session['user']})
+        db_user = user_collection.find_one({"username": session['user']})
         if db_user:
             flash("You are already logged in")
             return redirect(url_for('profile', user=db_user['username']))
@@ -39,7 +39,7 @@ def signin():
 @app.route('/login', methods=['POST'])
 def login():
     form = request.form.to_dict()
-    db_user = mongo.db.users.find_one({"username": form['username']})
+    db_user = user_collection.find_one({"username": form['username']})
     if db_user:
         if check_password_hash(db_user['password'], form['password']):
             session['user'] = form['username']
@@ -58,12 +58,12 @@ def add_user():
     if request.method == 'POST':
         form = request.form.to_dict()
         if form['password'] == form['password1']:
-            user = mongo.db.users.find_one({"username": form['username']})
+            user = user_collection.find_one({"username": form['username']})
             if user:
                 flash(f"{form['username']} already exists")
                 return redirect(url_for('add_user'))
             else:
-                mongo.db.users.insert_one(
+                user_collection.insert_one(
                     {
                         'username': form['username'],
                         'picture': form['picture'],
