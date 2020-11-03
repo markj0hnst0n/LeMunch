@@ -1,6 +1,8 @@
 import os
 from os import path
-from flask import Flask, flash, render_template, redirect, request, session, url_for
+from flask import (
+    Flask, flash, render_template,
+    redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -15,8 +17,14 @@ app.secret_key = os.environ.get('SECRET_KEY')
 
 mongo = PyMongo(app)
 
-@app.route('/')
+# Collections
 
+user_collection = mongo.db.users
+recipe_collection = mongo.db.recipes
+type_collection = mongo.db.type
+
+
+@app.route('/')
 @app.route('/signin', methods=['GET'])
 def signin():
     if 'user' in session:
@@ -27,6 +35,7 @@ def signin():
     else:
         return render_template("signin.html")
 
+
 @app.route('/login', methods=['POST'])
 def login():
     form = request.form.to_dict()
@@ -35,7 +44,7 @@ def login():
         if check_password_hash(db_user['password'], form['password']):
             session['user'] = form['username']
             flash("Login successful")
-            return redirect(url_for('profile', user = db_user['username']))
+            return redirect(url_for('profile', user=db_user['username']))
         else:
             flash('Username or password incorrect')
             return redirect(url_for('signin'))
@@ -63,10 +72,12 @@ def add_user():
                         'password': generate_password_hash(form['password'])
                     }
                 )
-                db_user = mongo.db.users.find_one({"username": form['username']})
+                db_user = user_collection.find_one(
+                    {"username": form['username']})
                 if db_user:
                     session['user'] = db_user['username']
-                    return redirect(url_for('profile', user=db_user['username']))
+                    return redirect(url_for('profile',
+                                            user=db_user['username']))
                 else:
                     flash('Issues saving profile')
                     return redirect(url_for('add_user'))
@@ -75,15 +86,19 @@ def add_user():
             return redirect(url_for('add_user'))
     return render_template('signup.html')
 
+
 @app.route('/profile/<user>')
 def profile(user):
     if 'user' in session:
-        return render_template('profile.html', user = mongo.db.users.find_one({"username": user}))
+        return render_template('profile.html',
+                               user=user_collection.find_one(
+                                {"username": user}))
+
 
 @app.route('/logout')
 def logout():
     session.clear()
-    flash ('User Logged Out')
+    flash('User Logged Out')
     return redirect(url_for('signin'))
 
 if __name__ == "__main__":
