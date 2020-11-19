@@ -19,6 +19,10 @@
                 </ul>
                 <ul class="sidenav" id="mobile-demo">
                     <li><a href="{{ url_for('signin') }}">Home</a></li>
+                    {% if user %}
+                        <li><a href="#">User Settings</a></li>
+                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
