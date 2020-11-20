@@ -87,17 +87,17 @@ def add_user():
     return render_template('signup.html')
 
 
-@app.route('/profile/<user>')
+@app.route('/profile/<user>', methods=["GET", "POST"])
 def profile(user):
+    username = user_collection.find_one({"username": user})
     if 'user' in session:
-        return render_template('profile.html',
-                               user=user_collection.find_one(
-                                {"username": user}))
+        return render_template('profile.html', user=username)
+    return redirect(url_for('signin'))
 
 
 @app.route('/logout')
 def logout():
-    session.clear()
+    session.pop('user')
     flash('User Logged Out')
     return redirect(url_for('signin'))
 

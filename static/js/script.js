@@ -5,6 +5,3 @@ $(document).ready(function () {
     $(".sidenav").sidenav();
     $(".button-collapse").sidenav();
 });
-document.getElementById("matfix").addEventListener("click", function (e) {
-    e.stopPropagation();
-});
