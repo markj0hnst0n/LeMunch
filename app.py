@@ -95,7 +95,7 @@ def profile(user):
     return redirect(url_for('signin'))
 
 
-@app.route('/logout')
+@app.route('/logout', )
 def logout():
     session.pop('user')
     flash('User Logged Out')

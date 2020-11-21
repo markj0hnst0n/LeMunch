@@ -19,7 +19,10 @@
 .btn-colour{
     background-color: #3E796A;
 }
+a {
+    color: #3E796A;
+}
 
-.register{
-    border-top: 2rem;
+a:hover {
+    color: #039be5;
 }
