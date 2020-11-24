@@ -7,6 +7,10 @@
     font-family: Pacifico;
 }
 
+.title-font{
+    font-family: Roboto;
+}
+
 .body-colour{
     color: #3E796A;
     background-color: #E9D2F4;
@@ -25,4 +29,14 @@ a {
 
 a:hover {
     color: #039be5;
+}
+
+.side-list{
+    line-height: 48px;
+    font-family: Noto Sans JP;
+    font-size: 16px;
+}
+
+.side-list:hover{
+    background-color: #F7EFFB;
 }
