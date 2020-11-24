@@ -43,7 +43,6 @@ def login():
     if db_user:
         if check_password_hash(db_user['password'], form['password']):
             session['user'] = form['username']
-            flash("Login successful")
             return redirect(url_for('profile', user=db_user['username']))
         else:
             flash('Username or password incorrect')
