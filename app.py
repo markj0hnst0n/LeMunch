@@ -89,8 +89,9 @@ def add_user():
 @app.route('/profile/<user>', methods=["GET", "POST"])
 def profile(user):
     username = user_collection.find_one({"username": user})
+    my_recipes = list(recipe_collection.find({"user": user}))
     if 'user' in session:
-        return render_template('profile.html', user=username)
+        return render_template('profile.html', user=username, my_recipes=my_recipes)
     return redirect(url_for('signin'))
 
 
@@ -101,8 +102,21 @@ def logout():
     return redirect(url_for('signin'))
 
 
-@app.route('/add_recipe')
+@app.route('/add_recipe', methods=["GET", "POST"])
 def add_recipe():
+    if request.method == "POST":
+        recipe = {
+            "recipe_type": request.form.get("recipe_type"),
+            "name": request.form.get("recipe_name"),
+            "description": request.form.get("description"),
+            "picture": request.form.get("recipe_image"),
+            "ingredients": request.form.get("ingredients"),
+            "method": request.form.get("method"),
+            "user": session["user"]
+        }
+        recipe_collection.insert_one(recipe)
+        flash("Recipe Added to Your Cookbook!")
+        return redirect(url_for('profile', user=session.user))
     recipe_types = type_collection.find().sort("type_name", 1)
     return render_template('add_recipe.html', recipe_types=recipe_types)
 
