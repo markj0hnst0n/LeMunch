@@ -5,4 +5,4 @@
 |-------|-------|
 | Not connecting to database to show user info | correct database not used in MongoURI.  Updated.
 | Not displaying recipe type names in add recipe page | incorrect syntax when attempting to call type name from database
-| Not redirecting to profile page correctly after adding recipe | 
+| Not redirecting to profile page correctly after adding recipe | redirect syntax not in the correct format to read session cookie data

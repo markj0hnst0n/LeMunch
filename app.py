@@ -91,7 +91,8 @@ def profile(user):
     username = user_collection.find_one({"username": user})
     my_recipes = list(recipe_collection.find({"user": user}))
     if 'user' in session:
-        return render_template('profile.html', user=username, my_recipes=my_recipes)
+        return render_template('profile.html',
+                               user=username, my_recipes=my_recipes)
     return redirect(url_for('signin'))
 
 
@@ -116,7 +117,7 @@ def add_recipe():
         }
         recipe_collection.insert_one(recipe)
         flash("Recipe Added to Your Cookbook!")
-        return redirect(url_for('profile', user=session.user))
+        return redirect(url_for('profile', user=session["user"]))
     recipe_types = type_collection.find().sort("type_name", 1)
     return render_template('add_recipe.html', recipe_types=recipe_types)
 
