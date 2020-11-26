@@ -38,3 +38,7 @@
 .side-list:hover{
     background-color: #E7CEF3;
 }
+
+.absolute {
+    position: absolute;
+}
