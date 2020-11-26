@@ -45,16 +45,8 @@
                     
                 </ul>
             </div>
-            <div class="nav-content teal darken-3 col s12 m12 l10">
-                <ul class="tabs tabs-transparent ">                   
-                    <li class="tab"><a class="active" href="#test1">Featured</a></li>
-                    <li class="tab"><a href="#test2">My Recipes</a></li>
-                    <li class="tab"><a href="#test3">Browse</a></li>
-                    <li class="tab"><a href="#test4">Search</a></li>                    
-                </ul>
-            </div>
             {% endif %}
-            <div class="col s10">
+            <div class="col s12 m12 l10">
                 <section>
                     {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
                     <div>
@@ -62,7 +54,6 @@
                     </div>
                     {% endfor %} {% endif %} {% endwith %}
                 </section>
-
                 {% block content %} {% endblock %}
             </div>
         </div>
