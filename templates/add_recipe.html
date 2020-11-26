@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row teal darken-3">
+    <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+            <li class="tab"><a class="active" href="#">My Recipes</a></li>
+            <li class="tab"><a href="#test3">Browse</a></li>
+            <li class="tab"><a href="#test4">Search</a></li>
+        </ul>
+    </div>
+</div>
+<section>
+        <div class="container">
+        <h1 class="title-font">Add Recipe</h1>
+        <div class="row">
+            <form class="col s12" method="POST" action="">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">face</i>
+                        <input id="recipe_name" name="recipe_name" type="text" class="validate" />
+                        <label for="recipe_name">Recipe Name</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">camera_alt</i>
+                        <input id="recipe_image" name="recipe_image" type="text" class="validate" />
+                        <label for="recipe_image">Picture</label>
+                    </div>
+                    <div class="col s12">
+                        <p class="upload-style">Upload your image <a class="body-colour here" href="https://postimages.org/" 
+                        target="_blank">here</a>.  Please use the 320x240 size with no expiration.  Once uploaded copy and paste 
+                        the direct link with a .jpg file extension into the above field.</p>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">edit</i>
+                        <textarea id="ingredients" name="ingredients" minlength="5"
+                        maxlength="200" class="materialize-textarea validate"></textarea>
+                        <label for="ingredients">Ingredients</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
+                        <textarea id="method" name="method" minlength="5"
+                        maxlength="200" class="materialize-textarea validate"></textarea>
+                        <label for="method">Method</label>
+                    </div>
+                <button class="btn waves-effect waves-light btn-colour" type="submit" name="action">
+                    Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </form>
+        </div>
+        </div>
+</section>
+{% endblock %}
