@@ -12,50 +12,62 @@
 <section>
     <div class="absolute container">
         <h1 class="title-font">Add Recipe</h1>
-            <form class="col s12" method="POST" action="">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">face</i>
-                        <input id="recipe_name" name="recipe_name" type="text" class="validate" />
-                        <label for="recipe_name">Recipe Name</label>
-                    </div>
+        <form class="col s12" method="POST" action="">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">face</i>
+                    <select id="recipe_type" name="recipe_type" class="validate">
+                        <option value="" disabled selected>Choose your option</option>
+                        {% for type in recipe_types %}
+                            <option value="{{ type.type_name }}">{{ type.type_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="recipe_type">Recipe Type</label>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">camera_alt</i>
-                        <input id="recipe_image" name="recipe_image" type="text" class="validate" />
-                        <label for="recipe_image">Picture</label>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">face</i>
+                    <input id="recipe_name" name="recipe_name" type="text" class="validate" />
+                    <label for="recipe_name">Recipe Name</label>
                 </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">camera_alt</i>
+                    <input id="recipe_image" name="recipe_image" type="text" class="validate" />
+                    <label for="recipe_image">Picture</label>
+                </div>
+            </div>
+            <div class="col s12">
+                <p class="upload-style">
+                    Upload your image <a class="body-colour here" href="https://postimages.org/" target="_blank">here</a>. Please use the 320x240 size with no expiration. Once uploaded copy and paste the direct link with a .jpg file
+                    extension into the above field.
+                </p>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">edit</i>
+                    <textarea id="ingredients" name="ingredients" minlength="5" maxlength="200" class="materialize-textarea validate"></textarea>
+                    <label for="ingredients">Ingredients</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">email</i>
+                    <textarea id="method" name="method" minlength="5" maxlength="200" class="materialize-textarea validate"></textarea>
+                    <label for="method">Method</label>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col s12">
-                    <p class="upload-style">
-                        Upload your image <a class="body-colour here" href="https://postimages.org/" target="_blank">here</a>. Please use the 320x240 size with no expiration. Once uploaded copy and paste the direct link with a .jpg file
-                        extension into the above field.
-                    </p>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">edit</i>
-                        <textarea id="ingredients" name="ingredients" minlength="5" maxlength="200" class="materialize-textarea validate"></textarea>
-                        <label for="ingredients">Ingredients</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">email</i>
-                        <textarea id="method" name="method" minlength="5" maxlength="200" class="materialize-textarea validate"></textarea>
-                        <label for="method">Method</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12">
                     <button class="btn waves-effect waves-light btn-colour" type="submit" name="action">
                         Submit
                         <i class="material-icons right">send</i>
                     </button>
-                    </div>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
+    </div>
 </section>
 {% endblock %}

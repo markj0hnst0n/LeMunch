@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 
 user_collection = mongo.db.users
 recipe_collection = mongo.db.recipes
-type_collection = mongo.db.type
+type_collection = mongo.db.recipe_types
 
 
 @app.route('/')
@@ -103,7 +103,8 @@ def logout():
 
 @app.route('/add_recipe')
 def add_recipe():
-    return render_template('add_recipe.html')
+    recipe_types = type_collection.find().sort("type_name", 1)
+    return render_template('add_recipe.html', recipe_types=recipe_types)
 
 
 if __name__ == "__main__":
