@@ -89,12 +89,14 @@ def add_user():
 
 @app.route('/profile/<user>', methods=["GET", "POST"])
 def profile(user):
+
     username = user_collection.find_one({"username": user})
     my_recipes = list(recipe_collection.find({"user": user})
                       .sort("datetime", -1))
+    recipe_count = len(my_recipes)
     if 'user' in session:
         return render_template('profile.html',
-                               user=username, my_recipes=my_recipes)
+                               user=username, my_recipes=my_recipes, recipe_count=recipe_count)
     return redirect(url_for('signin'))
 
 
