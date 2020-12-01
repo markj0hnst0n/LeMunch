@@ -22,9 +22,19 @@
             <div class="card-content">
                 <p>{{ recipe.description }}</p>
             </div>
+            {% if session.user %}
             <div class="card-action">
-                <a href="#">Click here for more information</a>
+                <a href="#">Edit Recipe</a>
             </div>
+            {% endif %}
+            <div class="card-action">
+                <a href="#">View Recipe</a>
+            </div>
+            {% if session.user %}
+            <div class="card-action">
+                <a href="#">Delete Recipe</a>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>
