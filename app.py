@@ -1,4 +1,4 @@
-import os
+import os, datetime
 from os import path
 from flask import (
     Flask, flash, render_template,
@@ -95,13 +95,11 @@ def profile(user):
                                user=username, my_recipes=my_recipes)
     return redirect(url_for('signin'))
 
-
 @app.route('/logout', )
 def logout():
     session.pop('user')
     flash('User Logged Out')
     return redirect(url_for('signin'))
-
 
 @app.route('/add_recipe', methods=["GET", "POST"])
 def add_recipe():
@@ -113,7 +111,8 @@ def add_recipe():
             "picture": request.form.get("recipe_image"),
             "ingredients": request.form.get("ingredients"),
             "method": request.form.get("method"),
-            "user": session["user"]
+            "user": session["user"],
+            "datetime": datetime.datetime.now().timestamp()
         }
         recipe_collection.insert_one(recipe)
         flash("Recipe Added to Your Cookbook!")
@@ -121,6 +120,10 @@ def add_recipe():
     recipe_types = type_collection.find().sort("type_name", 1)
     return render_template('add_recipe.html', recipe_types=recipe_types)
 
+@app.route('/browse')
+def browse():
+    all_recipes = list(recipe_collection.find())
+    return render_template('browse.html', all_recipes = all_recipes)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
