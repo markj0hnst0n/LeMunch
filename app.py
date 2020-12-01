@@ -1,4 +1,5 @@
-import os, datetime
+import os
+import datetime
 from os import path
 from flask import (
     Flask, flash, render_template,
@@ -89,17 +90,20 @@ def add_user():
 @app.route('/profile/<user>', methods=["GET", "POST"])
 def profile(user):
     username = user_collection.find_one({"username": user})
-    my_recipes = list(recipe_collection.find({"user": user}).sort("datetime", -1))
+    my_recipes = list(recipe_collection.find({"user": user})
+                      .sort("datetime", -1))
     if 'user' in session:
         return render_template('profile.html',
                                user=username, my_recipes=my_recipes)
     return redirect(url_for('signin'))
+
 
 @app.route('/logout', )
 def logout():
     session.pop('user')
     flash('User Logged Out')
     return redirect(url_for('signin'))
+
 
 @app.route('/add_recipe', methods=["GET", "POST"])
 def add_recipe():
@@ -120,10 +124,11 @@ def add_recipe():
     recipe_types = type_collection.find().sort("type_name", 1)
     return render_template('add_recipe.html', recipe_types=recipe_types)
 
+
 @app.route('/browse')
 def browse():
     all_recipes = list(recipe_collection.find().sort("datetime", -1))
-    return render_template('browse.html', all_recipes = all_recipes)
+    return render_template('browse.html', all_recipes=all_recipes)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
