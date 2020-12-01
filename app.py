@@ -96,7 +96,8 @@ def profile(user):
     recipe_count = len(my_recipes)
     if 'user' in session:
         return render_template('profile.html',
-                               user=username, my_recipes=my_recipes, recipe_count=recipe_count)
+                               user=username, my_recipes=my_recipes,
+                               recipe_count=recipe_count)
     return redirect(url_for('signin'))
 
 
