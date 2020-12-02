@@ -90,7 +90,7 @@ def add_user():
 @app.route('/profile/<user>', methods=["GET", "POST"])
 def profile(user):
 
-    username = user_collection.find_one({"username": user})
+    username = user_collection.find_one({"username": user}).lower
     my_recipes = list(recipe_collection.find({"user": user})
                       .sort("datetime", -1))
     recipe_count = len(my_recipes)
@@ -130,6 +130,7 @@ def add_recipe():
 
 @app.route('/browse')
 def browse():
+    
     all_recipes = list(recipe_collection.find().sort("datetime", -1))
     return render_template('browse.html', all_recipes=all_recipes)
 
