@@ -86,23 +86,6 @@ def add_user():
             return redirect(url_for('add_user'))
     return render_template('signup.html')
 
-@app.route('/edit_user/<user_id>')
-def edit_user(user_id):
-    if request.method == 'POST':
-        form = request.form.to_dict()
-        if form['password'] == form['password1']:
-            edit = {
-                        'username': form['username'],
-                        'picture': form['picture'],
-                        'bio': form['bio'],
-                        'email': form['email'],
-                        'password': generate_password_hash(form['password'])
-                    }
-            user_collection.update({"_id": ObjectId(user_id)}, edit)
-            return redirect(url_for('profile', user=session["user"]))
-        flash('Passwords do not match')
-        return redirect(url_for('profile', user=session["user"]))
-
 @app.route('/profile/<user>', methods=["GET", "POST"])
 def profile(user):
     username = user_collection.find_one({"username": user})
@@ -116,20 +99,19 @@ def profile(user):
     return redirect(url_for('signin'))
 
 
+@app.route('/delete_user/<user_id>')
+def delete_user(user_id):
+    user_collection.remove({"_id": ObjectId(user_id)})
+    flash("user deleted")
+    session.pop('user')
+    return render_template('signin.html')
+
+
 @app.route('/logout', )
 def logout():
     session.pop('user')
     flash('User Logged Out')
     return redirect(url_for('signin'))
-
-
-@app.route('/delete_user/<user_id>')
-def delete_user(user_id):
-    session.pop('user')
-    user_collection.remove({"_id": ObjectId(user_id)})
-    flash("User deleted")
-    return render_template("signin.html")
-
 
 @app.route('/add_recipe', methods=["GET", "POST"])
 def add_recipe():
@@ -183,7 +165,7 @@ def delete_recipe(recipe_id):
 @app.route('/browse')
 def browse():
     all_recipes = list(recipe_collection.find().sort("datetime", -1))
-    return render_template('browse.html', all_recipes=all_recipes, user=session.user)
+    return render_template('browse.html', all_recipes=all_recipes)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
