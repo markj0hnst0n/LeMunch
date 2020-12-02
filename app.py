@@ -89,7 +89,6 @@ def add_user():
 
 @app.route('/profile/<user>', methods=["GET", "POST"])
 def profile(user):
-
     username = user_collection.find_one({"username": user})
     my_recipes = list(recipe_collection.find({"user": user})
                       .sort("datetime", -1))
@@ -128,9 +127,37 @@ def add_recipe():
     return render_template('add_recipe.html', recipe_types=recipe_types)
 
 
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    if request.method == "POST":
+        edit = {
+            "recipe_type": request.form.get("recipe_type"),
+            "name": request.form.get("recipe_name"),
+            "description": request.form.get("description"),
+            "picture": request.form.get("recipe_image"),
+            "ingredients": request.form.get("ingredients"),
+            "method": request.form.get("method"),
+            "user": session["user"],
+            "datetime": datetime.datetime.now().timestamp()
+        }
+        recipe_collection.update({"_id": ObjectId(recipe_id)}, edit)
+        flash("Recipe Edited")
+        return redirect(url_for('profile', user=session["user"]))
+
+    recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
+    recipe_types = type_collection.find().sort("type_name", 1)
+    return render_template('edit_recipe.html', recipe=recipe, recipe_types=recipe_types)
+
+
+@app.route('/delete_recipe/<recipe_id>')
+def delete_recipe(recipe_id):
+    recipe_collection.remove({"_id": ObjectId(recipe_id)})
+    flash("Recipe deleted")
+    return redirect(url_for('profile', user=session["user"]))
+
+
 @app.route('/browse')
-def browse():
-    
+def browse():    
     all_recipes = list(recipe_collection.find().sort("datetime", -1))
     return render_template('browse.html', all_recipes=all_recipes)
 
