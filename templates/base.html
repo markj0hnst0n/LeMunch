@@ -24,9 +24,8 @@
                 <ul class="sidenav" id="mobile-demo">
                     <li><a href="{{ url_for('signin') }}">Home</a></li>
                     {% if session.user %}
-                    <li><a href="#">Change Profile Picture</a></li>
-                    <li><a href="#">Change Bio</a></li>
-                    <li><a href="#">Change Password</a></li>
+                    <li><a href="{{ url_for('edit_user', user_id=user._id) }}">Edit User Data</a></li>
+                    <li><a href="{{ url_for('delete_user', user_id=user._id) }}">Delete User</a></li>
                     <li><a href="{{ url_for('logout') }}">Logout</a></li>
                     {% endif %}
                 </ul>
@@ -38,11 +37,9 @@
             {% if session.user %}
             <div class="col s2 hide-on-med-and-down ">
                 <ul class="nav-column">                   
-                    <li class="side-list"><a class="side-list" href="#">Change Profile Picture</a></li>
-                    <li class="side-list"><a class="side-list" href="#">Change Bio</a></li>
-                    <li class="side-list"><a class="side-list" href="">Change Password</a></li>
-                    <li class="side-list"><a class="side-list" href="{{ url_for('logout') }}">Logout</a></li>
-                    
+                    <li><a href="{{ url_for('edit_user', user_id=user._id) }}">Edit User Data</a></li>
+                    <li><a href="{{ url_for('delete_user', user_id=user._id) }}">Delete User</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>                
                 </ul>
             </div>
             {% endif %}
