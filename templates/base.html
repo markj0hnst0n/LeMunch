@@ -3,9 +3,9 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Roboto:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Roboto:wght@500&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
@@ -22,11 +22,17 @@
                     </li>
                 </ul>
                 <ul class="sidenav" id="mobile-demo">
-                    <li><a href="{{ url_for('signin') }}">Home</a></li>
+                    <li><a class="side-list" href="{{ url_for('signin') }}">Home</a></li>
                     {% if session.user %}
-                    <li><a href="#">Edit User Data</a></li>
-                    <li><a class="modal-trigger" href="#modal1">Delete User</a></li>
-                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                    <li>
+                        <a class="side-list" href="#">Edit User Data</a>
+                    </li>
+                    <li>
+                        <a class="modal-trigger side-list" href="#delete_user_modal">Delete User</a>
+                    </li>
+                    <li>
+                        <a class="modal-trigger side-list" href="#logout_modal">Logout</a>
+                    </li>
                     {% endif %}
                 </ul>
             </div>
@@ -35,14 +41,41 @@
     <body class="body-colour">
         <div class="row">
             {% if session.user %}
-            <div class="col s2 hide-on-med-and-down ">
-                <ul class="nav-column">                   
-                    <li><a href="#">Edit User Data</a></li>
-                    <li><a class="modal-trigger" href="#modal1">Delete User</a></li>
-                    <li><a href="{{ url_for('logout') }}">Logout</a></li>                
+            <div class="col s2 hide-on-med-and-down">
+                <ul class="nav-column">
+                    <li class="side-list">
+                        <i class="material-icons">edit</i>
+                        <a class="side-list" href="#">Edit User Data</a>
+                    </li>
+                    <li class="side-list">
+                        <i class="material-icons">delete</i>
+                        <a class="modal-trigger side-list" href="#delete_user_modal">Delete User</a>
+                    </li>
+                    <li class="side-list">
+                        <i class="material-icons">eject</i>
+                        <a class="modal-trigger side-list" href="#logout_modal">Logout</a>
+                    </li>
                 </ul>
             </div>
             {% endif %}
+            <div id="delete_user_modal" class="modal">
+                <div class="modal-content">
+                    <h4>Delete user?</h4>
+                    <p>If you delete the user you will not be able to post anymore and all your recipes will be lost FOREVER!</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ url_for('delete_user', user_id=user._id) }}" class="modal-close waves-effect waves-green btn-flat">Delete user</a>
+                </div>
+            </div>
+            <div id="logout_modal" class="modal">
+                <div class="modal-content">
+                    <h4>Logout?</h4>
+                    <p>Are you sure you want to logout?</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ url_for('logout') }}" class="modal-close waves-effect waves-green btn-flat">Logout</a>
+                </div>
+            </div>
             <div class="col s12 m12 l10">
                 <section>
                     {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}

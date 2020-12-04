@@ -101,6 +101,7 @@ def profile(user):
 
 @app.route('/delete_user/<user_id>')
 def delete_user(user_id):
+    recipe_collection.remove({"username": session["user"]})
     user_collection.remove({"_id": ObjectId(user_id)})
     flash("user deleted")
     session.pop('user')
