@@ -100,6 +100,24 @@ def profile(user):
     return redirect(url_for('signin'))
 
 
+@app.route('/edit_user/<user_id>', methods=["GET", "POST"])
+def edit_user(user_id):
+    if request.method == "POST":
+        edit = {
+                "username": request.form.get("username"),
+                'picture': request.form.get['picture'],
+                'bio': request.form.get['bio'],
+                'email': request.form.get['email'],
+                'password': generate_password_hash(request.form.get['password'])
+                }
+        user = user_collection.find_one({"username": session["user"]})
+        user_collection.update({"_id": ObjectId(user_id)}, edit)
+        flash("User info updated")
+        return redirect(url_for('profile', user=user))
+    user = user_collection.find_one({"username": session["user"]})
+    return render_template('edit_user.html', user=user)
+
+
 @app.route('/delete_user/<user_id>')
 def delete_user(user_id):
     recipe_collection.remove({"username": session["user"]})
@@ -154,11 +172,11 @@ def edit_recipe(recipe_id):
         recipe_collection.update({"_id": ObjectId(recipe_id)}, edit)
         flash("Recipe Edited")
         return redirect(url_for('profile', user=user))
-
+    user = user_collection.find_one({"username": session["user"]})
     recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
     recipe_types = type_collection.find().sort("type_name", 1)
     return render_template('edit_recipe.html', recipe=recipe,
-                           recipe_types=recipe_types)
+                           recipe_types=recipe_types, user=user)
 
 
 @app.route('/delete_recipe/<recipe_id>')

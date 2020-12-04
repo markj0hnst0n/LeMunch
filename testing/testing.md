@@ -9,3 +9,4 @@
 | Showing edit and delete recipe buttons on browse page for all users | added if statement checking if user in recipe database is user in session
 | Recipe link options displaying in a disjointed way on small screens | removed right align class and now they appear more uniform|
 | User delete function works on my recipes page but not on browse page | user variable being used was for user was 'session.user' which did not access the database for the user so no database actions could be completed.  Had to refactor the routes using this variable to call the database.
+| Error page brought up when edit recipe was clicked after going back to profile in home  | same issue as previous bug and same fix
