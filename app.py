@@ -47,7 +47,9 @@ def login():
             return redirect(url_for('profile', user=db_user['username']))
         else:
             flash('Username or password incorrect')
-            return redirect(url_for('signin'))
+            return render_template("signin.html")
+    flash("Username or password incorrect")
+    return render_template("signin.html")
 
 
 @app.route('/add_user', methods=['GET', 'POST'])
@@ -104,15 +106,19 @@ def profile(user):
 def edit_user(user_id):
     user = user_collection.find_one({"username": session["user"]})
     if request.method == "POST":
-        edit = {
-                "username": request.form.get("username"),
-                "picture": request.form.get("picture"),
-                "bio": request.form.get("bio"),
-                "email": request.form.get("email")
+        if request.form.get("password") == request.form.get("password1"):
+            edit = {
+                    "username": request.form.get("username"),
+                    "picture": request.form.get("picture"),
+                    "bio": request.form.get("bio"),
+                    "email": request.form.get("email"),
+                    "password": generate_password_hash(request.form.get("password"))
                 }
         user_collection.update({"_id": ObjectId(user_id)}, edit)
         flash("User info updated")
-        return redirect(url_for('profile', user=user))    
+        my_recipes = list(recipe_collection.find({"user": user})
+                      .sort("datetime", -1))
+        return redirect(url_for('profile', user=user, my_recipes=my_recipes))    
     return render_template('edit_user.html', user=user)
 
 
@@ -134,7 +140,6 @@ def logout():
 
 @app.route('/add_recipe', methods=["GET", "POST"])
 def add_recipe():
-    user = user_collection.find_one({"username": session["user"]})
     if request.method == "POST":
         recipe = {
             "recipe_type": request.form.get("recipe_type"),
@@ -148,9 +153,9 @@ def add_recipe():
         }
         recipe_collection.insert_one(recipe)
         flash("Recipe Added to Your Cookbook!")
-        return redirect(url_for('profile', user=user))
+        return redirect(url_for('profile', user=session["user"]))
     recipe_types = type_collection.find().sort("type_name", 1)
-    return render_template('add_recipe.html', recipe_types=recipe_types, user=user)
+    return render_template('add_recipe.html', recipe_types=recipe_types, user=session["user"])
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
@@ -169,7 +174,7 @@ def edit_recipe(recipe_id):
         }
         recipe_collection.update({"_id": ObjectId(recipe_id)}, edit)
         flash("Recipe Edited")
-        return redirect(url_for('profile', user=user))    
+        return redirect(url_for('profile', user=session["user"]))
     recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
     recipe_types = type_collection.find().sort("type_name", 1)
     return render_template('edit_recipe.html', recipe=recipe,
@@ -178,10 +183,9 @@ def edit_recipe(recipe_id):
 
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
-    user = user_collection.find_one({"username": session["user"]})
     recipe_collection.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe deleted")
-    return redirect(url_for('profile', user=user))
+    return redirect(url_for('profile', user=session["user"]))
 
 
 @app.route('/browse')
