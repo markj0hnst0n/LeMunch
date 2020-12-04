@@ -1,5 +1,4 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <div class="row teal darken-3">
     <div class="nav-content">
         <ul class="tabs tabs-transparent">
@@ -12,97 +11,76 @@
 
 <div id="delete_user_modal" class="modal">
     <div class="modal-content">
-      <h4>Delete user?</h4>
-      <p>If you delete the user you will not be able to post anymore and all your recipes will be lost FOREVER! </p>
+        <h4>Delete user?</h4>
+        <p>If you delete the user you will not be able to post anymore and all your recipes will be lost FOREVER!</p>
     </div>
     <div class="modal-footer">
-      <a href="{{ url_for('delete_user', user_id=user._id) }}" class="modal-close waves-effect waves-green btn-flat">Delete user</a>
+        <a href="{{ url_for('delete_user', user_id=user._id) }}" class="modal-close waves-effect waves-green btn-flat">Delete user</a>
     </div>
 </div>
 
 {% for recipe in all_recipes %}
 
 <div class="row">
+    {% if loop.index % 2 != 0 %}
 
-{% if loop.index % 2 != 0 %}
-
-<div class="col s11">
-    <h4 class="header">{{ recipe.name }}</h4>
-    <div class="card horizontal">
-        <div class="card-image">
-            <img src="{{ recipe.picture }}" />
-        </div>
-        <div class="card-stacked">
-            <div class="card-content">
-                <p>{{ recipe.description }}</p>
+    <div class="col s11">
+        <h4 class="header">{{ recipe.name }}</h4>
+        <div class="card horizontal">
+            <div class="card-image">
+                <img src="{{ recipe.picture }}" />
             </div>
-            {% if session.user == recipe.user %}
-            <div class="card-action">
-                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a>
-            </div>
-            {% endif %}
-            <div class="card-action">
-                <a href="#">View Recipe</a>
-            </div>
-            {% if session.user == recipe.user %}
-            <div class="card-action">
-                    <a class="modal-trigger" href="#modal1">Delete Recipe</a>
-                    <div id="modal1" class="modal">
-                        <div class="modal-content">
-                            <h4>Delete</h4>
-                            <p>Do you really want to delete this recipe?  It will be lost forever!</p>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="modal-close waves-effect waves-green btn-flat">Confirm</a>
-                        </div>
-                    </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p>{{ recipe.description }}</p>
                 </div>
-            {% endif %}
+                {% if session.user == recipe.user %}
+                <div class="card-action">
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a>
+                </div>
+                {% endif %}
+                <div class="card-action">
+                    <a href="#">View Recipe</a>
+                </div>
+                {% if session.user == recipe.user %}
+                <div class="card-action">
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a>
+                </div>
+                {% endif %}
+            </div>
         </div>
     </div>
-</div>
 
-{% else %}
+    {% else %}
 
-<div class="col s11 offset-s1 l11">
-    <h4 class="header">{{ recipe.name }}</h4>
-    <div class="card horizontal">
-        <div class="card-image">
-            <img src="{{ recipe.picture }}" />
-        </div>
-        <div class="card-stacked">
-            <div class="card-content">
-                <p>{{ recipe.description }}</p>
+    <div class="col s11 offset-s1 l11">
+        <h4 class="header">{{ recipe.name }}</h4>
+        <div class="card horizontal">
+            <div class="card-image">
+                <img src="{{ recipe.picture }}" />
             </div>
-            {% if session.user == recipe.user %}
-            <div class="card-action">
-                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a>
-            </div>
-            {% endif %}
-            <div class="card-action">
-                <a href="#">View Recipe</a>
-            </div>
-            {% if session.user == recipe.user %}
-            <div class="card-action">
-                    <a class="modal-trigger" href="#modal1">Delete Recipe</a>
-                    <div id="modal1" class="modal">
-                        <div class="modal-content">
-                            <h4>Delete</h4>
-                            <p>Do you really want to delete this recipe?  It will be lost forever!</p>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="modal-close waves-effect waves-green btn-flat">Confirm</a>
-                        </div>
-                    </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p>{{ recipe.description }}</p>
                 </div>
-            {% endif %}
+                {% if session.user == recipe.user %}
+                <div class="card-action">
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a>
+                </div>
+                {% endif %}
+                <div class="card-action">
+                    <a href="#">View Recipe</a>
+                </div>
+                {% if session.user == recipe.user %}
+                <div class="card-action">
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a>
+                </div>
+                {% endif %}
+            </div>
         </div>
     </div>
+
+    {% endif %}
 </div>
 
-{% endif %}
-
-</div>
-
-{% endfor %}
-{% endblock %}
+{% endfor %} {% endblock %}

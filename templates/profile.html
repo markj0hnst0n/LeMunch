@@ -1,5 +1,4 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <div class="row teal darken-3">
     <div class="nav-content">
         <ul class="tabs tabs-transparent">
@@ -12,11 +11,11 @@
 
 <div id="delete_user_modal" class="modal">
     <div class="modal-content">
-      <h4>Delete user?</h4>
-      <p>If you delete the user you will not be able to post anymore and all your recipes will be lost FOREVER! </p>
+        <h4>Delete user?</h4>
+        <p>If you delete the user you will not be able to post anymore and all your recipes will be lost FOREVER!</p>
     </div>
     <div class="modal-footer">
-      <a href="{{ url_for('delete_user', user_id=user._id) }}" class="modal-close waves-effect waves-green btn-flat">Delete user</a>
+        <a href="{{ url_for('delete_user', user_id=user._id) }}" class="modal-close waves-effect waves-green btn-flat">Delete user</a>
     </div>
 </div>
 
@@ -30,9 +29,7 @@
         <h5>You currently have no recipes. Please use the add button above to add recipes to your cookbook. Alternatively please browse other users recipes or search for you favourites!</h5>
     </div>
 </div>
-{% endif %}
-
-{% for recipe in my_recipes %}
+{% endif %} {% for recipe in my_recipes %}
 
 <div class="row">
     {% if loop.index % 2 != 0 %}
@@ -57,16 +54,8 @@
                 </div>
                 {% if session.user %}
                 <div class="card-action">
-                    <a class="modal-trigger" href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a>
-                    <div id="modal1" class="modal">
-                    <div class="modal-content">
-                    <h4>Delete?</h4>
-                    <p>Do you really want to delete this recipe?  You don't know what you've got til it's gone.</p>
-                    </div>
-                    <div class="modal-footer">
-                    <a href="#" class="modal-close waves-effect waves-green btn-flat">Delete</a>
-                    </div>
-  </div>
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a>
+                </div>
                 {% endif %}
             </div>
         </div>
@@ -94,7 +83,8 @@
                 </div>
                 {% if session.user %}
                 <div class="card-action">
-                    <a class="modal-trigger" href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a>
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a>
+                </div>
                 {% endif %}
             </div>
         </div>
@@ -102,5 +92,4 @@
 
     {% endif %}
 </div>
-{% endfor %}
-{% endblock %}
+{% endfor %} {% endblock %}

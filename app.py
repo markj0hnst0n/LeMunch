@@ -112,13 +112,14 @@ def edit_user(user_id):
                     "picture": request.form.get("picture"),
                     "bio": request.form.get("bio"),
                     "email": request.form.get("email"),
-                    "password": generate_password_hash(request.form.get("password"))
+                    "password": generate_password_hash
+                    (request.form.get("password"))
                 }
         user_collection.update({"_id": ObjectId(user_id)}, edit)
         flash("User info updated")
         my_recipes = list(recipe_collection.find({"user": user})
-                      .sort("datetime", -1))
-        return redirect(url_for('profile', user=user, my_recipes=my_recipes))    
+                          .sort("datetime", -1))
+        return redirect(url_for('profile', user=user, my_recipes=my_recipes))
     return render_template('edit_user.html', user=user)
 
 
@@ -155,7 +156,8 @@ def add_recipe():
         flash("Recipe Added to Your Cookbook!")
         return redirect(url_for('profile', user=session["user"]))
     recipe_types = type_collection.find().sort("type_name", 1)
-    return render_template('add_recipe.html', recipe_types=recipe_types, user=session["user"])
+    return render_template('add_recipe.html', recipe_types=recipe_types,
+                           user=session["user"])
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
