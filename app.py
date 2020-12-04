@@ -86,6 +86,7 @@ def add_user():
             return redirect(url_for('add_user'))
     return render_template('signup.html')
 
+
 @app.route('/profile/<user>', methods=["GET", "POST"])
 def profile(user):
     username = user_collection.find_one({"username": user})
@@ -113,6 +114,7 @@ def logout():
     session.pop('user')
     flash('User Logged Out')
     return redirect(url_for('signin'))
+
 
 @app.route('/add_recipe', methods=["GET", "POST"])
 def add_recipe():
@@ -155,7 +157,8 @@ def edit_recipe(recipe_id):
 
     recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
     recipe_types = type_collection.find().sort("type_name", 1)
-    return render_template('edit_recipe.html', recipe=recipe, recipe_types=recipe_types)
+    return render_template('edit_recipe.html', recipe=recipe,
+                           recipe_types=recipe_types)
 
 
 @app.route('/delete_recipe/<recipe_id>')
