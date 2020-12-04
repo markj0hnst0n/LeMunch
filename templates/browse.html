@@ -16,7 +16,7 @@
       <p>If you delete the user you will not be able to post anymore and all your recipes will be lost FOREVER! </p>
     </div>
     <div class="modal-footer">
-      <a href="#" class="modal-close waves-effect waves-green btn-flat">Delete user</a>
+      <a href="{{ url_for('delete_user', user_id=user._id) }}" class="modal-close waves-effect waves-green btn-flat">Delete user</a>
     </div>
 </div>
 

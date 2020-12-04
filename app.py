@@ -126,9 +126,10 @@ def add_recipe():
             "user": session["user"],
             "datetime": datetime.datetime.now().timestamp()
         }
+        user = user_collection.find_one({"username": session["user"]})
         recipe_collection.insert_one(recipe)
         flash("Recipe Added to Your Cookbook!")
-        return redirect(url_for('profile', user=session["user"]))
+        return redirect(url_for('profile', user=user))
     recipe_types = type_collection.find().sort("type_name", 1)
     return render_template('add_recipe.html', recipe_types=recipe_types)
 
@@ -146,9 +147,10 @@ def edit_recipe(recipe_id):
             "user": session["user"],
             "datetime": datetime.datetime.now().timestamp()
         }
+        user = user_collection.find_one({"username": session["user"]})
         recipe_collection.update({"_id": ObjectId(recipe_id)}, edit)
         flash("Recipe Edited")
-        return redirect(url_for('profile', user=session["user"]))
+        return redirect(url_for('profile', user=user))
 
     recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
     recipe_types = type_collection.find().sort("type_name", 1)
@@ -157,15 +159,17 @@ def edit_recipe(recipe_id):
 
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
+    user = user_collection.find_one({"username": session["user"]})
     recipe_collection.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe deleted")
-    return redirect(url_for('profile', user=session["user"]))
+    return redirect(url_for('profile', user=user))
 
 
 @app.route('/browse')
 def browse():
+    user = user_collection.find_one({"username": session["user"]})
     all_recipes = list(recipe_collection.find().sort("datetime", -1))
-    return render_template('browse.html', all_recipes=all_recipes)
+    return render_template('browse.html', all_recipes=all_recipes, user=user)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
