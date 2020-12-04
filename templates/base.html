@@ -25,6 +25,9 @@
                     <li><a class="side-list" href="{{ url_for('signin') }}">Home</a></li>
                     {% if session.user %}
                     <li>
+                        <a class="side-list" href="#">Change User Password</a>
+                    </li>
+                    <li>
                         <a class="side-list" href="{{ url_for('edit_user', user_id=user._id) }}">Edit User Data</a>
                     </li>
                     <li>
@@ -43,6 +46,10 @@
             {% if session.user %}
             <div class="col s2 hide-on-med-and-down">
                 <ul class="nav-column">
+                    <li>
+                        <i class="material-icons">person</i>
+                        <a class="side-list" href="#">Change User Password</a>
+                    </li>
                     <li class="side-list">
                         <i class="material-icons">edit</i>
                         <a class="side-list" href="{{ url_for('edit_user', user_id=user._id) }}">Edit User Data</a>

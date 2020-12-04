@@ -106,10 +106,9 @@ def edit_user(user_id):
     if request.method == "POST":
         edit = {
                 "username": request.form.get("username"),
-                'picture': request.form.get['picture'],
-                'bio': request.form.get['bio'],
-                'email': request.form.get['email'],
-                'password': generate_password_hash(request.form.get['password'])
+                "picture": request.form.get("picture"),
+                "bio": request.form.get("bio"),
+                "email": request.form.get("email")
                 }
         user_collection.update({"_id": ObjectId(user_id)}, edit)
         flash("User info updated")
