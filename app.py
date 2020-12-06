@@ -127,9 +127,14 @@ def edit_user(user_id):
 def change_password(user_id):
     user = user_collection.find_one({"_id": ObjectId(user_id)})
     if request.method == "POST":
+        print (request.form.get("new_password"))
+        print (request.form.get("new_password1"))
         if check_password_hash(user['password'], request.form.get("password")):
-            if request.form.get("new_password ") == request.form.get("new_password1"):
+            if request.form.get("new_password") == request.form.get("new_password1"):
                 user_collection.update({"_id": ObjectId(user_id)}, { "$set": {"password": generate_password_hash(request.form.get("new_password"))}})
+                my_recipes = list(recipe_collection.find({"user": user})
+                          .sort("datetime", -1))
+                flash("Password Changed")
                 return redirect(url_for('profile', user=session["user"], my_recipes=my_recipes))
             flash("new passwords do not match")
             return render_template('change_password.html', user=user)
