@@ -118,7 +118,8 @@ def edit_user(user_id):
         flash("User info updated")
         my_recipes = list(recipe_collection.find({"user": user})
                           .sort("datetime", -1))
-        return redirect(url_for('profile', user=session["user"], my_recipes=my_recipes))
+        return redirect(url_for('profile', user=session["user"],
+                        my_recipes=my_recipes))
     user = user_collection.find_one({"username": session["user"]})
     return render_template('edit_user.html', user=user)
 
@@ -126,22 +127,25 @@ def edit_user(user_id):
 @app.route('/change_password/<user_id>', methods=["GET", "POST"])
 def change_password(user_id):
     user = user_collection.find_one({"_id": ObjectId(user_id)})
+    new_password = request.form.get("new_password")
+    confirm_password = request.form.get("new_password1")
     if request.method == "POST":
-        print (request.form.get("new_password"))
-        print (request.form.get("new_password1"))
         if check_password_hash(user['password'], request.form.get("password")):
-            if request.form.get("new_password") == request.form.get("new_password1"):
-                user_collection.update({"_id": ObjectId(user_id)}, { "$set": {"password": generate_password_hash(request.form.get("new_password"))}})
+            if new_password == confirm_password:
+                user_collection.update({"_id": ObjectId(user_id)},
+                                       {"$set": {"password":
+                                        generate_password_hash
+                                        (request.form.get("new_password"))}})
                 my_recipes = list(recipe_collection.find({"user": user})
-                          .sort("datetime", -1))
+                                  .sort("datetime", -1))
                 flash("Password Changed")
-                return redirect(url_for('profile', user=session["user"], my_recipes=my_recipes))
+                return redirect(url_for('profile', user=session["user"],
+                                my_recipes=my_recipes))
             flash("new passwords do not match")
             return render_template('change_password.html', user=user)
         flash("Old Password Incorrect")
         return render_template('change_password.html', user=user)
     return render_template('change_password.html', user=user)
-
 
 
 @app.route('/delete_user/<user_id>')
