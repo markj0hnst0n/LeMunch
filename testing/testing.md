@@ -15,3 +15,4 @@
 | Delete recipe modals where only coming up for one recipe even when button was clicked for other recipes | appears to be an issue with materialize modals.  have deleted this modal for the moment as this is a short term fix for this bug
 | When user was edited the profile screen did not display any recipes | I was using the database user as the variable for the profile instead of the session user so the jinja tmeplate was not calling the correct information from the database
 | On add recipe screen there was whitespace present in the recipe description textarea | put the html tag on one line which fixed issue
+| Change password function does not upadte database when both new passwords match |
