@@ -48,7 +48,7 @@
                 <ul class="nav-column">
                     <li>
                         <i class="material-icons">person</i>
-                        <a class="side-list" href="#">Change User Password</a>
+                        <a class="side-list" href="{{ url_for('change_password', user_id=user._id) }}">Change User Password</a>
                     </li>
                     <li class="side-list">
                         <i class="material-icons">edit</i>

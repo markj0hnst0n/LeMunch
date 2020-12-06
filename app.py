@@ -123,6 +123,22 @@ def edit_user(user_id):
     return render_template('edit_user.html', user=user)
 
 
+@app.route('/change_password/<user_id>', methods=["GET", "POST"])
+def change_password(user_id):
+    user = user_collection.find_one({"_id": ObjectId(user_id)})
+    if request.method == "POST":
+        if check_password_hash(user['password'], request.form.get("password")):
+            if request.form.get("new_password ") == request.form.get("new_password1"):
+                user_collection.update({"_id": ObjectId(user_id)}, { "$set": {"password": generate_password_hash(request.form.get("new_password"))}})
+                return redirect(url_for('profile', user=session["user"], my_recipes=my_recipes))
+            flash("new passwords do not match")
+            return render_template('change_password.html', user=user)
+        flash("Old Password Incorrect")
+        return render_template('change_password.html', user=user)
+    return render_template('change_password.html', user=user)
+
+
+
 @app.route('/delete_user/<user_id>')
 def delete_user(user_id):
     recipe_collection.remove({"username": session["user"]})
