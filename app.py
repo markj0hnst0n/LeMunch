@@ -156,8 +156,9 @@ def add_recipe():
         flash("Recipe Added to Your Cookbook!")
         return redirect(url_for('profile', user=session["user"]))
     recipe_types = type_collection.find().sort("type_name", 1)
+    user = user_collection.find_one({"username": session["user"]})
     return render_template('add_recipe.html', recipe_types=recipe_types,
-                           user=session["user"])
+                           user=user)
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
