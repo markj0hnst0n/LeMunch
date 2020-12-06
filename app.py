@@ -104,7 +104,6 @@ def profile(user):
 
 @app.route('/edit_user/<user_id>', methods=["GET", "POST"])
 def edit_user(user_id):
-    user = user_collection.find_one({"username": session["user"]})
     if request.method == "POST":
         if request.form.get("password") == request.form.get("password1"):
             edit = {
@@ -119,7 +118,8 @@ def edit_user(user_id):
         flash("User info updated")
         my_recipes = list(recipe_collection.find({"user": user})
                           .sort("datetime", -1))
-        return redirect(url_for('profile', user=user, my_recipes=my_recipes))
+        return redirect(url_for('profile', user=session["user"], my_recipes=my_recipes))
+    user = user_collection.find_one({"username": session["user"]})
     return render_template('edit_user.html', user=user)
 
 
