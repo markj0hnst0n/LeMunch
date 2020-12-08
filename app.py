@@ -224,10 +224,12 @@ def browse():
 
 @app.route('/search', methods=["GET", "POST"])
 def search():
-    query = request.form.get("query")
-    user = user_collection.find_one({"username": session["user"]})
-    all_recipes = list(recipe_collection.find({"$text": {"$search": query}}).sort("datetime", -1))
-    return render_template('browse.html', all_recipes=all_recipes, user=user)
+    if request.method == "POST":
+        query = request.form.get("query")
+        user = user_collection.find_one({"username": session["user"]})
+        all_recipes = list(recipe_collection.find({"$text": {"$search": query}}).sort("datetime", -1))
+        return render_template('browse.html', all_recipes=all_recipes, user=user)
+    return render_template('search.html', user=session["user"])
 
 
 if __name__ == "__main__":
