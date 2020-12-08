@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 <div class="row teal darken-3">
-    <div class="nav-content">
+    <div class="nav-wrapper nav-content">
         <ul class="tabs tabs-transparent">
             <li class="tab"><a href="{{ url_for('profile', user=session.user) }}">My Recipes</a></li>
             <li class="tab"><a class="active" href="#test3">Browse All</a></li>
@@ -18,6 +18,18 @@
         <a href="{{ url_for('delete_user', user_id=user._id) }}" class="modal-close waves-effect waves-green btn-flat">Delete user</a>
     </div>
 </div>
+
+<div class="col s11 card-panel">
+    <form action="{{ url_for('search') }}" method="POST">
+        <div class="row">
+            <div class="input-field col s12 m8">
+            <input type="text" name="query" id="query" minlength="3" class="validate" required><input type="submit" value="Submit">
+            <label for="query">Search Recipes</label>
+            </div>
+        </div>
+    </form>
+</div>
+
 
 {% for recipe in all_recipes %}
 
