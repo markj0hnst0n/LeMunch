@@ -106,16 +106,15 @@ def profile(user):
 def edit_user(user_id):
     if request.method == "POST":
         if request.form.get("password") == request.form.get("password1"):
-            edit = {
+            edit = {"$set": {
                     "username": request.form.get("username"),
                     "picture": request.form.get("picture"),
                     "bio": request.form.get("bio"),
-                    "email": request.form.get("email"),
-                    "password": generate_password_hash
-                    (request.form.get("password"))
-                }
+                    "email": request.form.get("email")
+                    }}
         user_collection.update({"_id": ObjectId(user_id)}, edit)
         flash("User info updated")
+        user = user_collection.find_one({"username": session["user"]})
         my_recipes = list(recipe_collection.find({"user": user})
                           .sort("datetime", -1))
         return redirect(url_for('profile', user=session["user"],
