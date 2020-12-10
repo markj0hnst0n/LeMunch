@@ -71,12 +71,12 @@
                     <div>
                     <i class="material-icons prefix">edit</i>
                     <input id="ingredients" type="text" name="ingredients" maxlength="30" value="{{ recipe.ingredients[ingredient] }}" class="validate" required>
-                    <a href="#" class="btn-small remove_field">Remove</a>
+                    <a href="#" class="btn-small btn-colour remove_field">Remove</a>
                     </div>
                     {% endif %}
                     {% endfor %}                    
                 </div>
-                <button class="btn-small add_ingredient_button">Add Ingredient</button>
+                <button class="btn-small btn-colour add_ingredient_button">Add Ingredient</button>
             </div>
             <div class="row">
                 <div class="input-field col s12 method_fields_wrapper">
@@ -89,12 +89,12 @@
                     <div>
                     <i class="material-icons prefix">edit</i>
                     <input id="method" type="text" name="method" maxlength="30" value="{{ recipe.method[step] }}" class="validate" required>
-                    <a href="#" class="btn-small remove_field">Remove</a>
+                    <a href="#" class="btn-small btn-colour remove_field">Remove</a>
                     </div>
                     {% endif %}
                     {% endfor %}                    
                 </div>
-                <button class="btn-small add_method_step_button">Add Step</button>
+                <button class="btn-small btn-colour add_method_step_button">Add Step</button>
             </div>
             <div class="row">
                 <div class="col s12 center-align">

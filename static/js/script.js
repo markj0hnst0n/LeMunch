@@ -17,7 +17,7 @@ $(document).ready(function () {
 		e.preventDefault();
 		if(ingredient_count < max_fields){ //max input box allowed
 			ingredient_count++; //ingredient increment
-			$(ingredient_wrapper).append('<div><input type="text" name="ingredients" class="validate"/><a href="#" class="btn-small remove_field">Remove</a></div>'); //add ingredient box
+			$(ingredient_wrapper).append('<div><input type="text" name="ingredients" class="validate"/><a href="#" class="btn-small btn-colour remove_field">Remove</a></div>'); //add ingredient box
 		}
 	});
 	
@@ -29,7 +29,7 @@ $(document).ready(function () {
 		e.preventDefault();
 		if(method_step_count < max_fields){ //max method step box allowed
 			method_step_count++; //method step box increment
-			$(method_fields_wrapper).append('<div><input type="text" name="method" class="validate"/><a href="#" class="btn-small remove_field">Remove</a></div>'); //add method step box
+			$(method_fields_wrapper).append('<div><input type="text" name="method" class="validate"/><a href="#" class="btn-small btn-colour remove_field">Remove</a></div>'); //add method step box
 		}
 	});
 	
