@@ -60,7 +60,6 @@
                     extension into the above field.
                 </p>
             </div>
-
             <div class="row">
                 <div class="input-field col s12 ingredient_fields_wrapper">
                     {% for ingredient in ingredients %}
@@ -80,14 +79,22 @@
                 <button class="btn-small add_ingredient_button">Add Ingredient</button>
             </div>
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">email</i>
-                    <textarea id="method" name="method" minlength="5" maxlength="200"
-                    class="materialize-textarea validate" required>
-                    {{- recipe.method -}}
-                    </textarea>
+                <div class="input-field col s12 method_fields_wrapper">
+                    {% for step in method_steps %}
+                    {% if step == 0 %}
+                    <i class="material-icons prefix">edit</i>
+                    <input id="method" type="text" name="method" maxlength="30" value="{{ recipe.method[step] }}" class="validate" required>
                     <label for="method">Method</label>
+                    {% else %}
+                    <div>
+                    <i class="material-icons prefix">edit</i>
+                    <input id="method" type="text" name="method" maxlength="30" value="{{ recipe.method[step] }}" class="validate" required>
+                    <a href="#" class="btn-small remove_field">Remove</a>
+                    </div>
+                    {% endif %}
+                    {% endfor %}                    
                 </div>
+                <button class="btn-small add_method_step_button">Add Step</button>
             </div>
             <div class="row">
                 <div class="col s12 center-align">

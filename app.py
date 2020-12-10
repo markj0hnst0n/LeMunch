@@ -195,7 +195,7 @@ def edit_recipe(recipe_id):
             "description": request.form.get("description"),
             "picture": request.form.get("recipe_image"),
             "ingredients": request.form.getlist("ingredients"),
-            "method": request.form.get("method"),
+            "method": request.form.getlist("method"),
             "user": session["user"],
             "datetime": datetime.datetime.now().timestamp()
         }
@@ -205,8 +205,9 @@ def edit_recipe(recipe_id):
     recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
     recipe_types = type_collection.find().sort("type_name", 1)
     ingredients = range(0, len(recipe['ingredients']))
+    method_steps = range(0, len(recipe['method']))
     return render_template('edit_recipe.html', recipe=recipe,
-                           recipe_types=recipe_types, user=user, ingredients=ingredients)
+                           recipe_types=recipe_types, user=user, ingredients=ingredients, method_steps=method_steps)
 
 
 @app.route('/delete_recipe/<recipe_id>')
