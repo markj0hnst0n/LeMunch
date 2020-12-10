@@ -62,7 +62,7 @@
             </div>
 
             <div class="row">
-                <div class="input-field col s12 ingredient_wrapper">
+                <div class="input-field col s12 ingredient_fields_wrapper">
                     {% for ingredient in ingredients %}
                     {% if ingredient == 0 %}
                     <i class="material-icons prefix">edit</i>
@@ -75,7 +75,7 @@
                     <a href="#" class="btn-small remove_field">Remove</a>
                     </div>
                     {% endif %}
-                    {% endfor %}
+                    {% endfor %}                    
                 </div>
                 <button class="btn-small add_ingredient_button">Add Ingredient</button>
             </div>
