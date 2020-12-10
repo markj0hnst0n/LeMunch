@@ -6,8 +6,8 @@ $(document).ready(function () {
     $('.modal').modal();
     
     var max_fields      = 10; //maximum input boxes allowed
-    var ingredient_wrapper   		= $(".ingredient_fields_wrapper"); //Fields wrapper
-    var method_fields_wrapper   		= $(".method_fields_wrapper"); //Fields wrapper
+    var ingredient_wrapper   		= $(".ingredient_fields_wrapper"); // Ingredients fields wrapper
+    var method_fields_wrapper   		= $(".method_fields_wrapper"); // Method fields wrapper
     var add_ingredient_button      = $(".add_ingredient_button"); //Add ingredient ID
     var add_method_step_button      = $(".add_method_step_button"); //Add step to method ID
     var ingredient_count = 1; //initial ingredient count
