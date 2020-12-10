@@ -60,15 +60,24 @@
                     extension into the above field.
                 </p>
             </div>
+
             <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s12 ingredient_wrapper">
+                    {% for ingredient in ingredients %}
+                    {% if ingredient == 0 %}
                     <i class="material-icons prefix">edit</i>
-                    <textarea id="ingredients" name="ingredients" minlength="5" maxlength="200"
-                    class="materialize-textarea validate" required>
-                    {{- recipe.ingredients -}}
-                    </textarea>
+                    <input id="ingredients" type="text" name="ingredients" maxlength="30" value="{{ recipe.ingredients[ingredient] }}" class="validate" required>
                     <label for="ingredients">Ingredients</label>
+                    {% else %}
+                    <div>
+                    <i class="material-icons prefix">edit</i>
+                    <input id="ingredients" type="text" name="ingredients" maxlength="30" value="{{ recipe.ingredients[ingredient] }}" class="validate" required>
+                    <a href="#" class="btn-small remove_field">Remove</a>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
                 </div>
+                <button class="btn-small add_ingredient_button">Add Ingredient</button>
             </div>
             <div class="row">
                 <div class="input-field col s12">
