@@ -31,7 +31,6 @@ def signin():
     if 'user' in session:
         db_user = user_collection.find_one({"username": session['user']})
         if db_user:
-            flash("You are already logged in")
             return redirect(url_for('profile', user=db_user['username']))
     else:
         return render_template("signin.html")
