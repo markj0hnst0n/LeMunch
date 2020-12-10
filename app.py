@@ -207,7 +207,8 @@ def edit_recipe(recipe_id):
     ingredients = range(0, len(recipe['ingredients']))
     method_steps = range(0, len(recipe['method']))
     return render_template('edit_recipe.html', recipe=recipe,
-                           recipe_types=recipe_types, user=user, ingredients=ingredients, method_steps=method_steps)
+                           recipe_types=recipe_types, user=user,
+                           ingredients=ingredients, method_steps=method_steps)
 
 
 @app.route('/delete_recipe/<recipe_id>')
@@ -229,8 +230,10 @@ def search():
     if request.method == "POST":
         query = request.form.get("query")
         user = user_collection.find_one({"username": session["user"]})
-        all_recipes = list(recipe_collection.find({"$text": {"$search": query}}).sort("datetime", -1))
-        return render_template('browse.html', all_recipes=all_recipes, user=user)
+        all_recipes = list(recipe_collection.find({"$text":
+                           {"$search": query}}).sort("datetime", -1))
+        return render_template('browse.html', all_recipes=all_recipes,
+                               user=user)
     return render_template('search.html', user=session["user"])
 
 
