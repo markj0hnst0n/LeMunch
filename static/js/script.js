@@ -6,20 +6,34 @@ $(document).ready(function () {
     $('.modal').modal();
     
     var max_fields      = 10; //maximum input boxes allowed
-	var ingredient_wrapper   		= $(".ingredient_fields_wrapper"); //Fields wrapper
+    var ingredient_wrapper   		= $(".ingredient_fields_wrapper"); //Fields wrapper
+    var method_fields_wrapper   		= $(".method_fields_wrapper"); //Fields wrapper
     var add_ingredient_button      = $(".add_ingredient_button"); //Add ingredient ID
-
+    var add_method_step_button      = $(".add_method_step_button"); //Add step to method ID
+    var ingredient_count = 1; //initial ingredient count
+    var method_step_count = 1; //initial method step count
 	
-	var ingredient_count = 1; //initial text box count
-	$(add_ingredient_button).click(function(e){ //on add input button click
+	$(add_ingredient_button).click(function(e){ //on add ingredient button click
 		e.preventDefault();
 		if(ingredient_count < max_fields){ //max input box allowed
-			ingredient_count++; //text box increment
-			$(ingredient_wrapper).append('<div><input type="text" name="mytext[]"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
+			ingredient_count++; //ingredient increment
+			$(ingredient_wrapper).append('<div><input type="text" name="ingredients" class="validate"/><a href="#" class="remove_field">Remove</a></div>'); //add ingredient box
 		}
 	});
 	
-	$(ingredient_wrapper).on("click",".remove_field", function(e){ //user click on remove text
+	$(ingredient_wrapper).on("click",".remove_field", function(e){ //user click on remove ingredient
 		e.preventDefault(); $(this).parent('div').remove(); ingredient_count--;
+    })
+    
+    $(add_method_step_button).click(function(e){ //on add method step button click
+		e.preventDefault();
+		if(method_step_count < max_fields){ //max method step box allowed
+			method_step_count++; //method step box increment
+			$(method_fields_wrapper).append('<div><input type="text" name="ingredients" class="validate"/><a href="#" class="remove_field">Remove</a></div>'); //add method step box
+		}
+	});
+	
+	$(method_fields_wrapper).on("click",".remove_field", function(e){ //user click on remove method step
+		e.preventDefault(); $(this).parent('div').remove(); method_step_count--;
     })
 });
