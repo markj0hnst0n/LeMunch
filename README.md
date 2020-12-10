@@ -187,6 +187,10 @@ User Authentication via session
 
 https://github.com/MiroslavSvec/DCD_lead
 
+adding input fields dynamically using jquery
+
+https://www.sanwebe.com/2013/03/addremove-input-fields-dynamically-with-jquery
+
 ## Acknowledgements
 
 Thanks to the following people for making the project happen:

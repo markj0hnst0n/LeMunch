@@ -171,8 +171,8 @@ def add_recipe():
             "name": request.form.get("recipe_name"),
             "description": request.form.get("description"),
             "picture": request.form.get("recipe_image"),
-            "ingredients": request.form.get("ingredients"),
-            "method": request.form.get("method"),
+            "ingredients": request.form.getlist("ingredients"),
+            "method": request.form.getlist("method"),
             "user": session["user"],
             "datetime": datetime.datetime.now().timestamp()
         }
