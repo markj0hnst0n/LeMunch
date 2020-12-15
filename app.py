@@ -253,28 +253,30 @@ def like_recipe(recipe_id):
     method_steps = range(0, len(recipe['method']))
     like_count = recipe.likes
     user_liked = likes_collection.find_one({"username": session["user"]})
-    recipe_liked = likes_collection.find_one({"_id": ObjectId(recipe_id)})
-        if recipe_liked, user_liked:
-            return render_template('view_recipe.html', recipe=recipe,
-                           ingredients=ingredients, method_steps=method_steps, user_like=user_like
-                           user=session["user"])
-        else:
-            recipe_collection.update({"_id": ObjectId(recipe_id)},
-                {"$set": {
-                    "likes": recipe.likes++
-                })
+    recipe_liked = likes_collection.find_one({"recipe_id": ObjectId(recipe_id)})
+    if recipe_liked and user_liked:
+        recipe_collection.update({"_id": ObjectId(recipe_id)},
+            {"$set": {
+            "likes": recipe.likes - 1
+        }})
+        return render_template('view_recipe.html', recipe=recipe,
+        ingredients=ingredients, method_steps=method_steps, user_like=user_like,
+        user=session["user"])
+    else:
+        recipe_collection.update({"_id": ObjectId(recipe_id)},
+            {"$set": {
+            "likes": recipe.likes + 1
+        }})
 
-            likes_collection.insert_one(
-                {
-                        'username': form['username'],
-                        'picture': form['picture'],
-                        'bio': form['bio'],
-                        'email': form['email'],
-                }
-            )
-            return render_template('view_recipe.html', recipe=recipe,
-                           ingredients=ingredients, method_steps=method_steps, user_like=user_like
-                           user=session["user"])
+        likes_collection.insert_one(
+            {
+                    'username': user_collection.find_one({"username": session["user"]}),
+                    'recipe_id': recipe
+            }
+        )
+        return render_template('view_recipe.html', recipe=recipe,
+                        ingredients=ingredients, method_steps=method_steps, user_like=user_like,
+                        user=session["user"])
 
 
 
