@@ -6,13 +6,13 @@ $(document).ready(function () {
     $('.modal').modal();
     $('.fixed-action-btn').floatingActionButton();
     
-    var max_fields      = 10; //maximum input boxes allowed
-    var ingredient_wrapper   		= $(".ingredient_fields_wrapper"); // Ingredients fields wrapper
-    var method_fields_wrapper   		= $(".method_fields_wrapper"); // Method fields wrapper
-    var add_ingredient_button      = $(".add_ingredient_button"); //Add ingredient ID
-    var add_method_step_button      = $(".add_method_step_button"); //Add step to method ID
-    var ingredient_count = 1; //initial ingredient count
-    var method_step_count = 1; //initial method step count
+    const max_fields      = 10; //maximum input boxes allowed
+    const ingredient_wrapper   		= $(".ingredient_fields_wrapper"); // Ingredients fields wrapper
+    const method_fields_wrapper   		= $(".method_fields_wrapper"); // Method fields wrapper
+    const add_ingredient_button      = $(".add_ingredient_button"); //Add ingredient ID
+    const add_method_step_button      = $(".add_method_step_button"); //Add step to method ID
+    let ingredient_count = 1; //initial ingredient count
+    let method_step_count = 1; //initial method step count
 	
 	$(add_ingredient_button).click(function(e){ //on add ingredient button click
 		e.preventDefault();
