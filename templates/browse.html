@@ -1,9 +1,12 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+
+{% block content %}
+
 <div class="row teal darken-3">
     <div class="nav-wrapper nav-content">
         <ul class="tabs tabs-transparent">
             <li class="tab"><a href="{{ url_for('profile', user=session.user) }}">My Recipes</a></li>
-            <li class="tab"><a {% if all_recipes|length > 0 %} class="active" {% endif %} href="{{ url_for('browse') }}">Browse All</a></li>
+            <li class="tab"><a {% if all_recipes|length> 0 %} class="active" {% endif %} href="{{ url_for('browse') }}">Browse All</a></li>
             <li class="tab"><a {% if all_recipes|length == 0 %} class="active" {% endif %} href="{{ url_for('search') }}">Search</a></li>
         </ul>
     </div>
@@ -24,93 +27,95 @@
 {% for recipe in all_recipes %}
 
 <div class="container">
+
     {% if loop.index % 2 != 0 %}
-    
+
     <div class="row">
-    <div class="col s11">
-        <h4 class="header">{{ recipe.name }}</h4>
-        <div class="card horizontal">
-            <div class="valign-wrapper">
-            <div class="card-image">
-                <img src="{{ recipe.picture }}" alt="{{ recipe.name }} {{ recipe.description }}" title="{{ recipe.name }}" />
-            </div>
-            <div class="card-stacked">
-                <div class="card-content">
-                    <p>{{ recipe.description }}</p>
+        <div class="col s11">
+            <h4 class="header">{{ recipe.name }}</h4>
+            <div class="card horizontal">
+                <div class="valign-wrapper">
+                    <div class="card-image">
+                        <img src="{{ recipe.picture }}" alt="{{ recipe.name }} {{ recipe.description }}" title="{{ recipe.name }}" />
+                    </div>
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <p>{{ recipe.description }}</p>
+                        </div>
+                        {% if session.user %}
+                        <div class="card-action">
+                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a>
+                        </div>
+                        {% endif %}
+                        <div class="card-action">
+                            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">View Recipe</a>
+                        </div>
+                        {% if session.user %}
+                        <div class="card-action">
+                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a>
+                        </div>
+                        {% endif %}
+                    </div>
                 </div>
-                {% if session.user %}
-                <div class="card-action">
-                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a>
-                </div>
-                {% endif %}
-                <div class="card-action">
-                    <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">View Recipe</a>
-                </div>
-                {% if session.user %}
-                <div class="card-action">
-                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a>
-                </div>
-                {% endif %}
-            </div>
             </div>
         </div>
-    </div>
     </div>
 
     {% else %}
+
     <div class="row">
-    <div class="col s11 offset-s1 l11">
-        <h4 class="header">{{ recipe.name }}</h4>
-        <div class="card horizontal">
-            <div class="valign-wrapper">
-            <div class="card-image">
-                <img src="{{ recipe.picture }}" alt="{{ recipe.name }} {{ recipe.description }}" title="{{ recipe.name }}" />
-            </div>
-            <div class="card-stacked">
-                <div class="card-content">
-                    <p>{{ recipe.description }}</p>
+        <div class="col s11 offset-s1 l11">
+            <h4 class="header">{{ recipe.name }}</h4>
+            <div class="card horizontal">
+                <div class="valign-wrapper">
+                    <div class="card-image">
+                        <img src="{{ recipe.picture }}" alt="{{ recipe.name }} {{ recipe.description }}" title="{{ recipe.name }}" />
+                    </div>
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <p>{{ recipe.description }}</p>
+                        </div>
+                        {% if session.user %}
+                        <div class="card-action">
+                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a>
+                        </div>
+                        {% endif %}
+                        <div class="card-action">
+                            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">View Recipe</a>
+                        </div>
+                        {% if session.user %}
+                        <div class="card-action">
+                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a>
+                        </div>
+                        {% endif %}
+                    </div>
                 </div>
-                {% if session.user %}
-                <div class="card-action">
-                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a>
-                </div>
-                {% endif %}
-                <div class="card-action">
-                    <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">View Recipe</a>
-                </div>
-                {% if session.user %}
-                <div class="card-action">
-                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a>
-                </div>
-                {% endif %}
-            </div>
             </div>
         </div>
-    </div>
     </div>
     {% endif %}
-    </div>
+</div>
 
-{% endfor %} 
+{% endfor %}
 
 {% else %}
-    <div class="container">
+<div class="container">
     <div class="row">
-    <div class="col s11 card-panel">
-    <form action="{{ url_for('search') }}" method="POST">
-        <div class="row">
-            <div class="input-field col s12 m8">
-            <input type="text" name="query" id="query" minlength="3" class="validate" required><input class="btn-small btn-colour" type="submit" value="Submit">
-            <label for="query">Search Recipes</label>
-            </div>
+        <div class="col s11 card-panel">
+            <form action="{{ url_for('search') }}" method="POST">
+                <div class="row">
+                    <div class="input-field col s12 m8">
+                        <input type="text" name="query" id="query" minlength="3" class="validate" required /><input class="btn-small btn-colour" type="submit" value="Submit" />
+                        <label for="query">Search Recipes</label>
+                    </div>
+                </div>
+            </form>
         </div>
-    </form>
-    </div>
     </div>
     <div class="row">
-    <h4 class="red-text text-darken-4">No Recipes Found</h4>
+        <h4 class="red-text text-darken-4">No Recipes Found</h4>
     </div>
-    </div>
+</div>
 {% endif %}
 
 {% endblock %}

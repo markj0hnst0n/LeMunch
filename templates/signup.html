@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
+
 {% block content %}
+
 <section>
     <div class="container">
         <h1 class="title-font">Sign Up</h1>
@@ -17,7 +19,10 @@
                         <label for="picture">Picture</label>
                     </div>
                     <div>
-                        <p class="upload-style">Upload your image <a class="body-colour here" href="https://postimages.org/" target="_blank">here</a>.  Please use the 320x240 size with no expiration.  Once uploaded copy and paste the direct link with a .jpg file extension into the above field.</p>
+                        <p class="upload-style">
+                            Upload your image <a class="body-colour here" href="https://postimages.org/" target="_blank">here</a>. Please use the 320x240 size with no expiration. Once uploaded copy and paste the direct link with a .jpg file
+                            extension into the above field.
+                        </p>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">edit</i>
@@ -38,7 +43,7 @@
                         <i class="material-icons prefix">settings</i>
                         <input id="password1" name="password1" type="password" class="validate" />
                         <label for="password1">Confirm Password</label>
-                    </div>                    
+                    </div>
                 </div>
                 <button class="btn waves-effect waves-light btn-colour" type="submit" name="action">
                     Submit
