@@ -188,7 +188,7 @@ def add_recipe():
 def edit_recipe(recipe_id):
     user = user_collection.find_one({"username": session["user"]})
     if request.method == "POST":
-        edit = {
+        edit = {"$set": {
             "recipe_type": request.form.get("recipe_type"),
             "name": request.form.get("recipe_name"),
             "description": request.form.get("description"),
@@ -196,8 +196,7 @@ def edit_recipe(recipe_id):
             "ingredients": request.form.getlist("ingredients"),
             "method": request.form.getlist("method"),
             "user": session["user"],
-            "datetime": datetime.datetime.now().timestamp()
-        }
+        }}
         recipe_collection.update({"_id": ObjectId(recipe_id)}, edit)
         flash("Recipe Edited")
         return redirect(url_for('profile', user=session["user"]))
@@ -244,7 +243,6 @@ def view_recipe(recipe_id):
     return render_template('view_recipe.html', recipe=recipe,
                            ingredients=ingredients, method_steps=method_steps,
                            user=session["user"])
-
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
