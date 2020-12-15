@@ -23,6 +23,7 @@ mongo = PyMongo(app)
 user_collection = mongo.db.users
 recipe_collection = mongo.db.recipes
 type_collection = mongo.db.recipe_types
+likes_collection = mongo.db.likes
 
 
 @app.route('/')
@@ -173,7 +174,8 @@ def add_recipe():
             "ingredients": request.form.getlist("ingredients"),
             "method": request.form.getlist("method"),
             "user": session["user"],
-            "datetime": datetime.datetime.now().timestamp()
+            "datetime": datetime.datetime.now().timestamp(),
+            "likes": 0
         }
         recipe_collection.insert_one(recipe)
         flash("Recipe Added to Your Cookbook!")
@@ -243,6 +245,38 @@ def view_recipe(recipe_id):
     return render_template('view_recipe.html', recipe=recipe,
                            ingredients=ingredients, method_steps=method_steps,
                            user=session["user"])
+
+@app.route('/like_recipe/<recipe_id>')
+def like_recipe(recipe_id):
+    recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
+    ingredients = range(0, len(recipe['ingredients']))
+    method_steps = range(0, len(recipe['method']))
+    like_count = recipe.likes
+    user_liked = likes_collection.find_one({"username": session["user"]})
+    recipe_liked = likes_collection.find_one({"_id": ObjectId(recipe_id)})
+        if recipe_liked, user_liked:
+            return render_template('view_recipe.html', recipe=recipe,
+                           ingredients=ingredients, method_steps=method_steps, user_like=user_like
+                           user=session["user"])
+        else:
+            recipe_collection.update({"_id": ObjectId(recipe_id)},
+                {"$set": {
+                    "likes": recipe.likes++
+                })
+
+            likes_collection.insert_one(
+                {
+                        'username': form['username'],
+                        'picture': form['picture'],
+                        'bio': form['bio'],
+                        'email': form['email'],
+                }
+            )
+            return render_template('view_recipe.html', recipe=recipe,
+                           ingredients=ingredients, method_steps=method_steps, user_like=user_like
+                           user=session["user"])
+
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
