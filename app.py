@@ -226,14 +226,14 @@ def browse():
 
 @app.route('/search', methods=["GET", "POST"])
 def search():
+    user = user_collection.find_one({"username": session["user"]})
     if request.method == "POST":
         query = request.form.get("query")
-        user = user_collection.find_one({"username": session["user"]})
         all_recipes = list(recipe_collection.find({"$text":
                            {"$search": query}}).sort("datetime", -1))
         return render_template('browse.html', all_recipes=all_recipes,
                                user=user)
-    return render_template('search.html', user=session["user"])
+    return render_template('search.html', user=user)
 
 
 @app.route('/view_recipe/<recipe_id>')
@@ -241,7 +241,9 @@ def view_recipe(recipe_id):
     recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
     ingredients = range(0, len(recipe['ingredients']))
     method_steps = range(0, len(recipe['method']))
-    return render_template('view_recipe.html', recipe=recipe, ingredients=ingredients, method_steps=method_steps, user=session["user"])
+    return render_template('view_recipe.html', recipe=recipe,
+                           ingredients=ingredients, method_steps=method_steps,
+                           user=session["user"])
 
 
 if __name__ == "__main__":
