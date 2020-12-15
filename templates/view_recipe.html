@@ -59,14 +59,13 @@
                 </div>
     </div>
     <div class="fixed-action-btn">
-  <a class="btn-floating btn-large red">
+  <a class="btn-floating btn-large waves-effect waves-light btn-colour">
     <i class="large material-icons">mode_edit</i>
   </a>
   <ul>
-    <li><a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-    <li><a href="{{ url_for('add_recipe') }}" class="btn-floating yellow darken-1"><i class="material-icons">add</i></a></li>
-    <li><a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-floating green"><i class="material-icons">publish</i></a></li>
-    <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+    <li><a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"class="btn-floating waves-effect waves-light btn-colour tooltipped" data-position="left" data-tooltip="Delete this recipe"><i class="material-icons">insert_chart</i></a></li>
+    <li><a href="{{ url_for('add_recipe') }}" class="btn-floating waves-effect waves-light btn-colour tooltipped" data-position="left" data-tooltip="Add a new recipe"><i class="material-icons">add</i></a></li>
+    <li><a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-floating waves-effect waves-light btn-colour tooltipped" data-position="left" data-tooltip="Edit this recipe"><i class="material-icons">publish</i></a></li>
   </ul>
 </div>
 </section>
