@@ -34,7 +34,7 @@
             <div class="card-image">
                 <img src="{{ recipe.picture }}" alt="{{ recipe.name }} {{ recipe.description }}" title="{{ recipe.name }}" />
             </div>
-            <div class="card-stacked center-align">
+            <div class="card-stacked">
                 <div class="card-content">
                     <p>{{ recipe.description }}</p>
                 </div>
@@ -66,7 +66,7 @@
             <div class="card-image">
                 <img src="{{ recipe.picture }}" alt="{{ recipe.name }} {{ recipe.description }}" title="{{ recipe.name }}" />
             </div>
-            <div class="card-stacked center-align">
+            <div class="card-stacked">
                 <div class="card-content">
                     <p>{{ recipe.description }}</p>
                 </div>
@@ -94,6 +94,7 @@
 {% endfor %} 
 
 {% else %}
+    <div class="container">
     <div class="row">
     <div class="col s11 card-panel">
     <form action="{{ url_for('search') }}" method="POST">
@@ -108,6 +109,7 @@
     </div>
     <div class="row">
     <h4 class="red-text text-darken-4">No Recipes Found</h4>
+    </div>
     </div>
 {% endif %}
 
