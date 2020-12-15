@@ -239,7 +239,9 @@ def search():
 @app.route('/view_recipe/<recipe_id>')
 def view_recipe(recipe_id):
     recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
-    return render_template('view_recipe.html', recipe=recipe, user=session["user"])
+    ingredients = range(0, len(recipe['ingredients']))
+    method_steps = range(0, len(recipe['method']))
+    return render_template('view_recipe.html', recipe=recipe, ingredients=ingredients, method_steps=method_steps, user=session["user"])
 
 
 if __name__ == "__main__":

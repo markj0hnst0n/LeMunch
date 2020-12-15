@@ -31,16 +31,19 @@
 </div>
 {% endif %} {% for recipe in my_recipes %}
 
-<div class="row">
-    {% if loop.index % 2 != 0 %}
 
+    <div class="container">
+    {% if loop.index % 2 != 0 %}
+    
+    <div class="row">
     <div class="col s11">
         <h4 class="header">{{ recipe.name }}</h4>
         <div class="card horizontal">
+            <div class="valign-wrapper">
             <div class="card-image">
                 <img src="{{ recipe.picture }}" alt="{{ recipe.name }} {{ recipe.description }}" title="{{ recipe.name }}" />
             </div>
-            <div class="card-stacked">
+            <div class="card-stacked center-align">
                 <div class="card-content">
                     <p>{{ recipe.description }}</p>
                 </div>
@@ -58,18 +61,21 @@
                 </div>
                 {% endif %}
             </div>
+            </div>
         </div>
+    </div>
     </div>
 
     {% else %}
-
+    <div class="row">
     <div class="col s11 offset-s1 l11">
         <h4 class="header">{{ recipe.name }}</h4>
         <div class="card horizontal">
+            <div class="valign-wrapper">
             <div class="card-image">
-                <img src="{{ recipe.picture }}" alt="{{ recipe.name }} {{ recipe.description }}"/>
+                <img src="{{ recipe.picture }}" alt="{{ recipe.name }} {{ recipe.description }}" title="{{ recipe.name }}" />
             </div>
-            <div class="card-stacked">
+            <div class="card-stacked center-align">
                 <div class="card-content">
                     <p>{{ recipe.description }}</p>
                 </div>
@@ -87,9 +93,10 @@
                 </div>
                 {% endif %}
             </div>
+            </div>
         </div>
     </div>
-
+    </div>
     {% endif %}
-</div>
+    </div>
 {% endfor %} {% endblock %}

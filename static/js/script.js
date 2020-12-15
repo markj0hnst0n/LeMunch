@@ -4,6 +4,7 @@ $(document).ready(function () {
     $(".button-collapse").sidenav();
     $('.tooltipped').tooltip();
     $('.modal').modal();
+    $('.fixed-action-btn').floatingActionButton();
     
     var max_fields      = 10; //maximum input boxes allowed
     var ingredient_wrapper   		= $(".ingredient_fields_wrapper"); // Ingredients fields wrapper
