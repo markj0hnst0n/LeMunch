@@ -245,7 +245,7 @@ def view_recipe(recipe_id):
     method_steps = range(0, len(recipe['method']))
     return render_template('view_recipe.html', recipe=recipe,
                            ingredients=ingredients, method_steps=method_steps,
-                           user=user, recipe_user = recipe['user'])
+                           user=user, recipe_user=recipe['user'])
 
 
 @app.route('/like_recipe/<recipe_id>')
@@ -261,29 +261,35 @@ def like_recipe(recipe_id):
         }
     )
     if user_like:
-        recipe_collection.update({"_id": ObjectId(recipe_id)},
-            {"$set": {
-            "likes": like_count - 1
-        }})
+        recipe_collection.update(
+            {"_id": ObjectId(recipe_id)},
+            {"$set":
+                {"likes": like_count - 1}})
         likes_collection.remove(user_like)
-        return redirect(url_for('view_recipe', recipe_id=recipe['_id'], recipe=recipe,
-        ingredients=ingredients, method_steps=method_steps, user_like=user_like,
-        user=session["user"], recipe_user = recipe['user']))
+        return redirect(url_for('view_recipe', recipe_id=recipe['_id'],
+                        recipe=recipe,
+                        ingredients=ingredients,
+                        method_steps=method_steps,
+                        user_like=user_like,
+                        user=session["user"], recipe_user=recipe['user']))
     else:
         recipe_collection.update({"_id": ObjectId(recipe_id)},
-            {"$set": {
-            "likes": like_count + 1
-        }})
+                                 {"$set":
+                                 {"likes": like_count + 1}})
         likes_collection.insert_one(
             {
                 'username': session["user"],
                 'recipe_id': recipe['_id']
             }
         )
-        return redirect(url_for('view_recipe', recipe_id=recipe['_id'], recipe=recipe,
-                        ingredients=ingredients, method_steps=method_steps, user_like=user_like,
-                        user=session["user"], recipe_user = recipe['user']))
-
+        return redirect(url_for('view_recipe',
+                        recipe_id=recipe['_id'],
+                        recipe=recipe,
+                        ingredients=ingredients,
+                        method_steps=method_steps,
+                        user_like=user_like,
+                        user=session["user"],
+                        recipe_user=recipe['user']))
 
 
 if __name__ == "__main__":
