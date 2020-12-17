@@ -67,6 +67,7 @@
                     <i class="large material-icons">mode_edit</i>
                 </a>
                 <ul>
+                    {% if user == session.user %}
                     <li>
                         <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-floating waves-effect waves-light btn-colour tooltipped" data-position="left" data-tooltip="Delete this recipe">
                             <i class="material-icons">delete</i>
@@ -80,6 +81,7 @@
                             <i class="material-icons">edit</i>
                         </a>
                     </li>
+                    {% endif %}
                     <li>
                         <a href="{{ url_for('like_recipe', recipe_id=recipe._id) }}" class="btn-floating waves-effect waves-light btn-colour tooltipped" data-position="left" data-tooltip="Like this recipe">
                             <i class="material-icons">thumb_up</i>
