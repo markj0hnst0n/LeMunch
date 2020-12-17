@@ -51,6 +51,9 @@
                         <div class="card-content">
                             <p>{{ recipe.description }}</p>
                         </div>
+                        <div class="card-content">
+                            <p>{{ recipe.likes }} likes</p>
+                        </div>
                         {% if session.user %}
                         <div class="card-action">
                             <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a>
