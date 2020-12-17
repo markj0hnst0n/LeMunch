@@ -34,8 +34,11 @@
                                 <p>{{ recipe.description }}</p>
                             </div>
                             <div class="card-content center-align">
-                                <h6>Created by: {{ recipe.user|title }}</h6>
+                                <h6>This recipe has been liked {{ recipe.likes }} times</h6>
                             </div>
+                            <div class="card-content center-align">
+                                <h6>Created by: {{ recipe.user|title }}</h6>
+                            </div>                            
                         </div>
                     </div>
                 </div>

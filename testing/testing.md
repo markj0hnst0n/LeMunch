@@ -17,3 +17,4 @@
 | On add recipe screen there was whitespace present in the recipe description textarea | put the html tag on one line which fixed issue
 | Change password function does not upadte database when both new passwords match | new_password id not called correcly as there was a rouge space
 | Add ingredient and remove ingredient buttons weren't working on edit recipe screen | had a class name wrong so the javascript function wasn't calling correctly
+| When like/unlike button is clicked by user it continues to decrement below zero |
