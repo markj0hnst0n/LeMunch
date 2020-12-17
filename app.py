@@ -247,23 +247,28 @@ def view_recipe(recipe_id):
                            ingredients=ingredients, method_steps=method_steps,
                            user=user, recipe_user = recipe['user'])
 
+
 @app.route('/like_recipe/<recipe_id>')
 def like_recipe(recipe_id):
     recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
     ingredients = range(0, len(recipe['ingredients']))
     method_steps = range(0, len(recipe['method']))
     like_count = recipe['likes']
-    user_liked = likes_collection.find_one({"username": session["user"]})
-    recipe_liked = likes_collection.find_one({"recipe_id": ObjectId(recipe_id)})
-    if recipe_liked and user_liked:
+    user_like = likes_collection.find_one(
+        {
+            "username": session["user"],
+            "recipe_id": recipe["_id"]
+        }
+    )
+    if user_like:
         recipe_collection.update({"_id": ObjectId(recipe_id)},
             {"$set": {
             "likes": like_count - 1
         }})
-        likes_collection.remove({"username": session["user"]})
-        return render_template('view_recipe.html', recipe=recipe,
-        ingredients=ingredients, method_steps=method_steps, user_liked=user_liked,
-        user=session["user"], recipe_user = recipe['user'])
+        likes_collection.remove(user_like)
+        return redirect(url_for('view_recipe', recipe_id=recipe['_id'], recipe=recipe,
+        ingredients=ingredients, method_steps=method_steps, user_like=user_like,
+        user=session["user"], recipe_user = recipe['user']))
     else:
         recipe_collection.update({"_id": ObjectId(recipe_id)},
             {"$set": {
@@ -275,9 +280,9 @@ def like_recipe(recipe_id):
                 'recipe_id': recipe['_id']
             }
         )
-        return render_template('view_recipe.html', recipe=recipe,
-                        ingredients=ingredients, method_steps=method_steps, user_liked=user_liked,
-                        user=session["user"], recipe_user = recipe['user'])
+        return redirect(url_for('view_recipe', recipe_id=recipe['_id'], recipe=recipe,
+                        ingredients=ingredients, method_steps=method_steps, user_like=user_like,
+                        user=session["user"], recipe_user = recipe['user']))
 
 
 
