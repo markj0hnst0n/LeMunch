@@ -2,8 +2,13 @@ import os
 import datetime
 from os import path
 from flask import (
-    Flask, flash, render_template,
-    redirect, request, session, url_for)
+    Flask,
+    flash,
+    render_template,
+    redirect,
+    request,
+    session,
+    url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -264,7 +269,8 @@ def like_recipe(recipe_id):
         recipe_collection.update(
             {"_id": ObjectId(recipe_id)},
             {"$set":
-                {"likes": like_count - 1}})
+                {"likes": like_count - 1
+                }})
         likes_collection.remove(user_like)
         return redirect(url_for('view_recipe', recipe_id=recipe['_id'],
                         recipe=recipe,
@@ -275,7 +281,8 @@ def like_recipe(recipe_id):
     else:
         recipe_collection.update({"_id": ObjectId(recipe_id)},
                                  {"$set":
-                                 {"likes": like_count + 1}})
+                                 {"likes": like_count + 1
+                                 }})
         likes_collection.insert_one(
             {
                 'username': session["user"],
