@@ -37,77 +37,70 @@
 {% for recipe in my_recipes %}
 
 <div class="container">
-    {% if loop.index % 2 != 0 %}
-
     <div class="row">
-        <div class="col s11">
+        <div class="col s12 center-align">
             <h4 class="header">{{ recipe.name }}</h4>
-            <div class="card horizontal">
-                <div class="valign-wrapper">
-                    <div class="card-image">
-                        <img src="{{ recipe.picture }}" alt="{{ recipe.name }} {{ recipe.description }}" title="{{ recipe.name }}" />
-                    </div>
-                    <div class="card-stacked">
-                        <div class="card-content">
-                            <p>{{ recipe.description }}</p>
-                        </div>
-                        <div class="card-content">
-                            <p>{{ recipe.likes }} likes</p>
-                        </div>
-                        {% if session.user %}
-                        <div class="card-action">
-                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a>
-                        </div>
-                        {% endif %}
-                        <div class="card-action">
-                            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">View Recipe</a>
-                        </div>
-                        {% if session.user %}
-                        <div class="card-action">
-                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a>
-                        </div>
-                        {% endif %}
-                    </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="row center-align">
+            <div class="col s12 m6">
+                <div class="card-image">
+                    <img src="{{ recipe.picture }}" alt="{{ recipe.name }} {{ recipe.description }}" title="{{ recipe.name }}" />
                 </div>
+            </div>
+            <div class="col s12 m6 right-align hide-on-small-only">
+                <div class="card-content">
+                    <h5>Description</h5>
+                    <p>{{ recipe.description }}</p>
+                </div>
+                <div class="card-content">
+                    <h6>This recipe has been liked {{ recipe.likes }} times</h6>
+                </div>
+                <div class="card-content">
+                    <h6>Created by: {{ recipe.user|title }}</h6>
+                </div>
+                {% if recipe.user == session.user %}
+                <div class="card-action left-align">
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a>
+                </div>
+                {% endif %}
+                <div class="card-action left-align">
+                    <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">View Recipe</a>
+                </div>
+                {% if recipe.user == session.user %}
+                <div class="card-action left-align">
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a>
+                </div>
+                {% endif %}
+            </div>
+            <div class="hide-on-med-and-up col s12 m6 left-align">
+                <div class="card-content">
+                    <h5>Description</h5>
+                    <p>{{ recipe.description }}</p>
+                </div>
+                <div class="card-content">
+                    <h6>This recipe has been liked {{ recipe.likes }} times</h6>
+                </div>
+                <div class="card-content">
+                    <h6>Created by: {{ recipe.user|title }}</h6>
+                </div>
+                {% if recipe.user == session.user %}
+                <div class="card-action center-align">
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a>
+                </div>
+                {% endif %}
+                <div class="card-action center-align">
+                    <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">View Recipe</a>
+                </div>
+                {% if recipe.user == session.user %}
+                <div class="card-action center-align">
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
-
-    {% else %}
-    <div class="row">
-        <div class="col s11 offset-s1 l11">
-            <h4 class="header">{{ recipe.name }}</h4>
-            <div class="card horizontal">
-                <div class="valign-wrapper">
-                    <div class="card-image">
-                        <img src="{{ recipe.picture }}" alt="{{ recipe.name }} {{ recipe.description }}" title="{{ recipe.name }}" />
-                    </div>
-                    <div class="card-stacked">
-                        <div class="card-content">
-                            <p>{{ recipe.description }}</p>
-                        </div>
-                        <div class="card-content">
-                            <p>{{ recipe.likes }} likes</p>
-                        </div>
-                        {% if session.user %}
-                        <div class="card-action">
-                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a>
-                        </div>
-                        {% endif %}
-                        <div class="card-action">
-                            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">View Recipe</a>
-                        </div>
-                        {% if session.user %}
-                        <div class="card-action">
-                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a>
-                        </div>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {% endif %}
 </div>
 
 {% endfor %}
