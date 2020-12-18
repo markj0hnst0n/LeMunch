@@ -102,7 +102,8 @@ def profile(user):
     recipe_count = len(my_recipes)
     if 'user' in session:
         return render_template('profile.html',
-                               user=username, my_recipes=my_recipes,
+                               user=username,
+                               my_recipes=my_recipes,
                                recipe_count=recipe_count)
     return redirect(url_for('signin'))
 
@@ -152,15 +153,6 @@ def change_password(user_id):
     return render_template('change_password.html', user=user)
 
 
-@app.route('/delete_user/<user_id>')
-def delete_user(user_id):
-    recipe_collection.remove({"username": session["user"]})
-    user_collection.remove({"_id": ObjectId(user_id)})
-    flash("user deleted")
-    session.pop('user')
-    return render_template('signin.html')
-
-
 @app.route('/logout', )
 def logout():
     session.pop('user')
@@ -187,7 +179,8 @@ def add_recipe():
         return redirect(url_for('profile', user=session["user"]))
     recipe_types = type_collection.find().sort("type_name", 1)
     user = user_collection.find_one({"username": session["user"]})
-    return render_template('add_recipe.html', recipe_types=recipe_types,
+    return render_template('add_recipe.html',
+                           recipe_types=recipe_types,
                            user=user)
 
 

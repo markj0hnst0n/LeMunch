@@ -31,9 +31,6 @@
                         <a class="side-list" href="{{ url_for('edit_user', user_id=user._id) }}">Edit User Data</a>
                     </li>
                     <li>
-                        <a class="modal-trigger side-list" href="#delete_user_modal">Delete User</a>
-                    </li>
-                    <li>
                         <a class="modal-trigger side-list" href="#logout_modal">Logout</a>
                     </li>
                     {% endif %}
@@ -54,10 +51,6 @@
                         <li class="side-list">
                             <i class="material-icons">edit</i>
                             <a class="side-list" href="{{ url_for('edit_user', user_id=user._id) }}">Edit User Data</a>
-                        </li>
-                        <li class="side-list">
-                            <i class="material-icons">delete</i>
-                            <a class="modal-trigger side-list" href="#delete_user_modal">Delete User</a>
                         </li>
                         <li class="side-list">
                             <i class="material-icons">eject</i>
