@@ -52,3 +52,12 @@ body {
 .absolute {
     position: absolute;
 }
+
+.relative {
+    position: relative;
+}
+
+.img-size {
+    width: 80%;
+    height: 100%;
+}
