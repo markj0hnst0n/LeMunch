@@ -32,6 +32,16 @@ likes_collection = mongo.db.likes
 
 
 @app.route('/')
+@app.route('/index')
+def index():
+    if 'user' in session:
+        db_user = user_collection.find_one({"username": session['user']})
+        if db_user:
+            return redirect(url_for('profile', user=db_user['username']))
+    all_recipes = list(recipe_collection.find().sort("likes", -1))
+    return render_template("index.html", all_recipes=all_recipes)
+
+
 @app.route('/signin', methods=['GET'])
 def signin():
     if 'user' in session:
@@ -61,7 +71,7 @@ def login():
 def add_user():
     if 'user' in session:
         flash("You are already logged in")
-        return redirect(url_for('profile', user=db_user['username']))
+        return redirect(url_for('profile', user=session["user"]))
     if request.method == 'POST':
         form = request.form.to_dict()
         if form['password'] == form['password1']:
