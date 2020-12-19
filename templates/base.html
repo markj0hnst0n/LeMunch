@@ -47,8 +47,8 @@
     <body class="body-colour">
         <main>
             {% if session.user %}
-            <div class="absolute row">
-                <div class="col s2 hide-on-med-and-down">
+            <div class="row ">
+                <div class="col s2 hide-on-med-and-down absolute">
                     <ul class="nav-column">
                         <li>
                             <i class="material-icons">person</i>
@@ -64,6 +64,7 @@
                         </li>
                     </ul>
                 </div>
+                
             </div>
             {% endif %}
                 <div id="logout_modal" class="modal">

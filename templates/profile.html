@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="row teal darken-3">
-    <div class="nav-content">
+    <div class="nav-content col s10">
         <ul class="tabs tabs-transparent">
             <li class="tab"><a class="active" href="{{ url_for('profile', user=session.user) }}">My Recipes</a></li>
             <li class="tab"><a href="{{ url_for('browse') }}">Browse All</a></li>
