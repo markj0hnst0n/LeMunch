@@ -167,7 +167,7 @@ def change_password(user_id):
 def logout():
     session.pop('user')
     flash('User Logged Out')
-    return redirect(url_for('signin'))
+    return redirect(url_for('index'))
 
 
 @app.route('/add_recipe', methods=["GET", "POST"])
