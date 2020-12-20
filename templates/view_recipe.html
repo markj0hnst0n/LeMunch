@@ -2,16 +2,6 @@
 
 {% block content %}
 
-<div class="row teal darken-3">
-    <div class="nav-content">
-        <ul class="tabs tabs-transparent">
-            <li class="tab"><a href="{{ url_for('profile', user=session.user) }}">My Recipes</a></li>
-            <li class="tab"><a href="{{ url_for('browse') }}">Browse All</a></li>
-            <li class="tab"><a href="{{ url_for('search') }}">Search</a></li>
-        </ul>
-    </div>
-</div>
-
 <section>
     <div class="container">
         <div class="row">

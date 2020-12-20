@@ -1,21 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<div class="row teal darken-3">
-    <div class="nav-content col s10">
-        <ul class="tabs tabs-transparent">
-            <li class="tab"><a class="active" href="{{ url_for('profile', user=session.user) }}">My Recipes</a></li>
-            <li class="tab"><a href="{{ url_for('browse') }}">Browse All</a></li>
-            <li class="tab"><a href="{{ url_for('search') }}">Search</a></li>
-        </ul>
-    </div>
-</div>
+ 
 <div class="container">
-<h3 class="title-font">Welcome to your cookbook, {{ user.username|title }}</h3>
-<a href="{{ url_for('add_recipe') }}" class="btn-floating btn-large nav-colour tooltipped" data-position="right" data-tooltip="Add a new recipe!">
-    <i class="material-icons">add</i>
-</a>
+    <h3 class="title-font">Welcome to your cookbook, {{ user.username|title }}</h3>
+    <a href="{{ url_for('add_recipe') }}" class="btn-floating btn-large nav-colour tooltipped" data-position="right" data-tooltip="Add a new recipe!">
+        <i class="material-icons">add</i>
+    </a>
 </div>
 
 
@@ -99,5 +90,4 @@
 </div>
 
 {% endfor %}
-
 {% endblock %}

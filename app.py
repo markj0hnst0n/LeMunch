@@ -235,6 +235,7 @@ def browse():
 
 @app.route('/search', methods=["GET", "POST"])
 def search():
+    search_page = 1
     user = user_collection.find_one({"username": session["user"]})
     if request.method == "POST":
         query = request.form.get("query")
@@ -242,7 +243,7 @@ def search():
                            {"$search": query}}).sort("datetime", -1))
         return render_template('browse.html', all_recipes=all_recipes,
                                user=user)
-    return render_template('search.html', user=user)
+    return render_template('search.html', user=user, search_page=search_page)
 
 
 @app.route('/view_recipe/<recipe_id>')
@@ -272,8 +273,7 @@ def like_recipe(recipe_id):
         recipe_collection.update(
             {"_id": ObjectId(recipe_id)},
             {"$set":
-                {"likes": like_count - 1
-                }})
+                {"likes": like_count - 1}})
         likes_collection.remove(user_like)
         return redirect(url_for('view_recipe', recipe_id=recipe['_id'],
                         recipe=recipe,
@@ -284,8 +284,7 @@ def like_recipe(recipe_id):
     else:
         recipe_collection.update({"_id": ObjectId(recipe_id)},
                                  {"$set":
-                                 {"likes": like_count + 1
-                                 }})
+                                 {"likes": like_count + 1}})
         likes_collection.insert_one(
             {
                 'username': session["user"],
