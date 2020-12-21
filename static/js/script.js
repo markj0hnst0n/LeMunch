@@ -30,7 +30,7 @@ $(document).ready(function () {
 		e.preventDefault();
 		if(method_step_count < max_fields){ //max method step box allowed
 			method_step_count++; //method step box increment
-			$(method_fields_wrapper).append('<div><input type="text" name="method" class="validate"/><a href="#" class="btn-small btn-colour remove_field">Remove</a></div>'); //add method step box
+			$(method_fields_wrapper).append('<div><i class="material-icons prefix">short_text</i><input type="text" name="method" class="validate"/><a href="#" class="btn-small btn-colour remove_field">Remove</a></div>'); //add method step box
 		}
 	});
 	

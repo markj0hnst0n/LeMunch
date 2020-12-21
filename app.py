@@ -247,12 +247,13 @@ def search():
                            {"$search": query}}).sort("datetime", -1))
         if len(all_recipes) == 0:
             flash("No recipes found, please search again")
-            return render_template('search.html', user=user, search_page=search_page)
+            return render_template('search.html',
+                                   user=user,
+                                   search_page=search_page)
         return render_template('search.html', all_recipes=all_recipes,
                                user=user,
                                search_page=search_page)
     return render_template('search.html', user=user, search_page=search_page)
-
 
 
 @app.route('/view_recipe/<recipe_id>')
