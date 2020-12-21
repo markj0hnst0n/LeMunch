@@ -52,15 +52,16 @@
             <div class="row">
                 <div class="input-field col s12 ingredient_fields_wrapper">
                     {% for ingredient in ingredients %}
-                    {% if ingredient == 0 %}
-                    <i class="material-icons prefix">edit</i>
-                    <input id="ingredients" type="text" name="ingredients" maxlength="30" value="{{ recipe.ingredients[ingredient] }}" class="validate" required />
-                    <label for="ingredients">Ingredients</label>
-                    <a href="#" class="btn-small btn-colour waves-effect waves-light remove_field">Remove</a>
+                    {% if ingredients == 0 %}
+                    <div>
+                        <label for="ingredient">Ingredient</label>
+                        <input id="ingredient" type="text" name="ingredient" maxlength="30" value="{{ recipe.ingredients[ingredient] }}" class="validate" required />
+                        <a href="#" class="btn-small waves-effect waves-light btn-colour remove_field">Remove</a>
+                    </div>
                     {% else %}
                     <div>
-                        <i class="material-icons prefix">edit</i>
-                        <input id="ingredients" type="text" name="ingredients" maxlength="30" value="{{ recipe.ingredients[ingredient] }}" class="validate" required />
+                        <input id="ingredient" type="text" name="ingredient" maxlength="30" value="{{ recipe.ingredients[ingredient] }}" class="validate" required />
+                        <a href="#" class="btn-small waves-effect waves-light btn-colour remove_field">Remove</a>
                     </div>
                     {% endif %}
                     {% endfor %}
@@ -71,12 +72,15 @@
                 <div class="input-field col s12 method_fields_wrapper">
                     {% for step in method_steps %}
                     {% if step == 0 %}
-                    <i class="material-icons prefix">edit</i>
-                    <input id="method" type="text" name="method" maxlength="30" value="{{ recipe.method[step] }}" class="validate" required />
-                    <label for="method">Method</label>
+                    <div>
+                        <label for="method">Method</label>
+                        
+                        <input id="method" type="text" name="method" maxlength="30" value="{{ recipe.method[step] }}" class="validate" required />
+                        <a href="#" class="btn-small waves-effect waves-light btn-colour remove_field">Remove</a>
+                    </div>
                     {% else %}
                     <div>
-                        <i class="material-icons prefix">edit</i>
+                        
                         <input id="method" type="text" name="method" maxlength="30" value="{{ recipe.method[step] }}" class="validate" required />
                         <a href="#" class="btn-small waves-effect waves-light btn-colour remove_field">Remove</a>
                     </div>
