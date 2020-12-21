@@ -67,6 +67,7 @@
                 </div>
             </div>
         </div>
+        {% if 'user' in session %}
         <div class="fixed-action-btn">
             <a class="btn-floating btn-large waves-effect waves-light btn-colour">
                 <i class="large material-icons">mode_edit</i>
@@ -93,6 +94,11 @@
                     </a>
                 </li>
             </ul>
+        </div>
+        {% else %}
+        <div class="center-align">
+        <a href="{{ url_for('index') }}" class="btn-large waves-effect waves-light btn-colour remove_field">Back</a>
+        {% endif %}
         </div>
     </div>
 </section>

@@ -257,14 +257,21 @@ def search():
 
 
 @app.route('/view_recipe/<recipe_id>')
-def view_recipe(recipe_id):
-    user = user_collection.find_one({"username": session["user"]})
-    recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
-    ingredients = range(0, len(recipe['ingredients']))
-    method_steps = range(0, len(recipe['method']))
-    return render_template('view_recipe.html', recipe=recipe,
-                           ingredients=ingredients, method_steps=method_steps,
-                           user=user, recipe_user=recipe['user'])
+def view_recipe(recipe_id): 
+    if 'user' in session:
+            user = user_collection.find_one({"username": session["user"]})
+            recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
+            ingredients = range(0, len(recipe['ingredients']))
+            method_steps = range(0, len(recipe['method']))
+            return render_template('view_recipe.html', recipe=recipe,
+                                ingredients=ingredients, method_steps=method_steps, user=user,
+                                recipe_user=recipe['user'])
+    else:
+        recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
+        ingredients = range(0, len(recipe['ingredients']))
+        method_steps = range(0, len(recipe['method']))
+        return render_template('view_recipe.html', recipe=recipe,
+                                ingredients=ingredients, method_steps=method_steps)
 
 
 @app.route('/like_recipe/<recipe_id>')
