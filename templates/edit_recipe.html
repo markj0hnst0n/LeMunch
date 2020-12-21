@@ -8,7 +8,7 @@
         <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix">face</i>
+                    <i class="material-icons prefix">restaurant_menu</i>
                     <select id="recipe_type" name="recipe_type" class="validate">
                         <option value="" disabled>Choose your option</option>
                         {% for type in recipe_types %} {% if type.type_name == recipe.recipe_type %}
@@ -22,14 +22,14 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix">face</i>
+                    <i class="material-icons prefix">stars</i>
                     <input id="recipe_name" name="recipe_name" type="text" minlength="5" maxlength="40" value="{{ recipe.name }}" class="validate" required />
                     <label for="recipe_name">Recipe Name</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix">email</i>
+                    <i class="material-icons prefix">note</i>
                     <textarea id="description" name="description" minlength="5" maxlength="200" class="materialize-textarea validate" required>
                     {{- recipe.description -}}
                     </textarea>
@@ -51,17 +51,19 @@
             </div>
             <div class="row">
                 <div class="input-field col s12 ingredient_fields_wrapper">
-                    {% for ingredient in ingredients %}
-                    {% if ingredients == 0 %}
+                    {% for ingredient in ingredients %}                    
+                    {% if ingredient == 0 %}
                     <div>
+                        <i class="material-icons prefix">edit</i>
                         <label for="ingredient">Ingredient</label>
                         <input id="ingredient" type="text" name="ingredient" maxlength="30" value="{{ recipe.ingredients[ingredient] }}" class="validate" required />
-                        <a href="#" class="btn-small waves-effect waves-light btn-colour remove_field">Remove</a>
                     </div>
                     {% else %}
                     <div>
+                        <i class="material-icons prefix">edit</i>
                         <input id="ingredient" type="text" name="ingredient" maxlength="30" value="{{ recipe.ingredients[ingredient] }}" class="validate" required />
-                        <a href="#" class="btn-small waves-effect waves-light btn-colour remove_field">Remove</a>
+                        <div class="btn-border">
+                        <a href="#" class="btn-small waves-effect waves-light btn-colour remove_field center-align">Remove</a>
                     </div>
                     {% endif %}
                     {% endfor %}
@@ -73,21 +75,23 @@
                     {% for step in method_steps %}
                     {% if step == 0 %}
                     <div>
-                        <label for="method">Method</label>
-                        
+                        <i class="material-icons prefix">short_text</i>
+                        <label for="method">Method</label>                        
                         <input id="method" type="text" name="method" maxlength="30" value="{{ recipe.method[step] }}" class="validate" required />
                         <a href="#" class="btn-small waves-effect waves-light btn-colour remove_field">Remove</a>
                     </div>
                     {% else %}
                     <div>
-                        
+                        <i class="material-icons prefix">short_text</i>
                         <input id="method" type="text" name="method" maxlength="30" value="{{ recipe.method[step] }}" class="validate" required />
                         <a href="#" class="btn-small waves-effect waves-light btn-colour remove_field">Remove</a>
                     </div>
                     {% endif %}
                     {% endfor %}
                 </div>
+                <div class="btn-border">
                 <button class="btn-small waves-effect waves-light btn-colour add_method_step_button">Add Step</button>
+                </div>
             </div>
             <div class="row">
                 <div class="col s12 center-align">
