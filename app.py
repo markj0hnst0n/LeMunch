@@ -229,9 +229,12 @@ def delete_recipe(recipe_id):
 
 @app.route('/browse')
 def browse():
+    browse = 1
     user = user_collection.find_one({"username": session["user"]})
     all_recipes = list(recipe_collection.find().sort("datetime", -1))
-    return render_template('browse.html', all_recipes=all_recipes, user=user)
+    return render_template('browse.html', all_recipes=all_recipes,
+                           user=user,
+                           browse=browse)
 
 
 @app.route('/search', methods=["GET", "POST"])
@@ -245,9 +248,11 @@ def search():
         if len(all_recipes) == 0:
             flash("No recipes found, please search again")
             return render_template('search.html', user=user, search_page=search_page)
-        return render_template('browse.html', all_recipes=all_recipes,
-                               user=user)
+        return render_template('search.html', all_recipes=all_recipes,
+                               user=user,
+                               search_page=search_page)
     return render_template('search.html', user=user, search_page=search_page)
+
 
 
 @app.route('/view_recipe/<recipe_id>')

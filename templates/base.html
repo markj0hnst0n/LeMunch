@@ -80,7 +80,7 @@
                 <div class="nav-content teal darken-3 s12 offset-l2 col l10">
                     <ul class="tabs tabs-transparent">
                         <li class="tab"><a {% if my_recipes %} class="active" {% endif %} href="{{ url_for('profile', user=session.user) }}">My Recipes</a></li>
-                        <li class="tab"><a {% if all_recipes %} class="active" {% endif %} href="{{ url_for('browse') }}">Browse All</a></li>
+                        <li class="tab"><a {% if browse %} class="active" {% endif %} href="{{ url_for('browse') }}">Browse All</a></li>
                         <li class="tab"><a {% if search_page %} class="active" {% endif %} href="{{ url_for('search') }}">Search</a></li>
                     </ul>
                 </div>
