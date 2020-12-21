@@ -28,9 +28,11 @@
                 </ul>
                 <ul class="sidenav" id="mobile-demo">
                     <li><a class="side-list" href="{{ url_for('index', user=session.user) }}">Home</a></li>
+                    {% if not session.user %}
                     <li>
                         <a href="{{ url_for('signin') }}">Sign In</a>
                     </li>
+                    {% endif %}
                     {% if session.user %}
                     <li>
                         <a class="side-list" href="{{ url_for('change_password', user_id=user._id) }}">Change User Password</a>
