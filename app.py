@@ -59,6 +59,7 @@ def login():
     if db_user:
         if check_password_hash(db_user['password'], form['password']):
             session['user'] = form['username']
+            flash('Login successful')
             return redirect(url_for('profile', user=db_user['username']))
         else:
             flash('Username or password incorrect')
@@ -241,6 +242,9 @@ def search():
         query = request.form.get("query")
         all_recipes = list(recipe_collection.find({"$text":
                            {"$search": query}}).sort("datetime", -1))
+        if len(all_recipes) == 0:
+            flash("No recipes found, please search again")
+            return render_template('search.html', user=user, search_page=search_page)
         return render_template('browse.html', all_recipes=all_recipes,
                                user=user)
     return render_template('search.html', user=user, search_page=search_page)

@@ -58,13 +58,7 @@
                 </div>
             </div>
 
-            <section>
-                {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
-                <div class="container center-align">
-                    <h4>{{ message }}</h4>
-                </div>
-                {% endfor %} {% endif %} {% endwith %}
-            </section>
+            
             {% if session.user %}
             <div class="row">
                 <div class="col s2 hide-on-med-and-down absolute">
@@ -74,11 +68,11 @@
                             <a class="side-list" href="{{ url_for('change_password', user_id=user._id) }}">Change User Password</a>
                         </li>
                         <li class="side-list">
-                            <i class="material-icons">edit</i>
+                            <i class="material-icons">settings</i>
                             <a class="side-list" href="{{ url_for('edit_user', user_id=user._id) }}">Edit User Data</a>
                         </li>
                         <li class="side-list">
-                            <i class="material-icons">eject</i>
+                            <i class="material-icons">exit_to_app</i>
                             <a class="modal-trigger side-list" href="#logout_modal">Logout</a>
                         </li>
                     </ul>
@@ -92,6 +86,13 @@
                 </div>
             </div>
             {% endif %}
+            <section>
+                {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+                <div class="container center-align">
+                    <h4>{{ message }}</h4>
+                </div>
+                {% endfor %} {% endif %} {% endwith %}
+            </section>
             {% block content %}
             {% endblock %}
         </main>
