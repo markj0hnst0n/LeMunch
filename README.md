@@ -200,6 +200,6 @@ https://github.com/MiroslavSvec/DCD_lead
 Thanks to the following people for making the project happen:
 
 - My Mentor 
-- The [Code Institute](https://codeinstitute.net/) Slack Community specifically SamFixG, Lucyjpjones and Sean Mc for testing the site.
-- The [Code Institute](https://codeinstitute.net/) tutors and instructional material.  Tutor Stephen for his pep talk. Tutor Miklos for his perserverance.  Tutor Xavier for his excellent resources.
+- The [Code Institute](https://codeinstitute.net/) Slack Community.
+- The [Code Institute](https://codeinstitute.net/) tutors and instructional material.  Espcially tutor Johann for his help with the like functionality.
 - My Wife Joanna Johnston for her (constructive) criticism and understanding when I lock myself away in the attic for hours on end

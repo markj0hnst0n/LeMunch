@@ -2,85 +2,85 @@
 
 {% block content %}
 
-
-
-<div class="container">
-    <p class="flow-text center-align">Below you can browse through all the recipes on our website in order of upload.  You can still use the upload button on the left to upload a new recipe yourself!</p>
+<section>
+    <div class="container">
+        <p class="flow-text center-align">Below you can browse through all the recipes on our website in order of upload. You can still use the upload button on the left to upload a new recipe yourself!</p>
         <a href="{{ url_for('add_recipe') }}" class="btn-floating btn-large nav-colour tooltipped" data-position="right" data-tooltip="Add a new recipe!">
             <i class="material-icons">add</i>
         </a>
-</div>
-
-{% for recipe in all_recipes %}
-
-<div class="container">
-    <div class="row">
-        <div class="col s12 center-align">
-            <h4 class="header">{{ recipe.name }}</h4>
-        </div>
     </div>
-    <div class="card">
-        <div class="row center-align">
-            <div class="col s12 m6">
-                <div class="card-image">
-                    <img src="{{ recipe.picture }}" alt="{{ recipe.name }} {{ recipe.description }}" title="{{ recipe.name }}" />
+</section>
+
+<section>
+    {% for recipe in all_recipes %}
+        <div class="container">
+            <div class="row">
+                <div class="col s12 center-align">
+                    <h4 class="header">{{ recipe.name }}</h4>
                 </div>
             </div>
-            <div class="col s12 m6 right-align hide-on-small-only">
-                <div class="card-content">
-                    <h5>Description</h5>
-                    <p>{{ recipe.description }}</p>
+            <div class="card">
+                <div class="row center-align">
+                    <div class="col s12 m6">
+                        <div class="card-image">
+                            <img src="{{ recipe.picture }}" alt="{{ recipe.name }} {{ recipe.description }}" title="{{ recipe.name }}" />
+                        </div>
+                    </div>
+                    <div class="col s12 m6 right-align hide-on-small-only">
+                        <div class="card-content">
+                            <h5>Description</h5>
+                            <p>{{ recipe.description }}</p>
+                        </div>
+                        <div class="card-content">
+                            <h6>This recipe has been liked {{ recipe.likes }} times</h6>
+                        </div>
+                        <div class="card-content">
+                            <h6>Created by: {{ recipe.user|title }}</h6>
+                        </div>
+                        {% if recipe.user == session.user %}
+                            <div class="card-action left-align">
+                                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a>
+                            </div>
+                        {% endif %}
+                        <div class="card-action left-align">
+                            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">View Recipe</a>
+                        </div>
+                        {% if recipe.user == session.user %}
+                            <div class="card-action left-align">
+                                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="hide-on-med-and-up col s12 m6 left-align">
+                        <div class="card-content">
+                            <h5>Description</h5>
+                            <p>{{ recipe.description }}</p>
+                        </div>
+                        <div class="card-content">
+                            <h6>This recipe has been liked {{ recipe.likes }} times</h6>
+                        </div>
+                        <div class="card-content">
+                            <h6>Created by: {{ recipe.user|title }}</h6>
+                        </div>
+                        {% if recipe.user == session.user %}
+                            <div class="card-action center-align">
+                                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a>
+                            </div>
+                        {% endif %}
+                        <div class="card-action center-align">
+                            <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">View Recipe</a>
+                        </div>
+                        {% if recipe.user == session.user %}
+                            <div class="card-action center-align">
+                                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a>
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
-                <div class="card-content">
-                    <h6>This recipe has been liked {{ recipe.likes }} times</h6>
-                </div>
-                <div class="card-content">
-                    <h6>Created by: {{ recipe.user|title }}</h6>
-                </div>
-                {% if recipe.user == session.user %}
-                <div class="card-action left-align">
-                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a>
-                </div>
-                {% endif %}
-                <div class="card-action left-align">
-                    <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">View Recipe</a>
-                </div>
-                {% if recipe.user == session.user %}
-                <div class="card-action left-align">
-                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a>
-                </div>
-                {% endif %}
-            </div>
-            <div class="hide-on-med-and-up col s12 m6 left-align">
-                <div class="card-content">
-                    <h5>Description</h5>
-                    <p>{{ recipe.description }}</p>
-                </div>
-                <div class="card-content">
-                    <h6>This recipe has been liked {{ recipe.likes }} times</h6>
-                </div>
-                <div class="card-content">
-                    <h6>Created by: {{ recipe.user|title }}</h6>
-                </div>
-                {% if recipe.user == session.user %}
-                <div class="card-action center-align">
-                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a>
-                </div>
-                {% endif %}
-                <div class="card-action center-align">
-                    <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">View Recipe</a>
-                </div>
-                {% if recipe.user == session.user %}
-                <div class="card-action center-align">
-                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a>
-                </div>
-                {% endif %}
             </div>
         </div>
-    </div>
-</div>
-
-{% endfor %}
-<br>
-<br>
+    {% endfor %}
+    <br />
+    <br />
+</section>
 {% endblock %}

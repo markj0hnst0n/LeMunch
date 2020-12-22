@@ -21,34 +21,34 @@
                         <a href="{{ url_for('index', user=session.user) }}"><i class="material-icons prefix">home</i></a>
                     </li>
                     {% if not session.user %}
-                    <li>
-                        <a href="{{ url_for('signin') }}">Sign In</a>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('add_user') }}">Register</a>
-                    </li>
+                        <li>
+                            <a href="{{ url_for('signin') }}">Sign In</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('add_user') }}">Register</a>
+                        </li>
                     {% endif %}
                 </ul>
                 <ul class="sidenav" id="mobile-demo">
                     <li><a class="side-list" href="{{ url_for('index', user=session.user) }}">Home</a></li>
                     {% if not session.user %}
-                    <li>
-                        <a href="{{ url_for('signin') }}">Sign In</a>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('add_user') }}">Register</a>
-                    </li>
+                        <li>
+                            <a href="{{ url_for('signin') }}">Sign In</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('add_user') }}">Register</a>
+                        </li>
                     {% endif %}
                     {% if session.user %}
-                    <li>
-                        <a class="side-list" href="{{ url_for('change_password', user_id=user._id) }}">Change User Password</a>
-                    </li>
-                    <li>
-                        <a class="side-list" href="{{ url_for('edit_user', user_id=user._id) }}">Edit User Data</a>
-                    </li>
-                    <li>
-                        <a class="modal-trigger side-list" href="#logout_modal">Logout</a>
-                    </li>
+                        <li>
+                            <a class="side-list" href="{{ url_for('change_password', user_id=user._id) }}">Change User Password</a>
+                        </li>
+                        <li>
+                            <a class="side-list" href="{{ url_for('edit_user', user_id=user._id) }}">Edit User Data</a>
+                        </li>
+                        <li>
+                            <a class="modal-trigger side-list" href="#logout_modal">Logout</a>
+                        </li>
                     {% endif %}
                 </ul>
             </div>
@@ -63,47 +63,47 @@
                 </div>
                 <div class="modal-footer">
                     <a href="#" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-                    <a href="{{ url_for('logout') }}" class="modal-close waves-effect waves-green btn-flat">Logout</a>                    
+                    <a href="{{ url_for('logout') }}" class="modal-close waves-effect waves-green btn-flat">Logout</a>
                 </div>
             </div>
 
-            
-            {% if session.user %}
-            <div class="row">
-                <div class="col s2 hide-on-med-and-down absolute">
-                    <ul class="nav-column">
-                        <li>
-                            <i class="material-icons">person</i>
-                            <a class="side-list" href="{{ url_for('change_password', user_id=user._id) }}">Change User Password</a>
-                        </li>
-                        <li class="side-list">
-                            <i class="material-icons">settings</i>
-                            <a class="side-list" href="{{ url_for('edit_user', user_id=user._id) }}">Edit User Data</a>
-                        </li>
-                        <li class="side-list">
-                            <i class="material-icons">exit_to_app</i>
-                            <a class="modal-trigger side-list" href="#logout_modal">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="nav-content teal darken-3 s12 offset-l2 col l10">
-                    <ul class="tabs tabs-transparent">
-                        <li class="tab"><a {% if profile %} class="active" {% endif %} href="{{ url_for('profile', user=session.user) }}">My Recipes</a></li>
-                        <li class="tab"><a {% if browse %} class="active" {% endif %} href="{{ url_for('browse') }}">Browse All</a></li>
-                        <li class="tab"><a {% if search_page %} class="active" {% endif %} href="{{ url_for('search') }}">Search</a></li>
-                    </ul>
-                </div>
-            </div>
-            {% endif %}
+            <section>
+                {% if session.user %}
+                    <div class="row">
+                        <div class="col s2 hide-on-med-and-down absolute">
+                            <ul class="nav-column">
+                                <li>
+                                    <i class="material-icons">person</i>
+                                    <a class="side-list" href="{{ url_for('change_password', user_id=user._id) }}">Change User Password</a>
+                                </li>
+                                <li class="side-list">
+                                    <i class="material-icons">settings</i>
+                                    <a class="side-list" href="{{ url_for('edit_user', user_id=user._id) }}">Edit User Data</a>
+                                </li>
+                                <li class="side-list">
+                                    <i class="material-icons">exit_to_app</i>
+                                    <a class="modal-trigger side-list" href="#logout_modal">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="nav-content teal darken-3 s12 offset-l2 col l10">
+                            <ul class="tabs tabs-transparent">
+                                <li class="tab"><a {% if profile %} class="active" {% endif %} href="{{ url_for('profile', user=session.user) }}">My Recipes</a></li>
+                                <li class="tab"><a {% if browse %} class="active" {% endif %} href="{{ url_for('browse') }}">Browse All</a></li>
+                                <li class="tab"><a {% if search_page %} class="active" {% endif %} href="{{ url_for('search') }}">Search</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+            </section>
             <section>
                 {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
-                <div class="container center-align">
-                    <h4>{{ message }}</h4>
-                </div>
+                    <div class="container center-align">
+                        <h4>{{ message }}</h4>
+                    </div>
                 {% endfor %} {% endif %} {% endwith %}
             </section>
-            {% block content %}
-            {% endblock %}
+            {% block content %} {% endblock %}
         </main>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
