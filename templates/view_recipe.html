@@ -58,8 +58,8 @@
                     </ul>
                 </div>
                 <div class="col s11 m5">
-                    <ol>
-                        <h5>Method</h5>
+                    <h5>Method</h5>
+                    <ol>                        
                         {% for step in method_steps %}
                         <li>{{ recipe.method[step] }}</li>
                         {% endfor %}
@@ -100,7 +100,6 @@
         <a href="{{ url_for('index') }}" class="btn-large waves-effect waves-light btn-colour">Back</a>
         <a href="{{ url_for('add_user') }}" class="btn-large waves-effect waves-light btn-colour">Register</a>
         {% endif %}
-        </div>
     </div>
 <br>
 <br>
