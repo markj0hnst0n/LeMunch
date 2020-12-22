@@ -38,7 +38,7 @@ def index():
         db_user = user_collection.find_one({"username": session['user']})
         if db_user:
             return redirect(url_for('profile', user=db_user['username']))
-    all_recipes = list(recipe_collection.find().sort("likes", -1))
+    all_recipes = list(recipe_collection.find().sort("likes", -1).limit(3))
     return render_template("index.html", all_recipes=all_recipes)
 
 
@@ -108,6 +108,7 @@ def add_user():
 @app.route('/profile/<user>', methods=["GET", "POST"])
 def profile(user):
     username = user_collection.find_one({"username": user})
+    profile = 1
     my_recipes = list(recipe_collection.find({"user": user})
                       .sort("datetime", -1))
     recipe_count = len(my_recipes)
@@ -115,7 +116,8 @@ def profile(user):
         return render_template('profile.html',
                                user=username,
                                my_recipes=my_recipes,
-                               recipe_count=recipe_count)
+                               recipe_count=recipe_count,
+                               profile=profile)
     return redirect(url_for('signin'))
 
 
@@ -250,11 +252,39 @@ def search():
             return render_template('search.html',
                                    user=user,
                                    search_page=search_page)
+        flash("Search successful!")
         return render_template('search.html', all_recipes=all_recipes,
                                user=user,
                                search_page=search_page)
     return render_template('search.html', user=user, search_page=search_page)
 
+
+"""
+@app.route('/search', methods=["GET"])
+def search():
+    user = user_collection.find_one({"username": session["user"]})
+    query = request.form.get("query")
+    search_page = 1
+    if query:
+        all_recipes = list(recipe_collection.find({"$text":
+                           {"$search": query}}).sort("datetime", -1))
+        if len(all_recipes) == 0:
+            flash("No recipes found, please search again")
+            return render_template('search.html',
+                                    user=user,
+                                    all_recipes=all_recipes,
+                                    search_page=search_page)
+        return render_template('search.html',
+                                user=user,
+                                all_recipes=all_recipes,
+                                search_page=search_page)
+    else:
+        all_recipes = []
+        return render_template("search.html",
+                            user=user,
+                            all_recipes=all_recipes,
+                            search_page=search_page)
+"""
 
 @app.route('/view_recipe/<recipe_id>')
 def view_recipe(recipe_id): 

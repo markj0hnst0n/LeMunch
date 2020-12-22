@@ -4,10 +4,11 @@
 
 <div class="container">
     <div class="row">
+        <p class="flow-text center-align">Use the search form below to look for your favourite recipe{% if all_recipes %} if you still haven't found the recipe you want{% endif %}</p>
         <div class="col s12 card-panel">
             <form action="{{ url_for('search') }}" method="POST">
                 <div class="row">
-                    <div class="input-field col s12 m8">
+                    <div class="input-field col s12">
                         <input type="text" name="query" id="query" minlength="3" class="validate" required /><input class="btn-small btn-colour" type="submit" value="Submit" />
                         <label for="query">Search Recipes</label>
                     </div>
@@ -18,7 +19,6 @@
 </div>
 
 {% for recipe in all_recipes %}
-
 <div class="container">
     <div class="row">
         <div class="col s12 center-align">
@@ -87,5 +87,6 @@
 </div>
 
 {% endfor %}
-
+<br>
+<br>
 {% endblock %}

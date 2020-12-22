@@ -5,9 +5,10 @@
 
 
 <div class="container">
-<a href="{{ url_for('add_recipe') }}" class="btn-floating btn-large nav-colour tooltipped" data-position="right" data-tooltip="Add a new recipe!">
-    <i class="material-icons">add</i>
-</a>
+    <p class="flow-text center-align">Below you can browse through all the recipes on our website in order of upload.  You can still use the upload button on the left to upload a new recipe yourself!</p>
+        <a href="{{ url_for('add_recipe') }}" class="btn-floating btn-large nav-colour tooltipped" data-position="right" data-tooltip="Add a new recipe!">
+            <i class="material-icons">add</i>
+        </a>
 </div>
 
 {% for recipe in all_recipes %}
@@ -80,5 +81,6 @@
 </div>
 
 {% endfor %}
-
+<br>
+<br>
 {% endblock %}

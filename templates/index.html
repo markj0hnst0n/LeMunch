@@ -2,14 +2,50 @@
 
 {% block content %}
 <div class="container center-align">
+    <section>
     <div class="row">
         <div class="col s12">
-            <h1>Welcome to Le Munch</h1>
-            <div >
+            <h1 class="title-font">Welcome to Le Munch</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
             <p class="flow-text">
-                This is you one stop shop for recipes.  Add your own recipes and access them via our user friendly app.  Below you can see examples of the most popular recipes on our site!
+                This is you one stop shop for recipes.  Add your own recipes to your cookbook and access them via our user friendly app or use our interface to search/browse recipes for ideas for what to cook.
             </p>
-            </div>
+        </div>
+    </div>
+    </section>
+    <section>
+        <div class="divider divider-colour"></div>
+        <br>
+        <br>        
+                <div class="row">
+                    <div class="col s12 m4">
+                        <i class="material-icons large">local_dining</i>
+                        <p class="flow-text">Share your food with the world and keep an hand reference for yourself</p>
+                    </div>
+                    <div class="col s12 m4">
+                        <i class="material-icons large">mood</i>
+                        <p class="flow-text">Like your favourite recipes and find our which recipes are most popular</p>
+                    </div>
+                    <div class="col s12 m4">
+                        <i class="material-icons large">settings</i>
+                        <p class="flow-text">Update your recipes over time, browse and search for your favourites</p>
+                    </div>
+                </div>
+        <br>
+        <br>
+        <div class="divider divider-colour"></div>
+    </section>
+    <section>
+        <br>
+        <br>
+    <div class="row">
+        <div class="col s12">
+            <h3>
+                Below you can see examples of the most popular recipes on our site!
+            </h3>
         </div>
     </div>
     {% for recipe in all_recipes %}
@@ -77,7 +113,12 @@
             </div>
         </div>
     </div>
-
+    <br>
+    <br>
 {% endfor %}
+    <a href="{{ url_for('add_user') }}" class="btn-large waves-effect waves-light btn-colour">Register</a>    
+    <br>
+    <br>
+    </section>
 </div>
 {% endblock %}

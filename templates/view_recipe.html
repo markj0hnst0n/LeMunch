@@ -89,7 +89,7 @@
                 </li>
                 {% endif %}
                 <li>
-                    <a href="{{ url_for('like_recipe', recipe_id=recipe._id) }}" class="btn-floating waves-effect waves-light btn-colour tooltipped" data-position="left" data-tooltip="Like this recipe">
+                    <a href="{{ url_for('like_recipe', recipe_id=recipe._id) }}" class="btn-floating waves-effect waves-light btn-colour tooltipped" data-position="left" data-tooltip="Like/unlike this recipe">
                         <i class="material-icons">thumb_up</i>
                     </a>
                 </li>
@@ -97,10 +97,12 @@
         </div>
         {% else %}
         <div class="center-align">
-        <a href="{{ url_for('index') }}" class="btn-large waves-effect waves-light btn-colour remove_field">Back</a>
+        <a href="{{ url_for('index') }}" class="btn-large waves-effect waves-light btn-colour">Back</a>
+        <a href="{{ url_for('add_user') }}" class="btn-large waves-effect waves-light btn-colour">Register</a>
         {% endif %}
         </div>
     </div>
 </section>
-
+<br>
+<br>
 {% endblock %}
