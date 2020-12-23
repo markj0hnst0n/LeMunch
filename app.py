@@ -362,6 +362,15 @@ def like_recipe(recipe_id):
                         recipe_user=recipe['user']))
 
 
+@app.route('/contact', methods=["GET", "POST"])
+def contact():
+    if 'user' in session:
+        db_user = user_collection.find_one({"username": session['user']})
+        if db_user:
+            return render_template('contact.html', user=db_user['username'])
+    return render_template('contact.html')
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
