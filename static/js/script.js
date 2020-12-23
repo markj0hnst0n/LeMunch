@@ -37,4 +37,7 @@ $(document).ready(function () {
 	$(method_fields_wrapper).on("click",".remove_field", function(e){ //user click on remove method step
 		e.preventDefault(); $(this).parent('div').remove(); method_step_count--;
     })
+
+    const date_sort = $("#date_sort");
+    
 });

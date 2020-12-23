@@ -4,11 +4,22 @@
 
 <section>
     <div class="container">
-        <p class="flow-text center-align">Below you can browse through all the recipes on our website in order of upload. You can still use the upload button on the left to upload a new recipe yourself!</p>
-        <a href="{{ url_for('add_recipe') }}" class="btn-floating btn-large nav-colour tooltipped" data-position="right" data-tooltip="Add a new recipe!">
-            <i class="material-icons">add</i>
-        </a>
-    </div>
+        <div class="row">
+            <p class="flow-text center-align">Below you can browse through all the recipes on our site. You can still use the upload button on the left to upload a new recipe yourself!</p>
+        </div>
+        <div class="row">
+            <div class="col s12 m6">
+                <a href="{{ url_for('add_recipe') }}" class="btn-floating btn-large nav-colour tooltipped" data-position="right" data-tooltip="Add a new recipe!">
+                    <i class="material-icons">add</i>
+                </a>
+            </div>
+            <div class="col s12 m6">
+                <p>Sort by:</p>
+                <a class="waves-effect waves-light btn-small" href="{{ url_for('browse_date') }}">Date</a>
+                <a class="waves-effect waves-light btn-small" href="{{ url_for('browse_like') }}">Likes</a>
+            </div>
+        </div>
+    </div>    
 </section>
 
 <section>
@@ -45,11 +56,6 @@
                         <div class="card-action left-align">
                             <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">View Recipe</a>
                         </div>
-                        {% if recipe.user == session.user %}
-                            <div class="card-action left-align">
-                                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a>
-                            </div>
-                        {% endif %}
                     </div>
                     <div class="hide-on-med-and-up col s12 m6 left-align">
                         <div class="card-content">
@@ -70,16 +76,13 @@
                         <div class="card-action center-align">
                             <a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">View Recipe</a>
                         </div>
-                        {% if recipe.user == session.user %}
-                            <div class="card-action center-align">
-                                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete Recipe</a>
-                            </div>
-                        {% endif %}
                     </div>
                 </div>
             </div>
         </div>
+    
     {% endfor %}
+    
     <br />
     <br />
 </section>

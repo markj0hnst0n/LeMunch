@@ -229,14 +229,27 @@ def delete_recipe(recipe_id):
     return redirect(url_for('profile', user=session["user"]))
 
 
-@app.route('/browse')
-def browse():
+@app.route('/browse_date')
+def browse_date():
     browse = 1
+    browse_date = 1
     user = user_collection.find_one({"username": session["user"]})
     all_recipes = list(recipe_collection.find().sort("datetime", -1))
     return render_template('browse.html', all_recipes=all_recipes,
                            user=user,
-                           browse=browse)
+                           browse=browse,
+                           browse_date=browse_date)
+
+@app.route('/browse_like')
+def browse_like():
+    browse = 1    
+    browse_like = 1
+    user = user_collection.find_one({"username": session["user"]})
+    all_recipes = list(recipe_collection.find().sort("likes", -1))
+    return render_template('browse.html', all_recipes=all_recipes,
+                           user=user,
+                           browse=browse,
+                           browse_date=browse_like)
 
 
 @app.route('/search', methods=["GET", "POST"])
@@ -265,25 +278,26 @@ def search():
     user = user_collection.find_one({"username": session["user"]})
     query = request.form.get("query")
     search_page = 1
-    if query:
-        all_recipes = list(recipe_collection.find({"$text":
-                           {"$search": query}}).sort("datetime", -1))
-        if len(all_recipes) == 0:
-            flash("No recipes found, please search again")
+    if request.method == "GET":
+        if query:
+            all_recipes = list(recipe_collection.find({"$text":
+                            {"$search": query}}).sort("datetime", -1))
+            if len(all_recipes) == 0:
+                flash("No recipes found, please search again")
+                return render_template('search.html',
+                                        user=user,
+                                        all_recipes=all_recipes,
+                                        search_page=search_page)
             return render_template('search.html',
                                     user=user,
                                     all_recipes=all_recipes,
                                     search_page=search_page)
-        return render_template('search.html',
+        else:
+            all_recipes = []
+            return render_template("search.html",
                                 user=user,
                                 all_recipes=all_recipes,
                                 search_page=search_page)
-    else:
-        all_recipes = []
-        return render_template("search.html",
-                            user=user,
-                            all_recipes=all_recipes,
-                            search_page=search_page)
 """
 
 @app.route('/view_recipe/<recipe_id>')
