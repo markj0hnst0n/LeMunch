@@ -191,9 +191,13 @@ adding input fields dynamically using jquery
 
 https://www.sanwebe.com/2013/03/addremove-input-fields-dynamically-with-jquery
 
-user login
+flask mail
 
-https://github.com/MiroslavSvec/DCD_lead
+https://pythonhosted.org/Flask-Mail/
+
+debugging contact emails
+
+https://stackabuse.com/how-to-send-emails-with-gmail-using-python/
 
 ## Acknowledgements
 
