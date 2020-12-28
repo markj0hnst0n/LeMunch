@@ -9,6 +9,7 @@ from flask import (
     request,
     session,
     url_for)
+from flask_mail import Mail,  Message
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -19,9 +20,16 @@ if path.exists("env.py"):
 app = Flask(__name__)
 
 app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
+app.config['MAIL_SERVER'] = os.environ.get('MAIL_SERVER')
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USE_TLS'] = True
 app.secret_key = os.environ.get('SECRET_KEY')
 
 mongo = PyMongo(app)
+mail = Mail(app)
 
 # Collections
 
@@ -364,6 +372,15 @@ def like_recipe(recipe_id):
 
 @app.route('/contact', methods=["GET", "POST"])
 def contact():
+    if request.method == 'POST':
+        recipient = os.environ.get('MAIL_USERNAME')
+        msg1 = Message(sender=request.form['email'],
+                      recipients=[recipient])
+        msg1.body = request.form['query']
+        mail.send(msg1)
+        flash("Contact form received")
+        return redirect ('index')
+
     if 'user' in session:
         db_user = user_collection.find_one({"username": session['user']})
         if db_user:
