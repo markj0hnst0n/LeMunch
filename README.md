@@ -199,6 +199,10 @@ debugging contact emails
 
 https://stackabuse.com/how-to-send-emails-with-gmail-using-python/
 
+Preloader using javascript and css
+
+https://www.kingsubash.com/simple-page-preloader-with-css-and-javascript
+
 ## Acknowledgements
 
 Thanks to the following people for making the project happen:
