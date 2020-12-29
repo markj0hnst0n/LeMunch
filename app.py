@@ -248,9 +248,10 @@ def browse_date():
                            browse=browse,
                            browse_date=browse_date)
 
+
 @app.route('/browse_like')
 def browse_like():
-    browse = 1    
+    browse = 1
     browse_like = 1
     user = user_collection.find_one({"username": session["user"]})
     all_recipes = list(recipe_collection.find().sort("likes", -1))
@@ -308,22 +309,26 @@ def search():
                                 search_page=search_page)
 """
 
+
 @app.route('/view_recipe/<recipe_id>')
-def view_recipe(recipe_id): 
+def view_recipe(recipe_id):
     if 'user' in session:
             user = user_collection.find_one({"username": session["user"]})
             recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
             ingredients = range(0, len(recipe['ingredients']))
             method_steps = range(0, len(recipe['method']))
             return render_template('view_recipe.html', recipe=recipe,
-                                ingredients=ingredients, method_steps=method_steps, user=user,
-                                recipe_user=recipe['user'])
+                                   ingredients=ingredients,
+                                   method_steps=method_steps,
+                                   user=user,
+                                   recipe_user=recipe['user'])
     else:
         recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
         ingredients = range(0, len(recipe['ingredients']))
         method_steps = range(0, len(recipe['method']))
         return render_template('view_recipe.html', recipe=recipe,
-                                ingredients=ingredients, method_steps=method_steps)
+                               ingredients=ingredients,
+                               method_steps=method_steps)
 
 
 @app.route('/like_recipe/<recipe_id>')
@@ -374,13 +379,16 @@ def like_recipe(recipe_id):
 def contact():
     if request.method == 'POST':
         recipient = os.environ.get('MAIL_USERNAME')
-        msg1 = Message(sender=request.form['email'],
-                      recipients=[recipient])
-        msg1.body = request.form['query']
+        email = request.form['email']
+        query = request.form['query']
+        name = request.form['name']
+        msg1 = Message(subject="Contact Form Query",
+                       sender=request.form['email'],
+                       recipients=[recipient])
+        msg1.body = f'Name: {name}.  Query: {query}.  Email: {email}.'
         mail.send(msg1)
         flash("Contact form received")
-        return redirect ('index')
-
+        return redirect('index')
     if 'user' in session:
         db_user = user_collection.find_one({"username": session['user']})
         if db_user:
