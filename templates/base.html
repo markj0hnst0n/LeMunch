@@ -7,6 +7,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Roboto:wght@500&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
         <title>Le Munch - Recipe Ideas!</title>
@@ -116,10 +117,23 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
         <script src="{{ url_for('static', filename='js/script.js') }}"></script>
         <footer class="page-footer nav-colour">
+            <div class="container">
+                <div class="row center-align">
+                    <div class="col s4">
+                        <a class="grey-text text-lighten-3" href="#!"><i class="fab fa-facebook fa-2x"></i></a>
+                    </div>
+                    <div class="col s4">
+                        <a class="grey-text text-lighten-3" href="#!"><i class="fab fa-instagram fa-2x"></i></a>
+                    </div>
+                    <div class="col s4">
+                        <a class="grey-text text-lighten-3" href="#!"><i class="fab fa-twitter fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
             <div class="footer-copyright">
                 <div class="container">
-                    © 2020 Copyright Mark Johnston
-                    <a class="grey-text text-lighten-4 right" href="{{ url_for('contact', user=session.user) }}">Contact us!</a>
+                    © 2020 Copyright Mark Johnston.
+                    <a class="grey-text text-lighten-4 right" href="{{ url_for('contact', user=session.user) }}">Contact us!</a> <br>
                 </div>
             </div>
         </footer>
