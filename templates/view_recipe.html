@@ -89,7 +89,7 @@
                 </li>
                 {% endif %}
                 <li>
-                    <a href="{{ url_for('like_recipe', recipe_id=recipe._id) }}" class="btn-floating waves-effect waves-light btn-colour tooltipped" data-position="left" data-tooltip="Like/unlike this recipe">
+                    <a href="{{ url_for('like_recipe', recipe_id=recipe._id) }}" class="btn-floating waves-effect waves-light btn-colour tooltipped {% if user_like %} blue {% endif %}" data-position="left" data-tooltip="Like/unlike this recipe">
                         <i class="material-icons">thumb_up</i>
                     </a>
                 </li>

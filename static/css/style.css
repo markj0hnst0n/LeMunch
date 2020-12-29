@@ -66,3 +66,8 @@ body {
 .divider-colour{
     background-color: #545677;
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+}

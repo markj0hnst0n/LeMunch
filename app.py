@@ -258,7 +258,7 @@ def browse_like():
     return render_template('browse.html', all_recipes=all_recipes,
                            user=user,
                            browse=browse,
-                           browse_date=browse_like)
+                           browse_like=browse_like)
 
 
 @app.route('/search', methods=["GET", "POST"])
@@ -312,20 +312,24 @@ def search():
 
 @app.route('/view_recipe/<recipe_id>')
 def view_recipe(recipe_id):
+    recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
+    ingredients = range(0, len(recipe['ingredients']))
+    method_steps = range(0, len(recipe['method']))
+    user_like = likes_collection.find_one(
+        {
+            "username": session["user"],
+            "recipe_id": recipe["_id"]
+        }
+    )
     if 'user' in session:
-            user = user_collection.find_one({"username": session["user"]})
-            recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
-            ingredients = range(0, len(recipe['ingredients']))
-            method_steps = range(0, len(recipe['method']))
-            return render_template('view_recipe.html', recipe=recipe,
-                                   ingredients=ingredients,
-                                   method_steps=method_steps,
-                                   user=user,
-                                   recipe_user=recipe['user'])
+        user = user_collection.find_one({"username": session["user"]})
+        return render_template('view_recipe.html', recipe=recipe,
+                               ingredients=ingredients,
+                               method_steps=method_steps,
+                               user=user,
+                               user_like=user_like,
+                               recipe_user=recipe['user'])
     else:
-        recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
-        ingredients = range(0, len(recipe['ingredients']))
-        method_steps = range(0, len(recipe['method']))
         return render_template('view_recipe.html', recipe=recipe,
                                ingredients=ingredients,
                                method_steps=method_steps)
