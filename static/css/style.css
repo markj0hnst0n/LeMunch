@@ -8,6 +8,11 @@ body {
     flex: 1 0 auto;
   }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .nav-colour{    
     background-color: #545677;
 }
@@ -65,9 +70,4 @@ body {
 
 .divider-colour{
     background-color: #545677;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
 }
