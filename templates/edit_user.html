@@ -9,36 +9,14 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">face</i>
-                    <input id="username" name="username" value="{{ user.username }}" type="text" class="validate" />
+                    <input id="username" name="username" value="{{ user.username }}" type="text" class="validate" minlength="5" maxlength="20" required/>
                     <label for="username">Username</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix">camera_alt</i>
-                    <input id="picture" name="picture" value="{{ user.picture }}" type="text" class="validate" />
-                    <label for="picture">Picture</label>
-                </div>
-            </div>
-            <div class="row">
-                <div>
-                    <p class="upload-style">
-                        Upload your image <a class="body-colour here" href="https://postimages.org/" target="_blank">here</a>. Please use the 320x240 size with no expiration. Once uploaded copy and paste the direct link with a .jpg file
-                        extension into the above field.
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">edit</i>
-                    <input id="bio" name="bio" value="{{ user.bio }}" type="text" class="validate" />
-                    <label for="bio">Bio</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
                     <i class="material-icons prefix">email</i>
-                    <input id="email" name="email" value="{{ user.email }}" type="email" class="validate" />
+                    <input id="email" name="email" value="{{ user.email }}" type="email" class="validate" required/>
                     <label for="email">E-mail</label>
                 </div>
             </div>

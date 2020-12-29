@@ -92,8 +92,6 @@ def add_user():
                 user_collection.insert_one(
                     {
                         'username': form['username'],
-                        'picture': form['picture'],
-                        'bio': form['bio'],
                         'email': form['email'],
                         'password': generate_password_hash(form['password'])
                     }
@@ -135,8 +133,6 @@ def edit_user(user_id):
         if request.form.get("password") == request.form.get("password1"):
             edit = {"$set": {
                     "username": request.form.get("username"),
-                    "picture": request.form.get("picture"),
-                    "bio": request.form.get("bio"),
                     "email": request.form.get("email")
                     }}
         user_collection.update({"_id": ObjectId(user_id)}, edit)

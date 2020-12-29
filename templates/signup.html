@@ -10,38 +10,22 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">face</i>
-                        <input id="username" name="username" type="text" class="validate" />
+                        <input id="username" name="username" type="text" minlength="5" maxlength="20" class="validate" required/>
                         <label for="username">Username</label>
                     </div>
                     <div class="input-field col s12">
-                        <i class="material-icons prefix">camera_alt</i>
-                        <input id="picture" name="picture" type="text" class="validate" />
-                        <label for="picture">Picture</label>
-                    </div>
-                    <div>
-                        <p class="upload-style">
-                            Upload your image <a class="body-colour here" href="https://postimages.org/" target="_blank">here</a>. Please use the 320x240 size with no expiration. Once uploaded copy and paste the direct link with a .jpg file
-                            extension into the above field.
-                        </p>
-                    </div>
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">edit</i>
-                        <input id="bio" name="bio" type="text" class="validate" />
-                        <label for="bio">Bio</label>
-                    </div>
-                    <div class="input-field col s12">
                         <i class="material-icons prefix">email</i>
-                        <input id="email" name="email" type="email" class="validate" />
+                        <input id="email" name="email" type="email" class="validate" required/>
                         <label for="email">E-mail</label>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">settings</i>
-                        <input id="password" name="password" type="password" class="validate" />
+                        <input id="password" name="password" type="password" minlength="5" maxlength="20 class="validate" required/>
                         <label for="password">Password</label>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">settings</i>
-                        <input id="password1" name="password1" type="password" class="validate" />
+                        <input id="password1" name="password1" type="password" minlength="5" maxlength="20 class="validate" required/>
                         <label for="password1">Confirm Password</label>
                     </div>
                 </div>
