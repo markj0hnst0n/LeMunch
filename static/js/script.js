@@ -1,3 +1,5 @@
+window.onload = function(){ document.querySelector(".preloader").style.display = "none"; }
+
 $(document).ready(function () {
     /*
     jQuery code to initalize some of the js funtionality in Materialize framework
