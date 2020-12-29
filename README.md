@@ -110,6 +110,10 @@ for the structure of the website
 [CSS 3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets#CSS_3)
 for the look of the website
 
+[Materialize](https://materializecss.com/) website framework with html, css and javascript.
+
+[Fontawesome](https://fontawesome.com/) for icons.
+
 [Javascript](https://en.wikipedia.org/wiki/JavaScript)
 for the logic of the game.  To manipulate the HTML and CSS on the screen.
 
