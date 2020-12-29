@@ -19,4 +19,5 @@
 | Add ingredient and remove ingredient buttons weren't working on edit recipe screen | had a class name wrong so the javascript function wasn't calling correctly
 | When like/unlike button is clicked by user it continues to decrement below zero | The likes database was not being called accurately with both user data and recipe data resulting in errors
 | Browse, view recipe and profile pages did not display recipe information in a user friendly manner on all devices | refactored code and simplfied
-| side nav in all pages which display has been moved while putting splash page in.  It does not show correctly at the side of the page as it should.  It is currently in 1 line at the top | changed div row and column structure until I got the layout i was looking for
+| Side nav in all pages which display has been moved while putting splash page in.  It does not show correctly at the side of the page as it should.  It is currently in 1 line at the top | changed div row and column structure until I got the layout i was looking for
+| Emails not working correctly when contact form was submitted | Had to allow gmail to use less secure apps and enable 'display unlock captcha' in settings
