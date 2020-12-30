@@ -8,7 +8,7 @@ Le Munch is here to help you decide what to have for your next meal!  You can up
 search and browse through other users recipes to give you ideas of what to cook.  Develop your love of food by deep diving on food pics and 
 connecting with other users through the recipes they've uploaded.
 
-To go to the live site click [here](#)
+To go to the live site click [here](http://le-munch-flask-markjohnston.herokuapp.com/)
 
 
 # UX
