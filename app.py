@@ -379,11 +379,12 @@ def like_recipe(recipe_id):
 def contact():
     if request.method == 'POST':
         recipient = os.environ.get('RECIPIENT')
+        sender = os.environ.get('SENDER')
         email = request.form['email']
         query = request.form['query']
         name = request.form['name']
-        msg1 = Message(subject="Contact Form Query",
-                       sender=request.form['email'],
+        msg1 = Message(subject="User Query",
+                       sender=('Le Munch Contact Form', sender),
                        recipients=[recipient])
         msg1.body = f'Name: {name}.  Query: {query}.  Email: {email}.'
         mail.send(msg1)

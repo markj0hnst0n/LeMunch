@@ -1,17 +1,38 @@
+/*
+Flexbox styles from materialize
+*/
+
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
   }
 
-  main {
+main {
     flex: 1 0 auto;
   }
+
+/*
+Style to makes images responsive
+*/
 
 img {
     max-width: 100%;
     height: auto;
 }
+
+/*
+Sets main colour scheme
+*/
+
+.body-colour{
+    color: #3E796A;
+    background-color: #E9D2F4;
+}
+
+/*
+Top Navbar styles
+*/
 
 .nav-colour{    
     background-color: #545677;
@@ -25,11 +46,9 @@ img {
     font-family: Roboto;
 }
 
-
-.body-colour{
-    color: #3E796A;
-    background-color: #E9D2F4;
-}
+/*
+Top Navbar styles
+*/
 
 .upload-style {
     margin-left: 3.7rem;
@@ -43,6 +62,10 @@ img {
     color: #AFCBFF;
 }
 
+/*
+Custom styling for side navbar
+*/
+
 .side-list{
     color: #3E796A;
     line-height: 48px;
@@ -54,23 +77,9 @@ img {
     background-color: #E7CEF3;
 }
 
-.absolute {
-    position: absolute;
-}
-
-.relative {
-    position: relative;
-}
-
-.intro-text{
-    color: #3E796A;
-    font-family: Noto Sans JP;
-    font-size: 16px;
-}
-
-.divider-colour{
-    background-color: #545677;
-}
+/*
+Preloader styling
+*/
 
 .preloader
 {
@@ -82,4 +91,21 @@ height: 100vh;
 background: #E9D2F4;
 z-index: 9999;
 text-align: center;
+}
+
+/*
+Miscellaneous styles
+*/
+
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
+}
+
+
+.divider-colour{
+    background-color: #545677;
 }
