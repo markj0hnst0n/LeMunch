@@ -378,7 +378,7 @@ def like_recipe(recipe_id):
 @app.route('/contact', methods=["GET", "POST"])
 def contact():
     if request.method == 'POST':
-        recipient = os.environ.get('MAIL_USERNAME')
+        recipient = os.environ.get('RECIPIENT')
         email = request.form['email']
         query = request.form['query']
         name = request.form['name']
