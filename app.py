@@ -310,7 +310,7 @@ def search():
 def view_recipe(recipe_id):
     recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
     ingredients = range(0, len(recipe['ingredients']))
-    method_steps = range(0, len(recipe['method']))    
+    method_steps = range(0, len(recipe['method']))
     if 'user' in session:
         user_like = likes_collection.find_one(
             {
