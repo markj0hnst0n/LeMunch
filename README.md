@@ -149,6 +149,9 @@ for creating Wireframes for initial visual development
 
 [Google Chrome Development Tools](https://developers.google.com/web/tools/chrome-devtools) for testing code on various device sizes during development and debugging.
 
+[Amazon Web Services](https://aws.amazon.com/)
+Simple Email Service for STMP mail server
+
 [Troy](http://troy.labs.daum.net/) to test website on different device types and sizes
 
 [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) for testing code health, accessibility, speed and search engine optimisation

@@ -49,7 +49,7 @@
                     </div>
             </div>
             <div class="row center-align">
-                <div class="col s11 offset-s1 m6">
+                <div class="col s12 m6 center-align">
                     <h5>Ingredients</h5>
                     <ul>
                         {% for ingredient in ingredients %}
@@ -57,13 +57,13 @@
                         {% endfor %}
                     </ul>
                 </div>
-                <div class="col s11 m5">
+                <div class="col s12 m6 center-align">
                     <h5>Method</h5>
-                    <ol>                        
+                    <ul>                        
                         {% for step in method_steps %}
                         <li>{{ recipe.method[step] }}</li>
                         {% endfor %}
-                    </ol>
+                    </ul>
                 </div>
             </div>
         </div>
