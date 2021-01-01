@@ -43,7 +43,11 @@
                         <div class="card-content">
                             <h6>This recipe has been liked {{ recipe.likes }} times</h6>
                         </div>
-                        {% if user_like %} <h6>Hi</h6> {% endif %}
+                        {% if user_like %}
+                        <div class="card-content">
+                            <h6>You like this recipe</h6>
+                        </div>
+                        {% endif %}
                         <div class="card-content">
                             <h6>Created by: {{ recipe.user|title }}</h6>
                         </div>
