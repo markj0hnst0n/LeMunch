@@ -50,7 +50,7 @@
                 </p>
             </div>
             <div class="row">
-                <div class="input-field col s12 ingredient_fields_wrapper">
+                <div id="ingredient_fields_wrapper" class="input-field col s12 ingredient_fields_wrapper">
                     {% for ingredient in ingredients %}                    
                     {% if ingredient == 0 %}
                     <div>
@@ -68,10 +68,10 @@
                     {% endif %}
                     {% endfor %}
                 </div>
-                <button class="btn-small waves-effect waves-light btn-colour add_ingredient_button">Add Ingredient</button>
+                <button id="add_ingredient_button" class="btn-small waves-effect waves-light btn-colour add_ingredient_button">Add Ingredient</button>
             </div>
             <div class="row">
-                <div class="input-field col s12 method_fields_wrapper">
+                <div id="method_fields_wrapper" class="input-field col s12 method_fields_wrapper">
                     {% for step in method_steps %}
                     {% if step == 0 %}
                     <div>
@@ -90,7 +90,7 @@
                     {% endfor %}
                 </div>
                 <div class="btn-border">
-                <button class="btn-small waves-effect waves-light btn-colour add_method_step_button">Add Step</button>
+                <button id="add_method_step_button" class="btn-small waves-effect waves-light btn-colour add_method_step_button">Add Step</button>
                 </div>
             </div>
             <div class="row">

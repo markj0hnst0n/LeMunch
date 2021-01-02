@@ -1,4 +1,4 @@
-window.onload = function(){ document.querySelector(".preloader").style.display = "none"; }
+window.onload = function(){ document.querySelector("#preloader").style.display = "none"; }
 
 $(document).ready(function () {
     /*
@@ -48,10 +48,10 @@ $(document).ready(function () {
     */
 
     const max_fields      = 10; //maximum input boxes allowed
-    const ingredient_wrapper   		= $(".ingredient_fields_wrapper"); // Ingredients fields wrapper
-    const method_fields_wrapper   		= $(".method_fields_wrapper"); // Method fields wrapper
-    const add_ingredient_button      = $(".add_ingredient_button"); //Add ingredient ID
-    const add_method_step_button      = $(".add_method_step_button"); //Add step to method ID
+    const ingredient_wrapper   		= $("#ingredient_fields_wrapper"); // Ingredients fields wrapper
+    const method_fields_wrapper   		= $("#method_fields_wrapper"); // Method fields wrapper
+    const add_ingredient_button      = $("#add_ingredient_button"); //Add ingredient ID
+    const add_method_step_button      = $("#add_method_step_button"); //Add step to method ID
     let ingredient_count = 1; //initial ingredient count
     let method_step_count = 1; //initial method step count
 	
