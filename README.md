@@ -210,6 +210,10 @@ Preloader using javascript and css
 
 https://www.kingsubash.com/simple-page-preloader-with-css-and-javascript
 
+Converting an array to lowercase
+
+https://stackoverflow.com/questions/1801668/convert-a-python-list-with-strings-all-to-lowercase-or-uppercase
+
 ## Acknowledgements
 
 Thanks to the following people for making the project happen:

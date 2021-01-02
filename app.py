@@ -43,7 +43,9 @@ likes_collection = mongo.db.likes
 @app.route('/index')
 def index():
     if 'user' in session:
-        db_user = user_collection.find_one({"username": session['user']})
+        db_user = user_collection.find_one(
+            {"username": session['user']}
+            )
         if db_user:
             return redirect(url_for('profile', user=db_user['username']))
     all_recipes = list(recipe_collection.find().sort("likes", -1).limit(3))
@@ -53,7 +55,9 @@ def index():
 @app.route('/signin', methods=['GET'])
 def signin():
     if 'user' in session:
-        db_user = user_collection.find_one({"username": session['user']})
+        db_user = user_collection.find_one(
+            {"username": session['user']}
+            )
         if db_user:
             return redirect(url_for('profile', user=db_user['username']))
     else:
@@ -63,10 +67,10 @@ def signin():
 @app.route('/login', methods=['POST'])
 def login():
     form = request.form.to_dict()
-    db_user = user_collection.find_one({"username": form['username']})
+    db_user = user_collection.find_one({"username": form['username'].lower()})
     if db_user:
         if check_password_hash(db_user['password'], form['password']):
-            session['user'] = form['username']
+            session['user'] = form['username'].lower()
             flash('Login successful')
             return redirect(url_for('profile', user=db_user['username']))
         else:
@@ -84,20 +88,22 @@ def add_user():
     if request.method == 'POST':
         form = request.form.to_dict()
         if form['password'] == form['password1']:
-            user = user_collection.find_one({"username": form['username']})
+            user = user_collection.find_one(
+                {"username": form['username'].lower()}
+                )
             if user:
                 flash(f"{form['username']} already exists")
                 return redirect(url_for('add_user'))
             else:
                 user_collection.insert_one(
                     {
-                        'username': form['username'],
+                        'username': form['username'].lower(),
                         'email': form['email'],
                         'password': generate_password_hash(form['password'])
                     }
                 )
                 db_user = user_collection.find_one(
-                    {"username": form['username']})
+                    {"username": form['username'].lower()})
                 if db_user:
                     session['user'] = db_user['username']
                     return redirect(url_for('profile',
@@ -132,7 +138,7 @@ def edit_user(user_id):
     if request.method == "POST":
         if request.form.get("password") == request.form.get("password1"):
             edit = {"$set": {
-                    "username": request.form.get("username"),
+                    "username": request.form.get("username").lower(),
                     "email": request.form.get("email")
                     }}
         user_collection.update({"_id": ObjectId(user_id)}, edit)
@@ -142,7 +148,7 @@ def edit_user(user_id):
                           .sort("datetime", -1))
         return redirect(url_for('profile', user=session["user"],
                         my_recipes=my_recipes))
-    user = user_collection.find_one({"username": session["user"]})
+    user = user_collection.find_one({"username": session["user"].lower()})
     return render_template('edit_user.html', user=user)
 
 
@@ -180,17 +186,23 @@ def logout():
 @app.route('/add_recipe', methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
+        method_steps = request.form.getlist("method")
+        method_lower = [item.lower() for item in method_steps]
+        ingredients = request.form.getlist("ingredients")
+        ingredients_lower = [item.lower() for item in ingredients]
+        regex = "([^\\s]+(\\.(?i)(jpe?g|png|gif|bmp))$)"
         recipe = {
-            "recipe_type": request.form.get("recipe_type"),
-            "name": request.form.get("recipe_name"),
-            "description": request.form.get("description"),
+            "recipe_type": request.form.get("recipe_type").lower(),
+            "name": request.form.get("recipe_name").lower(),
+            "description": request.form.get("description").lower(),
             "picture": request.form.get("recipe_image"),
-            "ingredients": request.form.getlist("ingredients"),
-            "method": request.form.getlist("method"),
+            "ingredients": ingredients_lower,
+            "method": method_lower,
             "user": session["user"],
             "datetime": datetime.datetime.now().timestamp(),
             "likes": 0
         }
+        print(recipe)
         recipe_collection.insert_one(recipe)
         flash("Recipe Added to Your Cookbook!")
         return redirect(url_for('profile', user=session["user"]))
@@ -205,13 +217,17 @@ def add_recipe():
 def edit_recipe(recipe_id):
     user = user_collection.find_one({"username": session["user"]})
     if request.method == "POST":
+        method_steps = request.form.getlist("method")
+        method_lower = [item.lower() for item in method_steps]
+        ingredients = request.form.getlist("ingredients")
+        ingredients_lower = [item.lower() for item in ingredients]
         edit = {"$set": {
-            "recipe_type": request.form.get("recipe_type"),
-            "name": request.form.get("recipe_name"),
-            "description": request.form.get("description"),
-            "picture": request.form.get("recipe_image"),
-            "ingredients": request.form.getlist("ingredients"),
-            "method": request.form.getlist("method"),
+            "recipe_type": request.form.get("recipe_type").lower(),
+            "name": request.form.get("recipe_name").lower(),
+            "description": request.form.get("description").lower(),
+            "picture": request.form.get("recipe_image").lower(),
+            "ingredients": ingredients_lower,
+            "method": method_lower,
             "user": session["user"],
         }}
         recipe_collection.update({"_id": ObjectId(recipe_id)}, edit)
@@ -264,7 +280,7 @@ def search():
     if request.method == "POST":
         query = request.form.get("query")
         all_recipes = list(recipe_collection.find({"$text":
-                           {"$search": query}}).sort("datetime", -1))
+                           {"$search": query.lower()}}).sort("datetime", -1))
         if len(all_recipes) == 0:
             flash("No recipes found, please search again")
             return render_template('search.html',
