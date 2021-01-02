@@ -27,6 +27,10 @@
                         <div class="card-content">
                             <h6>This recipe has been liked {{ recipe.likes }} times</h6>
                         </div>
+                        {% if user_like %}
+                        <div class="card-content">
+                            <h6>You like this recipe</h6>
+                        </div>
                         <div class="card-content">
                             <h6>Created by: {{ recipe.user|title }}</h6>
                         </div>
@@ -109,10 +113,10 @@
             </div>
         </div>
         {% else %}
-        <div class="center-align">
-        <a href="{{ url_for('index') }}" class="btn-large waves-effect waves-light btn-colour">Back</a>
-        <a href="{{ url_for('add_user') }}" class="btn-large waves-effect waves-light btn-colour">Register</a>
-        </div>
+            <div class="center-align">
+            <a href="{{ url_for('index') }}" class="btn-large waves-effect waves-light btn-colour">Back</a>
+            <a href="{{ url_for('add_user') }}" class="btn-large waves-effect waves-light btn-colour">Register</a>
+            </div>
         {% endif %}
     </div>
 <br>
