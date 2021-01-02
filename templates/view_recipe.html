@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col s12 center-align">
-                <h4 class="header">{{ recipe.name }}</h4>
+                <h4 class="header">{{ recipe.name|title }}</h4>
             </div>
         </div>
         <div class="card">
@@ -101,6 +101,8 @@
                 </li>
             </ul>
         </div>
+        <br>
+        <br>
         <div class="row">
             <div class="col s12 center-align">
                 <a href="{{ url_for('index', user=session.user) }}" class="btn waves-effect waves-light light-blue darken-2">Back<i class="material-icons right">cancel</i></a>
@@ -110,6 +112,7 @@
         <div class="center-align">
         <a href="{{ url_for('index') }}" class="btn-large waves-effect waves-light btn-colour">Back</a>
         <a href="{{ url_for('add_user') }}" class="btn-large waves-effect waves-light btn-colour">Register</a>
+        </div>
         {% endif %}
     </div>
 <br>
