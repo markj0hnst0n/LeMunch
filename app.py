@@ -190,7 +190,6 @@ def add_recipe():
         method_lower = [item.lower() for item in method_steps]
         ingredients = request.form.getlist("ingredients")
         ingredients_lower = [item.lower() for item in ingredients]
-        regex = "([^\\s]+(\\.(?i)(jpe?g|png|gif|bmp))$)"
         recipe = {
             "recipe_type": request.form.get("recipe_type").lower(),
             "name": request.form.get("recipe_name").lower(),
@@ -202,7 +201,6 @@ def add_recipe():
             "datetime": datetime.datetime.now().timestamp(),
             "likes": 0
         }
-        print(recipe)
         recipe_collection.insert_one(recipe)
         flash("Recipe Added to Your Cookbook!")
         return redirect(url_for('profile', user=session["user"]))
@@ -280,7 +278,7 @@ def search():
     if request.method == "POST":
         query = request.form.get("query")
         all_recipes = list(recipe_collection.find({"$text":
-                           {"$search": query.lower()}}).sort("datetime", -1))
+                           {"$search": query}}).sort("datetime", -1))
         if len(all_recipes) == 0:
             flash("No recipes found, please search again")
             return render_template('search.html',
