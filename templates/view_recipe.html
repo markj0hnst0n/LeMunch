@@ -13,7 +13,7 @@
             <div class="row center-align">
                     <div class="col s12 m6">
                         <div class="card-image">
-                            <img src="{{ recipe.picture }}" alt="{{ recipe.name }} {{ recipe.description }}" title="{{ recipe.name }}" />
+                            <img {% if recipe.picture == "" %} src="{{ url_for('static', filename='img/no_image_available.png') }}" {% else %} src="{{ recipe.picture }}" {% endif %} alt="{{ recipe.name }} {{ recipe.description }}" title="{{ recipe.name }}" />
                         </div>
                     </div>
                     <div class="col s12 m6 right-align hide-on-small-only">
