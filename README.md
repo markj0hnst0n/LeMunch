@@ -214,6 +214,10 @@ Converting an array to lowercase
 
 https://stackoverflow.com/questions/1801668/convert-a-python-list-with-strings-all-to-lowercase-or-uppercase
 
+Form Validation using pattern attribute in HTML
+
+https://www.w3schools.com/tags/att_input_pattern.asp
+
 ## Acknowledgements
 
 Thanks to the following people for making the project happen:
