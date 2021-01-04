@@ -411,6 +411,26 @@ def contact():
     return render_template('contact.html')
 
 
+@app.errorhandler(403)
+def page_not_found(error):
+    if 'user' in session:
+        return render_template('404.html', user=session["user"]), 403
+    return render_template('403.html'), 403
+
+
+@app.errorhandler(404)
+def forbidden(error):
+    if 'user' in session:
+        return render_template('404.html', user=session["user"]), 404
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_server(error):
+    if 'user' in session:
+        return render_template('500.html', user=session["user"]), 500
+    return render_template('500.html'), 500
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
