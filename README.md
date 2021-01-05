@@ -61,12 +61,16 @@ Basic wireframes for this project were created using Balsamiq and you can find a
 
 ## Colour Scheme
 
-![](readme/images/colour-scheme.png)
+![](readme/images/colour_scheme.png)
 
 I used the coolors site to generate a colour scheme based on a dark purple the base colour.  I liked that the deep colour matched the colour
 of an aubergine as it's a favourite vegetable of my wife and I.  Purple is also our daughter's favourite colour so it made sense to use it as a starting point.
 
 The green I used for text is dark to make it more readable against the pink background for visually impaired users.
+
+The orange used is to make link text more readable against the white background used for the recipe cards.
+
+Blue is used for the cancel buttons and some fo the buttons are a lighter green as accent colours.
 
 
 [Coolors](https://coolors.co/)
