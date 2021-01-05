@@ -1,3 +1,38 @@
+## Testing
+
+Manual testing was used to test navigation, responsiveness on different screen sizes and database operations (Create, Read, Update and Delete).
+
+### Responsiveness
+
+#### Desired Result
+
+All information from each page on the app should be viewable on all screen sizes from small mobile phone, to tablet sized devices up to very large monitor screens.
+
+#### Steps Taken to Ensure Result
+
+The Materialize grid system was used to ensure data displayed in a satisfactory manner on vaious screen sizes. CSS was used to make images responsive and create appropriate behavour
+within the 'card' element provided by materialize.
+
+On Chrome Developer Tools the following devices were emulated to check responsiveness:
+
+- Moto G4 (smallest phone screen width available)
+- Pixel XL
+- iPhone X
+- iPad
+
+
+These physical devices were also used for testing:
+
+- Macbook Pro 15-inch retina screen
+- HP e233 23-inch monitor
+- Samsung S10e
+- iPhone
+
+#### Verdict
+
+Le Munch adapts to all tested screen sizes and devices and displays as expected. :heavy_check_mark:
+
+
 ### Debugging information
 
 

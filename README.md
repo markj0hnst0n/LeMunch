@@ -61,7 +61,10 @@ Basic wireframes for this project were created using Balsamiq and you can find a
 
 ## Colour Scheme
 
-An explantion fof the colour scheme will go here.
+I used the coolors side to generate a colour scheme based on the base colour of purple.  I liked that the deep colour matched the colour
+of an aubergine as it's a favourite vegetable of my wife and I.  Purple is also our daughter's favourite colour so it made sense to use it.
+(*#545677 in hex)
+
 
 [Coolors](https://coolors.co/)
 

@@ -82,16 +82,22 @@
                         <div class="col s2 hide-on-med-and-down absolute">
                             <ul class="nav-column">
                                 <li>
+                                    <div class="valign-wrapper">
                                     <i class="material-icons">person</i>
                                     <a class="side-list" href="{{ url_for('change_password', user_id=user._id) }}">Change User Password</a>
+                                    </div>
                                 </li>
                                 <li class="side-list">
+                                    <div class="valign-wrapper">
                                     <i class="material-icons">settings</i>
                                     <a class="side-list" href="{{ url_for('edit_user', user_id=user._id) }}">Edit User Data</a>
+                                    </div>
                                 </li>
                                 <li class="side-list">
+                                    <div class="valign-wrapper">
                                     <i class="material-icons">exit_to_app</i>
                                     <a class="modal-trigger side-list" href="#logout_modal">Logout</a>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
