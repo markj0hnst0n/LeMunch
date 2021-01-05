@@ -102,7 +102,7 @@
                 </li>
                 {% endif %}
                 <li>
-                    <a href="{{ url_for('like_recipe', recipe_id=recipe._id) }}" class="btn-floating waves-effect waves-light tooltipped btn-colour {% if user_like %} teal lighten-1 {% endif %}" data-position="left" {% if user_like %}data-tooltip="Unlike this recipe" {% else %}data-tooltip="Like this recipe"{% endif %}>
+                    <a href="{{ url_for('like_recipe', recipe_id=recipe._id) }}" class="btn-floating waves-effect waves-light tooltipped btn-colour {% if user_like %} teal lighten-2 {% endif %}" data-position="left" {% if user_like %}data-tooltip="Unlike this recipe" {% else %}data-tooltip="Like this recipe"{% endif %}>
                         <i class="material-icons">thumb_up</i>
                     </a>
                 </li>

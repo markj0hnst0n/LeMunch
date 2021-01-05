@@ -106,12 +106,14 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 - Username and password inputs display and go red if not filled in as they are required :heavy_check_mark:
 - Submit button displays and clicking proceeds with log in :heavy_check_mark:
 - Invite to register for new users displays with 'here' changing colour on hover :heavy_check_mark:
+- If there are any issues the user is provided with feedback via a flash message
 
 #### Sign up (register) page (signup.html)
 
 - Header text displays :heavy_check_mark:
 - Username, email, password and confirm password inputs display and go red if not filled in as they are required :heavy_check_mark:
 - Submit button displays and clicking proceeds with registration :heavy_check_mark:
+- If there are any issues the user is provided with feedback via a flash message :heavy_check_mark:
 
 #### Change password page (change_password.html)
 
@@ -161,24 +163,44 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 
 - Picture URL is displays the picture in the recipe card if not it uses a static image not displayed picture :heavy_check_mark:
 - A description of the recipe, its type, the number of likes it has, whether the current user likes it and who created it are displayed :heavy_check_mark:
-- The ingredients and method steps are displayed :heavy_check_mark:
+- The ingredients and method steps are displayed below other recipe elements :heavy_check_mark:
 - Back button is displayed and clicking it takes the user back to the profile page :heavy_check_mark:
 - Floating action button is displayed in the bottom right corner and hovering over it (clicking on smaller screens) provides the user with options to click.  Hovering over the option will tell the user what the button does :heavy_check_mark:
 - From the floating action button the user can edit the current recipe, like the current recipe, add a new recipe or delete the current recipe :heavy_check_mark:
 - Clicking add or edit from the floating action button takes the user to the crrrect screen :heavy_check_mark:
 - Clicking like from the floating action button keeps them on the view page and increases the number of likes the recipe has.  Clicking like again will unlike the recipe and user will be provided with feedback telling them this if they hover over the button.  Like button also displays lighter when current user likes the recipe :heavy_check_mark:
-- In the recipe card, view recipe is displayed for all users and edit recipe is displayed if the current user created the recipe.  Clicking the links displays the correct page.  Hovering over the links provides user feedback  :heavy_check_mark:
-
 
 #### Add recipe page (add_recipe.html)
 
 - Header text displays :heavy_check_mark:
-- Username, email, password and confirm password inputs display and go red if not filled in as they are required :heavy_check_mark:
-- Submit button displays and clicking proceeds with registration :heavy_check_mark:
+- Recipe type input displays and go red if not filled in as it is required.  Options are called from the recipe type database :heavy_check_mark:
+- Name, description, ingredients and method steps inputs display and go red if not filled in as they are required :heavy_check_mark:
+- Picture input can be left blank or URL for an uploaded picture can be entered in the correct format :heavy_check_mark:
+- Instructions on how to upload a picture to a 3rd party resource are included and clicking the link takes the user to a site where they can obtain an appropriate file from a picture they upload :heavy_check_mark:
+- Add buttons for ingredient and step are displayed if user wants to increase the number of these elements dynamically :heavy_check_mark:
+- Remove buttons for ingredient and step are displayed if user wants to decrease the number of these elements dynamically :heavy_check_mark:
+- Submit button displays and clicking proceeds with adding recipe.  User feedback is provided that it has been successful when they are routed to the profile page :heavy_check_mark:
+- Cancel button displays and clicking takes customer back to profile without taking any action :heavy_check_mark:
 
 #### Edit recipe page (edit_recipe.html)
 
+- Header text displays :heavy_check_mark:
+- All inputs pre-populated with information from the database for the current fields :heavy_check_mark:
+- Information displays in the same way as above for the add recipe funtion including add and remove buttons for ingredients and method steps :heavy_check_mark:
+- Remove buttons for ingredient and step are displayed if user wants to decrease the number of these elements dynamically :heavy_check_mark:
+- Submit button displays and clicking proceeds with editing recipe.  User feedback is provided that it has been successful when they are routed to the profile page :heavy_check_mark:
+- Cancel button displays and clicking takes customer back to profile without taking any action :heavy_check_mark:
+
 #### Contact page (contact.html)
+
+- Header text displays :heavy_check_mark:
+- Name, email, password and query inputs display and go red if not filled in as they are required :heavy_check_mark:
+- Submit button displays and clicking proceeds with sending contact email to the app admin.  Users are routed back to the profile screen and provided with feedback that their request has been sent :heavy_check_mark:
+
+#### Error pages (403.html, 404.html, 405.html, 500.html)
+
+- Error message displays qith error type :heavy_check_mark:
+- User can still use nav elements within the app :heavy_check_mark:
 
 ### Debugging information
 
