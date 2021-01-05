@@ -109,3 +109,7 @@ Miscellaneous styles
 .divider-colour{
     background-color: #545677;
 }
+
+.height-full-screen {
+    height: 100vh;
+}

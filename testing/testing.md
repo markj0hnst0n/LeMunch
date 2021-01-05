@@ -26,11 +26,61 @@ These physical devices were also used for testing:
 - Macbook Pro 15-inch retina screen
 - HP e233 23-inch monitor
 - Samsung S10e
-- iPhone
+- iPhone SE2020
 
 #### Verdict
 
 Le Munch adapts to all tested screen sizes and devices and displays as expected. :heavy_check_mark:
+
+### Cross-browser Compatability
+
+#### Desired Result
+
+Display correctly in any browser users are likely to use.
+
+#### Steps Taken to Ensure Result
+
+A a range of browsers were used to test the site, and where I did not have access to it - such as Safari - I borrowed Apple devices to test for potential bugs.
+
+Browsers tested include:
+
+- [Chrome](https://www.google.com/chrome/) - Desktop and Mobile
+- [Firefox](https://www.mozilla.org/en-US/firefox/new/) - Desktop and Mobile
+- [Opera](https://www.opera.com/) - Dekstop and Mobile
+- [Safari](https://www.safari.com/) - Desktop and Mobile
+- [DuckDuckGo](https://duckduckgo.com) - Mobile
+
+#### Verdict
+
+No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
+
+### Behaviour of Shared Site Components
+
+#### Navbar (Navigation Bar)
+
+- Click on Home, App Logo, Sign in and Sign Up navigation links to confirm correct redirection to the correct pages :heavy_check_mark:
+- Hover display when cursor is above nav link :heavy_check_mark:
+- Burger menu icon displays on small and medium sized screens :heavy_check_mark:
+- Clicking Burger icon triggers visibility of the side navigation menu for small and medium sized screens :heavy_check_mark:
+- Verify that the the appropriate navigation bar is displayed :heavy_check_mark:
+
+#### Footer
+
+- Social Media icons display for twitter, instagram and facebook.  Clicking these takes user to the appropriate site :heavy_check_mark:
+- Copyright information displays in the bottom left and contact link displays in the bottom right :heavy_check_mark:
+- Register button displays and when clicked takes user to Registration page :heavy_check_mark:
+
+### Behaviour of App Pages
+
+#### Index/splash page (index.html)
+
+- UX information to introduce new users to the site displays correctly :heavy_check_mark:
+- Top 3 most popular recipes display in order with most 'likes' at the top :heavy_check_mark:
+- View recipe link works correctly and takes user to the correct page :heavy_check_mark:
+- Feedback to user generated when hovering over view recipe link :heavy_check_mark:
+- Register button displays and when clicked takes user to Registration page :heavy_check_mark:
+- Feedback to user generated when hovering over Register button :heavy_check_mark:
+
 
 
 ### Debugging information
