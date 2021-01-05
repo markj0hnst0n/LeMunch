@@ -68,7 +68,6 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 
 - Social Media icons display for twitter, instagram and facebook.  Clicking these takes user to the appropriate site :heavy_check_mark:
 - Copyright information displays in the bottom left and contact link displays in the bottom right :heavy_check_mark:
-- Register button displays and when clicked takes user to Registration page :heavy_check_mark:
 
 ### Behaviour of App Pages
 
@@ -81,6 +80,34 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 - Register button displays and when clicked takes user to Registration page :heavy_check_mark:
 - Feedback to user generated when hovering over Register button :heavy_check_mark:
 
+#### Sign in (login) page (signin.html)
+
+- Header text displays :heavy_check_mark:
+- Username and password inputs display and go red if not filled in as the yare required :heavy_check_mark:
+- Submit button displays :heavy_check_mark:
+- Invite to register for new users displays with 'here' changing colour on hover :heavy_check_mark:
+
+#### Sign up (register) page (signup.html)
+
+- Header text displays :heavy_check_mark:
+- Username, email, password and confirm password inputs display and go red if not filled in as they are required :heavy_check_mark:
+- Submit button displays :heavy_check_mark:
+
+#### Profile page (profile.html)
+
+- If user has just logged in 'login successful' displayed :heavy_check_mark:
+- Personalised greeting for user displays with instructions on how to use site :heavy_check_mark:
+- If user has no recipes message is displayed inviting them to add recipe :heavy_check_mark:
+- Green 'profile' navbar displays 'my recipes', 'browse' and 'search' functions :heavy_check_mark:
+- Hovering over green 'profile' navbar options provides user feedback :heavy_check_mark:
+- Current screen green 'profile' navbar option is highlighted :heavy_check_mark:
+- Vertical sidenav displays on larger screens of user admin functions, 'change user password', 'edit usder data' and 'logout' :heavy_check_mark:
+- Burger icon displays on smaller screens to give acces to user admin functions, 'change user password', 'edit user data' and 'logout' :heavy_check_mark:
+- Hovering over Vertical sidenav elements on larger screens provides user feedback :heavy_check_mark:
+- Add recipe button displays and hovering over it provides information on what clicking the button does :heavy_check_mark:
+- If user has recipes uploaded to database they display in card form in order with the newest at the top.  User can scroll down to access older recipes :heavy_check_mark:
+- If the user has provided a picture URL is displays the picture in the recipe card if not it uses a static image not displayed picture :heavy_check_mark:
+- View recipe and edit recipe links display in the recipe card.  Clicking the links displays the correct page.  Hovering over the links provides user feedback  :heavy_check_mark:
 
 ### Debugging information
 
