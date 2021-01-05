@@ -56,6 +56,10 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 
 ### Behaviour of Shared Site Components
 
+#### Preloader
+
+- Indeterminate time loading bar from materialize displays a the top of the page when page is loading and disappears when correct information has all loaded
+
 #### Navbar (Navigation Bar)
 
 - Click on Home, App Logo, Sign in and Sign Up navigation links to confirm correct redirection to the correct pages :heavy_check_mark:
@@ -68,6 +72,22 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 
 - Social Media icons display for twitter, instagram and facebook.  Clicking these takes user to the appropriate site :heavy_check_mark:
 - Copyright information displays in the bottom left and contact link displays in the bottom right :heavy_check_mark:
+
+#### Vertical Sidenav for user admin
+
+- Displays on larger screens functions, 'change user password', 'edit usder data' and 'logout' :heavy_check_mark:
+- Clicking on 'change user password', 'edit user data' takes you to the correct screen :heavy_check_mark:
+- Clicking logout takes user back to the index/splash page and logs them out.  Feedback is provided to user via a message :heavy_check_mark:
+- Burger icon displays on smaller screens to give access to user admin functions, 'change user password', 'edit user data' and 'logout' :heavy_check_mark:
+- Hovering over Vertical sidenav elements on larger screens provides user feedback :heavy_check_mark:
+
+#### Profile navbar (green)
+
+- Displays on all screens when user is logged in :heavy_check_mark:
+- Displays 'my recipes', 'browse' and 'search' functions and clicking on these take you to the correct page :heavy_check_mark:
+- Hovering over green 'profile' navbar options provides user feedback :heavy_check_mark:
+- Current screen green 'profile' navbar option is highlighted :heavy_check_mark:
+
 
 ### Behaviour of App Pages
 
@@ -84,29 +104,60 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 
 - Header text displays :heavy_check_mark:
 - Username and password inputs display and go red if not filled in as the yare required :heavy_check_mark:
-- Submit button displays :heavy_check_mark:
+- Submit button displays and clicking proceeds with log in :heavy_check_mark:
 - Invite to register for new users displays with 'here' changing colour on hover :heavy_check_mark:
 
 #### Sign up (register) page (signup.html)
 
 - Header text displays :heavy_check_mark:
 - Username, email, password and confirm password inputs display and go red if not filled in as they are required :heavy_check_mark:
-- Submit button displays :heavy_check_mark:
+- Submit button displays and clicking proceeds with registration :heavy_check_mark:
+
+#### Change password page (change_password.html)
+
+- Header text displays with personalised user information :heavy_check_mark:
+- Old password, new password and confirm password inputs display and go red if not filled in as they are required :heavy_check_mark:
+- Cancel button displays and clicking takes customer back to profile without taking any action :heavy_check_mark:
+- Submit button displays and clicking proceeds with password change.  User feedback is provided that the password has been changed when the user is directed back to the profile page :heavy_check_mark:
+
+#### Edit User Data page (edit_user.html)
+
+- Header text displays :heavy_check_mark:
+- Username and email inputs display.  They are pre-populated with current user information and go red if not filled in as they are required :heavy_check_mark:
+- Cancel button displays and clicking takes customer back to profile without taking any action :heavy_check_mark:
+- Submit button displays and clicking proceeds with edit of data.  User feedback is provided that the information has been changed when the user is directed back to the profile page :heavy_check_mark:
 
 #### Profile page (profile.html)
 
 - If user has just logged in 'login successful' displayed :heavy_check_mark:
-- Personalised greeting for user displays with instructions on how to use site :heavy_check_mark:
+- Personalised greeting for user displays with instructions on how to use page :heavy_check_mark:
 - If user has no recipes message is displayed inviting them to add recipe :heavy_check_mark:
-- Green 'profile' navbar displays 'my recipes', 'browse' and 'search' functions :heavy_check_mark:
-- Hovering over green 'profile' navbar options provides user feedback :heavy_check_mark:
-- Current screen green 'profile' navbar option is highlighted :heavy_check_mark:
-- Vertical sidenav displays on larger screens of user admin functions, 'change user password', 'edit usder data' and 'logout' :heavy_check_mark:
-- Burger icon displays on smaller screens to give acces to user admin functions, 'change user password', 'edit user data' and 'logout' :heavy_check_mark:
-- Hovering over Vertical sidenav elements on larger screens provides user feedback :heavy_check_mark:
 - Add recipe button displays and hovering over it provides information on what clicking the button does :heavy_check_mark:
 - If user has recipes uploaded to database they display in card form in order with the newest at the top.  User can scroll down to access older recipes :heavy_check_mark:
 - If the user has provided a picture URL is displays the picture in the recipe card if not it uses a static image not displayed picture :heavy_check_mark:
+- A description of the recipe and the number of likes it has are displayed :heavy_check_mark:
+- View recipe and edit recipe links display in the recipe card.  Clicking the links displays the correct page.  Hovering over the links provides user feedback  :heavy_check_mark:
+
+#### Browse page (browse.html)
+
+- Instructions on how to use page display at the top :heavy_check_mark:
+- Add recipe button displays and hovering over it provides information on what clicking the button does :heavy_check_mark:
+- Sort by buttons 'Newest' and 'Likes' display.  'Newest' is highlighted as the default which displays the recipes in date order descending with the newest at the top :heavy_check_mark:
+- Clicking 'likes' sort the recipes in descending order and those with the most likes are at the top :heavy_check_mark:
+- All recipes uploaded to database they display in card form.  The user and scroll down to view recipes :heavy_check_mark:
+- Picture URL is displays the picture in the recipe card if not it uses a static image not displayed picture :heavy_check_mark:
+- A description of the recipe, the number of likes it has and who created it are displayed :heavy_check_mark:
+- In the recipe card, view recipe is displayed for all users and edit recipe is displayed if the current user created the recipe.  Clicking the links displays the correct page.  Hovering over the links provides user feedback  :heavy_check_mark:
+
+#### Search page (search.html)
+
+- If user has just logged in 'login successful' displayed :heavy_check_mark:
+- Personalised greeting for user displays with instructions on how to use page :heavy_check_mark:
+- If user has no recipes message is displayed inviting them to add recipe :heavy_check_mark:
+- Add recipe button displays and hovering over it provides information on what clicking the button does :heavy_check_mark:
+- If user has recipes uploaded to database they display in card form in order with the newest at the top.  User can scroll down to access older recipes :heavy_check_mark:
+- If the user has provided a picture URL is displays the picture in the recipe card if not it uses a static image not displayed picture :heavy_check_mark:
+- A description of the recipe and the number of likes it has are displayed :heavy_check_mark:
 - View recipe and edit recipe links display in the recipe card.  Clicking the links displays the correct page.  Hovering over the links provides user feedback  :heavy_check_mark:
 
 ### Debugging information

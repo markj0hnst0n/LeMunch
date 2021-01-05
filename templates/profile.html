@@ -45,9 +45,6 @@
                             <div class="card-content">
                                 <h6>This recipe has been liked {{ recipe.likes }} times</h6>
                             </div>
-                            <div class="card-content">
-                                <h6>Created by: {{ recipe.user|title }}</h6>
-                            </div>
                             {% if recipe.user == session.user %}
                                 <div class="card-action left-align">
                                     <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit Recipe</a>
@@ -64,9 +61,6 @@
                             </div>
                             <div class="card-content">
                                 <h6>This recipe has been liked {{ recipe.likes }} times</h6>
-                            </div>
-                            <div class="card-content">
-                                <h6>Created by: {{ recipe.user|title }}</h6>
                             </div>
                             {% if recipe.user == session.user %}
                                 <div class="card-action center-align">
