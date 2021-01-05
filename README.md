@@ -61,11 +61,15 @@ Basic wireframes for this project were created using Balsamiq and you can find a
 
 ## Colour Scheme
 
-![](readme/images/colour-scheme-orig.png)
+![](readme/images/colour-scheme.png)
 
-I used the coolors side to generate a colour scheme based on a dark purple the base colour.  I liked that the deep colour matched the colour
+I used the coolors site to generate a colour scheme based on a dark purple the base colour.  I liked that the deep colour matched the colour
 of an aubergine as it's a favourite vegetable of my wife and I.  Purple is also our daughter's favourite colour so it made sense to use it as a starting point.
-(#545677 in hex)
+
+Some of the colours do not match these shades exactly but this palette served as the inspiration and the pink background, match these hex numbers exactly.  The green I used
+for text was a lot darker as it was better for reading text for visually impaired users
+
+#3E796A
 
 The 
 
