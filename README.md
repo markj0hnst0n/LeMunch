@@ -2,7 +2,7 @@
 <h1>Le Munch</h1>
 </div>
 
-![]()
+![](readme/images/intro-picture.png)
 
 Le Munch is here to help you decide what to have for your next meal!  You can upload your own recipes so you have your own online cookbook and
 search and browse through other users recipes to give you ideas of what to cook.  Develop your love of food by deep diving on food pics and 
