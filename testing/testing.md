@@ -103,7 +103,7 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 #### Sign in (login) page (signin.html)
 
 - Header text displays :heavy_check_mark:
-- Username and password inputs display and go red if not filled in as the yare required :heavy_check_mark:
+- Username and password inputs display and go red if not filled in as they are required :heavy_check_mark:
 - Submit button displays and clicking proceeds with log in :heavy_check_mark:
 - Invite to register for new users displays with 'here' changing colour on hover :heavy_check_mark:
 
@@ -151,14 +151,34 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 
 #### Search page (search.html)
 
-- If user has just logged in 'login successful' displayed :heavy_check_mark:
-- Personalised greeting for user displays with instructions on how to use page :heavy_check_mark:
-- If user has no recipes message is displayed inviting them to add recipe :heavy_check_mark:
-- Add recipe button displays and hovering over it provides information on what clicking the button does :heavy_check_mark:
-- If user has recipes uploaded to database they display in card form in order with the newest at the top.  User can scroll down to access older recipes :heavy_check_mark:
-- If the user has provided a picture URL is displays the picture in the recipe card if not it uses a static image not displayed picture :heavy_check_mark:
-- A description of the recipe and the number of likes it has are displayed :heavy_check_mark:
-- View recipe and edit recipe links display in the recipe card.  Clicking the links displays the correct page.  Hovering over the links provides user feedback  :heavy_check_mark:
+- Instructions on how to use page display at the top :heavy_check_mark:
+- Search input displays and goes red if not filled in as it is required :heavy_check_mark:
+- Submit button displays and clicking proceeds with search :heavy_check_mark:
+- If search is successful a message displays informing the user and recipes are displayed in the same format as on the browse page.  User can use the form to search again :heavy_check_mark:
+- If search is unsuccessful a message displays informing the user and they can use the form to search again.  Message invites them to do so :heavy_check_mark:
+
+#### View recipe page (view_recipe.html)
+
+- Picture URL is displays the picture in the recipe card if not it uses a static image not displayed picture :heavy_check_mark:
+- A description of the recipe, its type, the number of likes it has, whether the current user likes it and who created it are displayed :heavy_check_mark:
+- The ingredients and method steps are displayed :heavy_check_mark:
+- Back button is displayed and clicking it takes the user back to the profile page :heavy_check_mark:
+- Floating action button is displayed in the bottom right corner and hovering over it (clicking on smaller screens) provides the user with options to click.  Hovering over the option will tell the user what the button does :heavy_check_mark:
+- From the floating action button the user can edit the current recipe, like the current recipe, add a new recipe or delete the current recipe :heavy_check_mark:
+- Clicking add or edit from the floating action button takes the user to the crrrect screen :heavy_check_mark:
+- Clicking like from the floating action button keeps them on the view page and increases the number of likes the recipe has.  Clicking like again will unlike the recipe and user will be provided with feedback telling them this if they hover over the button.  Like button also displays lighter when current user likes the recipe :heavy_check_mark:
+- In the recipe card, view recipe is displayed for all users and edit recipe is displayed if the current user created the recipe.  Clicking the links displays the correct page.  Hovering over the links provides user feedback  :heavy_check_mark:
+
+
+#### Add recipe page (add_recipe.html)
+
+- Header text displays :heavy_check_mark:
+- Username, email, password and confirm password inputs display and go red if not filled in as they are required :heavy_check_mark:
+- Submit button displays and clicking proceeds with registration :heavy_check_mark:
+
+#### Edit recipe page (edit_recipe.html)
+
+#### Contact page (contact.html)
 
 ### Debugging information
 

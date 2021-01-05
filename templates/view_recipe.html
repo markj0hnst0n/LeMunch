@@ -20,11 +20,11 @@
                     </div>
                     <div class="col s12 m6 right-align hide-on-small-only">
                         <div class="card-content">
-                            <p>{{ recipe.recipe_type|title }} recipe</p>
-                        </div>
-                        <div class="card-content">
                             <h5>Description</h5>
                             <p>{{ recipe.description }}</p>
+                        </div>
+                        <div class="card-content">
+                            <h6>{{ recipe.recipe_type|title }} recipe</h6>
                         </div>
                         <div class="card-content">
                             <h6>This recipe has been liked {{ recipe.likes }} times</h6>
@@ -66,7 +66,7 @@
                     <h5>Ingredients</h5>
                     <ul>
                         {% for ingredient in ingredients %}
-                        <li>{{ recipe.ingredients[ingredient] }}</li>
+                        <li>{{ recipe.ingredients[ingredient]|title }}</li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -74,7 +74,7 @@
                     <h5>Method</h5>
                     <ul>                        
                         {% for step in method_steps %}
-                        <li>{{ recipe.method[step] }}</li>
+                        <li>{{ recipe.method[step]|title }}</li>
                         {% endfor %}
                     </ul>
                 </div>
