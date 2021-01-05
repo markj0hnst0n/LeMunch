@@ -525,8 +525,8 @@ def contact():
 
 
 """
-The functions below handle and HTTP errors that may be incurred so that the user does not
-leave the app if this happens.
+The functions below handle and HTTP errors that may be incurred so that the
+user does not leave the app if this happens.
 """
 
 

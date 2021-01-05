@@ -1,5 +1,6 @@
 {% extends 'base.html' %} 
 {% block content %}
+    <!-- User welcome section inc add recipe button -->
     <section>
         <div class="container">
             <h3 class="title-font">Welcome to your cookbook, {{ user.username|title }}</h3>
@@ -20,6 +21,7 @@
             </div>
         {% endif %}
     </section>
+    <!-- User recipes section -->
     <section>
         {% for recipe in my_recipes %}
             <div class="container">
