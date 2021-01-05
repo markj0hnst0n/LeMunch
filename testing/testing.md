@@ -30,7 +30,9 @@ These physical devices were also used for testing:
 
 #### Verdict
 
-Le Munch adapts to all tested screen sizes and devices and displays as expected. :heavy_check_mark:
+Le Munch adapts to most tested screen sizes and devices and displays as expected but on very small screen widths there were some issues.
+Samsung fold device when emulated on google dev tools made some contact link jump to a new line.  This was not deemed to be too big an issue
+as the dev tools only show 1 half of the screen.  It is assumed that this would display correctly on the device.
 
 ### Cross-browser Compatability
 
@@ -40,9 +42,7 @@ Display correctly in any browser users are likely to use.
 
 #### Steps Taken to Ensure Result
 
-A a range of browsers were used to test the site, and where I did not have access to it - such as Safari - I borrowed Apple devices to test for potential bugs.
-
-Browsers tested include:
+Tested site on the following browsers:
 
 - [Chrome](https://www.google.com/chrome/) - Desktop and Mobile
 - [Firefox](https://www.mozilla.org/en-US/firefox/new/) - Desktop and Mobile
@@ -82,7 +82,6 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 - Feedback to user generated when hovering over Register button :heavy_check_mark:
 
 
-
 ### Debugging information
 
 
@@ -106,3 +105,11 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 | Browse, view recipe and profile pages did not display recipe information in a user friendly manner on all devices | refactored code and simplfied
 | Side nav in all pages which display has been moved while putting splash page in.  It does not show correctly at the side of the page as it should.  It is currently in 1 line at the top | changed div row and column structure until I got the layout i was looking for
 | Emails not working correctly when contact form was submitted | Had to allow gmail to use less secure apps and enable 'display unlock captcha' in settings
+
+### Automated testing
+
+#### W3C HTML Validation
+
+#### W3C CSS Validation
+
+#### Google Lighthouse Testing information
