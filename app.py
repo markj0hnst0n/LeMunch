@@ -28,7 +28,7 @@ app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
 app.config['MAIL_SERVER'] = os.environ.get('MAIL_SERVER')
 app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
 app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
-app.config['MAIL_PORT'] = 587
+app.config['MAIL_PORT'] = os.environ.get('MAIL_PORT')
 app.config['MAIL_USE_SSL'] = False
 app.config['MAIL_USE_TLS'] = True
 app.secret_key = os.environ.get('SECRET_KEY')
@@ -501,8 +501,9 @@ def like_recipe(recipe_id):
 def contact():
     """
     Displays a contact form so that users can contact the site administrators.
-    If the request method is post it will send an email to the administrators
-    on behalf of the user with their query as defined in the form.
+    If the request method is post it will use the Flask-mail dependency to send
+    an email to the administrators on behalf of the user with their query as
+    defined in the form.
     """
     if request.method == 'POST':
         recipient = os.environ.get('RECIPIENT')

@@ -174,6 +174,42 @@ See separate Testing.md file [here](testing/testing.md)
 
 ## Using Heroku
 
+Github address for the project: https://github.com/markj0hnst0n/fauxdjsmilestoneproj1/
+
+1. Create a requirements.txt file so that Heroku knows which dependencies to install to ensure the app works correctly.  This can be done by using the command “pip3 freeze —local > requirements.txt on the command line interface.
+
+2. You must have a procfile the ensure Heroku knows which file runs the app and how to run it this can be done by using the command “echo web: python app.py > Procfile”.  Check the file was created correctly and make sure there is no blank line at the bottom.  It should only have 1 line.
+
+3. Make sure the Procfile and requirements.txt are pushed to git.
+
+4. An SMTP server must be used to use to send and receive contact emails from the app.  I have used Amazon Simple Email Service with 2 verified email addresses, one for sending the email and one for receiving it.  You will need to check the security that the type of security the email server uses there are 2 types SSL or TLS and the type of security dictates which port you should use.
+
+5. You must also have an account with MongoDB, a database and the relevant names must be used to connect to the database collections as shown in lines 41 - 44 of the app.py file.
+
+6. Log in to or create a Heroku account and create a new app by clicking ‘New’ then ‘Create New App’ then choose a name and the relevant region for the app.
+
+7. On the app page click the ‘Settings’ tab and then the ‘Reveal Config Vars’ button and the following variables need to be set as key value pairs:
+
+|   KEY	|  VALUE    |
+|-------|-------|
+IP | 0.0.0.0 |
+PORT | 5000 |
+MONGO_URI | &lt;your MongoDB connection string&gt; |
+MAIL_SERVER | &lt;your STMP email server&gt; |
+MAIL_PORT | 587 if the mail server uses TLS and 465 if the mail server uses SSL security |
+MAIL_USERNAME | Username to log into chosen SMTP server |
+RECIPIENT | E-mail address to receive contact email |
+SENDER | E-mail address to send contact email |
+SECRET_KEY | &lt;your STMP email server&gt; |
+
+
+
+8. Click the ‘Deploy’ tab and in the ‘Deployment Method’ section select GitHub then search for markj0hnst0n/LeMunch by markj0hnst0n.
+
+9. In the ‘Automatic deploys’ section click on the ‘Enable Automatic Deploys’ button the in the ‘Manual deploy’ section click the ‘Deploy Branch’ button as long as ‘master’ is the selected branch.
+
+10. Once the app has been successfully built you should receive a message saying ‘Your app was successfully deployed’ you can then click on the ‘View’ button or the ‘Open app’ button at the top of the page to go to the deployed app.
+
 step by step deployment info
 
 ## Run Locally
