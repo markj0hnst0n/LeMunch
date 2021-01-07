@@ -230,8 +230,25 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 
 #### W3C HTML Validation
 
-Raw code from Index page, main profile page, browse page,
+Raw code from the following pages were run through w3x HTML validator without any errors or warnings:
+
+- Index page
+- Main profile page
+- Browse page
+- Add recipe page
+- Search page
+- Edit recipe page
+- View recipe page
+- Sign in page
+- Sign up page
+- Change password
+- Edit user data
+- Contact form
 
 #### W3C CSS Validation
 
 #### Google Lighthouse Testing information
+
+
+
+PDFs of expanded Google Lighthouse testing for Performance, Accessability, Best Practices and Search Engine Optimisation can be found [here](https://github.com/markj0hnst0n/LeMunch/tree/master/testing/google-lighthouse-testing)

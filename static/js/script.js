@@ -50,8 +50,8 @@ $(document).ready(function () {
     const max_fields      = 10; //maximum input boxes allowed
     const ingredient_wrapper   		= $("#ingredient_fields_wrapper"); // Ingredients fields wrapper
     const method_fields_wrapper   		= $("#method_fields_wrapper"); // Method fields wrapper
-    const add_ingredient_button      = $("#add_ingredient_button"); //Add ingredient ID
-    const add_method_step_button      = $("#add_method_step_button"); //Add step to method ID
+    const add_ingredient_button      = $(".add_ingredient_button"); //Add ingredient ID
+    const add_method_step_button      = $(".add_method_step_button"); //Add step to method ID
     let ingredient_count = 1; //initial ingredient count
     let method_step_count = 1; //initial method step count
 	
@@ -59,7 +59,7 @@ $(document).ready(function () {
 		e.preventDefault();
 		if(ingredient_count < max_fields){ //max input box allowed
 			ingredient_count++; //ingredient increment
-			$(ingredient_wrapper).append('<div><i class="material-icons prefix">edit</i><input type="text" name="ingredients" class="validate"/><a href="#" class="btn-small btn-colour remove_field">Remove</a></div>'); //add ingredient box
+			$(ingredient_wrapper).append('<div><i class="material-icons prefix">edit</i><input type="text" name="ingredients" class="ingredients validate"/><a href="#" class="btn-small btn-colour remove_field">Remove</a></div>'); //add ingredient box
 		}
 	});
 	
@@ -71,7 +71,7 @@ $(document).ready(function () {
 		e.preventDefault();
 		if(method_step_count < max_fields){ //max method step box allowed
 			method_step_count++; //method step box increment
-			$(method_fields_wrapper).append('<div><i class="material-icons prefix">short_text</i><input type="text" name="method" class="validate"/><a href="#" class="btn-small btn-colour remove_field">Remove</a></div>'); //add method step box
+			$(method_fields_wrapper).append('<div><i class="material-icons prefix">short_text</i><input type="text" name="method" class="method validate"/><a href="#" class="btn-small btn-colour remove_field">Remove</a></div>'); //add method step box
 		}
 	});
 	
