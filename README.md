@@ -23,7 +23,7 @@ The uploader user will be the primary content creators and will produce the reci
 
 - As an uploader user I want functionality to upload a photo to so that users are enticed to read my recipes.
 
-- As an uploader userI want to be able to edit and delete recipes so that I can customise my online cookbook to suit my ongoing needs.
+- As an uploader user I want to be able to edit and delete recipes so that I can customise my online cookbook to suit my ongoing needs.
 
 - As an uploader user I want other users to be able to ‘upvote’ or ‘like’ my recipes so that I can understand how popular they are.
 
@@ -47,7 +47,7 @@ See separate Testing.md file for information on how these user stories were test
 
 ## Wireframes
 
-Basic wireframes for this project were created using Balsamiq and you can find a link to the balsamiq project file (right click on the button and save file) [here](!)
+Basic wireframes for this project were created using Balsamiq below is a link to show
 
 [Wireframes Pictures Repository](https://github.com/markj0hnst0n/LeMunch/tree/master/readme/wireframes)
 
@@ -56,7 +56,7 @@ Basic wireframes for this project were created using Balsamiq and you can find a
 ![](readme/images/colour_scheme.png)
 
 I used the coolors site to generate a colour scheme based on a dark purple the base colour.  I liked that the deep colour matched the colour
-of an aubergine as it's a favourite vegetable of my wife and I.  Purple is also our daughter's favourite colour so it made sense to use it as a starting point.
+of an aubergine as it's a favourite vegetable of mine and my wife.  Purple is also our eldest daughter's favourite colour so it made sense to use it as a starting point.
 
 The green I used for text is dark to make it more readable against the pink background for visually impaired users.
 
@@ -285,21 +285,19 @@ All media is user generated and the responsibility of the user.  If copyright is
 
 ## Influences
 
-https://www.youtube.com/watch?v=2Zz97NVbH0U&feature=emb_logo
-
 User Authentication via session
 
 https://github.com/MiroslavSvec/DCD_lead
 
-adding input fields dynamically using jquery
+Adding input fields dynamically using jquery
 
 https://www.sanwebe.com/2013/03/addremove-input-fields-dynamically-with-jquery
 
-flask mail
+Flask mail
 
 https://pythonhosted.org/Flask-Mail/
 
-debugging contact emails
+Debugging contact form emails
 
 https://stackabuse.com/how-to-send-emails-with-gmail-using-python/
 
@@ -311,9 +309,6 @@ Converting an array to lowercase
 
 https://stackoverflow.com/questions/1801668/convert-a-python-list-with-strings-all-to-lowercase-or-uppercase
 
-Form Validation using pattern attribute in HTML
-
-https://www.w3schools.com/tags/att_input_pattern.asp
 
 ## Acknowledgements
 

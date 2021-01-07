@@ -201,7 +201,7 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 
 #### Error pages (403.html, 404.html, 405.html, 500.html)
 
-- Error message displays qith error type :heavy_check_mark:
+- Error message displays with error type :heavy_check_mark:
 - User can still use nav elements within the app :heavy_check_mark:
 
 ### Debugging information
