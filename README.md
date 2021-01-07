@@ -230,7 +230,7 @@ In the GitHub Repository from the project (https://github.com/markj0hnst0n/LeMun
 
 7. Create a file called *env.py* in the project's root directory
 
-8. 13. In your *env.py* file, import the *os* module and set the following environment variables as follows.
+8. In your *env.py* file, import the *os* module and set the following environment variables as follows.
 
     NOTE: Wherever text is surrounded by <> (angle brackets), you will need to provide your own values without the angle brackets as determined by your *MongoDB account*, *mail server* and *secret key*.
 
