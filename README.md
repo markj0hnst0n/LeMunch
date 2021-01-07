@@ -206,7 +206,6 @@ SENDER | E-mail address to send contact email |
 SECRET_KEY | &lt;your STMP email server&gt; |
 
 
-
 8. Click the ‘Deploy’ tab and in the ‘Deployment Method’ section select GitHub then search for markj0hnst0n/LeMunch by markj0hnst0n.
 
 9. In the ‘Automatic deploys’ section click on the ‘Enable Automatic Deploys’ button the in the ‘Manual deploy’ section click the ‘Deploy Branch’ button as long as ‘master’ is the selected branch.
