@@ -51,6 +51,7 @@ Top Navbar styles
 */
 
 .upload-style {
+    color: #000000;
     margin-left: 3.7rem;
 }
 
@@ -112,4 +113,8 @@ Miscellaneous styles
 
 .height-full-screen {
     height: 100vh;
+}
+
+.input-field>label {
+    color: #000000;
 }

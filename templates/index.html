@@ -58,15 +58,15 @@
             <br />
             <div class="row">
                 <div class="col s12">
-                    <h3>
+                    <h2>
                         Below you can see examples of the most popular recipes on our site!
-                    </h3>
+                    </h2>
                 </div>
             </div>
             {% for recipe in all_recipes %}
             <div class="row">
                 <div class="col s12">
-                    <h4 class="header">{{ recipe.name|title }}</h4>
+                    <h3 class="header">{{ recipe.name|title }}</h3>
                 </div>
             </div>
             <div class="card">
@@ -78,14 +78,14 @@
                     </div>
                     <div class="col s12 m6 right-align hide-on-small-only">
                         <div class="card-content">
-                            <h5>Description</h5>
+                            <h4>Description</h4>
                             <p>{{ recipe.description }}</p>
                         </div>
                         <div class="card-content">
-                            <h6>This recipe has been liked {{ recipe.likes }} times</h6>
+                            <h5>This recipe has been liked {{ recipe.likes }} times</h5>
                         </div>
                         <div class="card-content">
-                            <h6>Created by: {{ recipe.user|title }}</h6>
+                            <h5>Created by: {{ recipe.user|title }}</h5>
                         </div>
                         {% if recipe.user == session.user %}
                         <div class="card-action left-align">
@@ -103,14 +103,14 @@
                     </div>
                     <div class="hide-on-med-and-up col s12 m6 left-align">
                         <div class="card-content">
-                            <h5>Description</h5>
+                            <h4>Description</h4>
                             <p>{{ recipe.description }}</p>
                         </div>
                         <div class="card-content">
-                            <h6>This recipe has been liked {{ recipe.likes }} times</h6>
+                            <h5>This recipe has been liked {{ recipe.likes }} times</h5>
                         </div>
                         <div class="card-content">
-                            <h6>Created by: {{ recipe.user|title }}</h6>
+                            <h5>Created by: {{ recipe.user|title }}</h5>
                         </div>
                         {% if recipe.user == session.user %}
                         <div class="card-action center-align">
