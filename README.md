@@ -281,7 +281,7 @@ Written content by Mark Johnston
 
 ## Media
 
-Information about media used
+All media is user generated and the responsibility of the user.  If copyright is breached please use the contact form to get in touch and we can remove any offending content.
 
 ## Influences
 
@@ -319,7 +319,11 @@ https://www.w3schools.com/tags/att_input_pattern.asp
 
 Thanks to the following people for making the project happen:
 
-- My Mentor 
+- My Mentor Can Suncullu for his advice, patience and motivation.
 - The [Code Institute](https://codeinstitute.net/) Slack Community.
 - The [Code Institute](https://codeinstitute.net/) tutors and instructional material.  Espcially tutor Johann for his help with the like functionality.
 - My Wife Joanna Johnston for her (constructive) criticism and understanding when I lock myself away in the attic for hours on end
+
+## Disclaimer
+
+This site is intended for educational purposes only, and is not intended for use in any other capacity.
