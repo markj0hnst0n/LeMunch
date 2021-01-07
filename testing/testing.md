@@ -1,6 +1,8 @@
 ## Testing
 
-Manual testing was used to test navigation, responsiveness on different screen sizes and database operations (Create, Read, Update and Delete).
+### Manual Testing
+
+Manual testing was used to test navigation, responsiveness on different screen sizes, database operations (Create, Read, Update and Delete) and application functions.
 
 ### Responsiveness
 
