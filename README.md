@@ -195,10 +195,12 @@ Github address for the project: https://github.com/markj0hnst0n/fauxdjsmilestone
 |-------|-------|
 IP | 0.0.0.0 |
 PORT | 5000 |
+DEBUG_VALUE | TRUE |
 MONGO_URI | &lt;your MongoDB connection string&gt; |
 MAIL_SERVER | &lt;your STMP email server&gt; |
 MAIL_PORT | 587 if the mail server uses TLS and 465 if the mail server uses SSL security |
 MAIL_USERNAME | Username to log into chosen SMTP server |
+PASSWORD | Password to log into chosen SMTP server |
 RECIPIENT | E-mail address to receive contact email |
 SENDER | E-mail address to send contact email |
 SECRET_KEY | &lt;your STMP email server&gt; |
@@ -215,11 +217,48 @@ SECRET_KEY | &lt;your STMP email server&gt; |
 
 In the GitHub Repository from the project (#)
 
+In the GitHub Repository from the project (https://github.com/markj0hnst0n/LeMunch)
+
 1. Click Clone or Download
 2. Copy Git URL from the dialogue box
 3. Open your developement editor of choice and open a terminal window in a directory of your choice
-4. Use the 'git clone' command in terminal followed by the copied git URL
-5. A clone of the project will be created locally on your machine
+4. Use the 'git clone' command in terminal followed by the copied git URL (make sure Command Line Developer Tools is installed)
+
+        git clone https://github.com/markj0hnst0n/LeMunch.git
+
+5. A clone of the project will be created locally on your machine so go to the folder in your chosen IDE.
+6. Install the necessary dependencies with using the following command
+
+        pip3 install -r requirements.txt
+
+7. Create a file called *env.py* in the project's root directory
+
+8. 13. In your *env.py* file, import the *os* module and set the following environment variables as follows.
+
+    NOTE: Wherever text is surrounded by <> (angle brackets), you will need to provide your own values without the angle brackets as determined by your *MongoDB account*, *mail server* and *secret key*.
+
+    NOTE: Remember to change the *username*, *password* and *cluster_name* in your MongoDB Atlas connection string. Information on getting your *MongoDB Atlas connection string* can be found [here](https://docs.atlas.mongodb.com/tutorial/connect-to-your-cluster/).
+
+        import os
+
+        os.environ['IP'] = "0.0.0.0"
+        os.environ['PORT'] = "5000"
+        os.environ['MONGO_URI'] = "<your MongoDB URI string>"
+        os.environ['SECRET_KEY'] = "<your secret key>"
+        os.environ['MAIL_SERVER'] = "<your STMP email server>"
+        os.environ['MAIL_USERNAME'] = "Username to log into chosen SMTP server"
+        os.environ['MAIL_PASSWORD'] = "Password to log into chosen SMTP server"
+        os.environ['SENDER'] = "<E-mail address to send contact email>"
+        os.environ['RECIPIENT'] = "<E-mail address to receive contact email>"
+        os.environ['MAIL_PORT'] = "587 if the mail server uses TLS and 465 if the mail server uses SSL security"
+        os.environ['DEBUG_VALUE'] = "TRUE"
+
+
+9. In the command line use the following command:
+
+        python3 app.py
+
+10. The app should now be running at: http://0.0.0.0:500
 
 # Credits
 
