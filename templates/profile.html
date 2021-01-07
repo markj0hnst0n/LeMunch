@@ -13,14 +13,14 @@
             </a>
         </div>
     </section>
-    <section>
-        {% if recipe_count == 0 %}
-            <div class="container">
-                <h5>You currently have no recipes. Please use the add button above to add recipes to your cookbook. 
-                    Alternatively please browse other users recipes or search for you favourites!</h5>
-            </div>
-        {% endif %}
-    </section>
+    {% if recipe_count == 0 %}
+        <section>
+                <div class="container">
+                    <h5>You currently have no recipes. Please use the add button above to add recipes to your cookbook. 
+                        Alternatively please browse other users recipes or search for you favourites!</h5>
+                </div>
+        </section>
+    {% endif %}
     <!-- User recipes section -->
     <section>
         {% for recipe in my_recipes %}

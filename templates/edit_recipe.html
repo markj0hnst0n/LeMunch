@@ -1,112 +1,110 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<section>
-    <div class="container">
-        <h3 class="title-font">Edit Recipe</h3>
-        <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">restaurant_menu</i>
-                    <select id="recipe_type" name="recipe_type" class="validate">
-                        <option value="" disabled>Choose your option</option>
-                        {% for type in recipe_types %}
-                            {% if type.type_name == recipe.recipe_type %}
-                            <option value="{{ type.type_name }}" selected>{{ type.type_name|title }}</option>
+    <section>
+        <div class="container">
+            <h3 class="title-font">Edit Recipe</h3>
+            <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">restaurant_menu</i>
+                        <select id="recipe_type" name="recipe_type" class="validate">
+                            <option value="" disabled>Choose your option</option>
+                            {% for type in recipe_types %}
+                                {% if type.type_name == recipe.recipe_type %}
+                                <option value="{{ type.type_name }}" selected>{{ type.type_name|title }}</option>
+                                {% else %}
+                                <option value="{{ type.type_name }}">{{ type.type_name|title }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <label for="recipe_type">Recipe Type</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">stars</i>
+                        <input id="recipe_name" name="recipe_name" type="text" minlength="5" maxlength="50" value="{{ recipe.name }}" class="validate" required />
+                        <label for="recipe_name">Recipe Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">note</i>
+                        <textarea id="description" name="description" minlength="5" maxlength="250" class="materialize-textarea validate" required>
+                        {{- recipe.description -}}
+                        </textarea>
+                        <label for="description">A short description of your recipe</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">camera_alt</i>
+                        <input id="recipe_image" name="recipe_image" type="text" value="{{ recipe.picture }}" pattern="^https?://.+" class="validate" />
+                        <label for="recipe_image">Picture</label>
+                    </div>
+                </div>
+                <div class="col s12">
+                    <p class="upload-style">
+                        The picture must be a URL beginning with http:// or https:// and end with a picture file extension e.g. jpg or png<br>
+                        Upload your image <a class="body-colour here" href="https://postimages.org/" target="_blank">here</a>. Please use the 320x240 size with no expiration. Once uploaded copy and paste the direct link with a .jpg file
+                        extension into the above field.
+                    </p>
+                </div>
+                <div class="row">
+                    <div id="ingredient_fields_wrapper" class="input-field col s12 ingredient_fields_wrapper">
+                        {% for ingredient in ingredients %}                    
+                            {% if ingredient == 0 %}
+                            <div>
+                                <i class="material-icons prefix">edit</i>
+                                <label for="ingredients">Ingredients</label>
+                                <input id="ingredients" type="text" name="ingredients" maxlength="50" value="{{ recipe.ingredients[ingredient] }}" class="validate" required />
+                                <a href="#" class="btn-small waves-effect waves-light btn-colour remove_field">Remove</a>
+                            </div>
                             {% else %}
-                            <option value="{{ type.type_name }}">{{ type.type_name|title }}</option>
+                            <div>
+                                <i class="material-icons prefix">edit</i>
+                                <input id="ingredients" type="text" name="ingredients" maxlength="50" value="{{ recipe.ingredients[ingredient] }}" class="validate" required />
+                                <a href="#" class="btn-small waves-effect waves-light btn-colour remove_field center-align">Remove</a>
+                            </div>
                             {% endif %}
                         {% endfor %}
-                    </select>
-                    <label for="recipe_type">Recipe Type</label>
+                    </div>
+                    <button id="add_ingredient_button" class="btn-small waves-effect waves-light btn-colour add_ingredient_button">Add Ingredient</button>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">stars</i>
-                    <input id="recipe_name" name="recipe_name" type="text" minlength="5" maxlength="50" value="{{ recipe.name }}" class="validate" required />
-                    <label for="recipe_name">Recipe Name</label>
+                <div class="row">
+                    <div id="method_fields_wrapper" class="input-field col s12 method_fields_wrapper">
+                        {% for step in method_steps %}
+                            {% if step == 0 %}
+                            <div>
+                                <i class="material-icons prefix">short_text</i>
+                                <label for="method">Method</label>                        
+                                <input id="method" type="text" name="method" maxlength="100" value="{{ recipe.method[step] }}" class="validate" required />
+                                <a href="#" class="btn-small waves-effect waves-light btn-colour remove_field">Remove</a>
+                            </div>
+                            {% else %}
+                            <div>
+                                <i class="material-icons prefix">short_text</i>
+                                <input id="method" type="text" name="method" maxlength="100" value="{{ recipe.method[step] }}" class="validate" required />
+                                <a href="#" class="btn-small waves-effect waves-light btn-colour remove_field">Remove</a>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="btn-border">
+                    <button id="add_method_step_button" class="btn-small waves-effect waves-light btn-colour add_method_step_button">Add Step</button>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">note</i>
-                    <textarea id="description" name="description" minlength="5" maxlength="250" class="materialize-textarea validate" required>
-                    {{- recipe.description -}}
-                    </textarea>
-                    <label for="description">A short description of your recipe</label>
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <a href="{{ url_for('index', user=session.user) }}" class="btn waves-effect waves-light light-blue darken-2">Cancel<i class="material-icons right">cancel</i></a>
+                        <button class="btn waves-effect waves-light btn-colour" type="submit" name="action">
+                            Edit Recipe
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">camera_alt</i>
-                    <input id="recipe_image" name="recipe_image" type="text" value="{{ recipe.picture }}" pattern="^https?://.+" class="validate" />
-                    <label for="recipe_image">Picture</label>
-                </div>
-            </div>
-            <div class="col s12">
-                <p class="upload-style">
-                    The picture must be a URL beginning with http:// or https:// and end with a picture file extension e.g. jpg or png<br>
-                    Upload your image <a class="body-colour here" href="https://postimages.org/" target="_blank">here</a>. Please use the 320x240 size with no expiration. Once uploaded copy and paste the direct link with a .jpg file
-                    extension into the above field.
-                </p>
-            </div>
-            <div class="row">
-                <div id="ingredient_fields_wrapper" class="input-field col s12 ingredient_fields_wrapper">
-                    {% for ingredient in ingredients %}                    
-                        {% if ingredient == 0 %}
-                        <div>
-                            <i class="material-icons prefix">edit</i>
-                            <label for="ingredients">Ingredients</label>
-                            <input id="ingredients" type="text" name="ingredients" maxlength="50" value="{{ recipe.ingredients[ingredient] }}" class="validate" required />
-                            <a href="#" class="btn-small waves-effect waves-light btn-colour remove_field">Remove</a>
-                        </div>
-                        {% else %}
-                        <div>
-                            <i class="material-icons prefix">edit</i>
-                            <input id="ingredients" type="text" name="ingredients" maxlength="50" value="{{ recipe.ingredients[ingredient] }}" class="validate" required />
-                            <a href="#" class="btn-small waves-effect waves-light btn-colour remove_field center-align">Remove</a>
-                        </div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-                <button id="add_ingredient_button" class="btn-small waves-effect waves-light btn-colour add_ingredient_button">Add Ingredient</button>
-            </div>
-            <div class="row">
-                <div id="method_fields_wrapper" class="input-field col s12 method_fields_wrapper">
-                    {% for step in method_steps %}
-                        {% if step == 0 %}
-                        <div>
-                            <i class="material-icons prefix">short_text</i>
-                            <label for="method">Method</label>                        
-                            <input id="method" type="text" name="method" maxlength="100" value="{{ recipe.method[step] }}" class="validate" required />
-                            <a href="#" class="btn-small waves-effect waves-light btn-colour remove_field">Remove</a>
-                        </div>
-                        {% else %}
-                        <div>
-                            <i class="material-icons prefix">short_text</i>
-                            <input id="method" type="text" name="method" maxlength="100" value="{{ recipe.method[step] }}" class="validate" required />
-                            <a href="#" class="btn-small waves-effect waves-light btn-colour remove_field">Remove</a>
-                        </div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-                <div class="btn-border">
-                <button id="add_method_step_button" class="btn-small waves-effect waves-light btn-colour add_method_step_button">Add Step</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12 center-align">
-                    <a href="{{ url_for('index', user=session.user) }}" class="btn waves-effect waves-light light-blue darken-2">Cancel<i class="material-icons right">cancel</i></a>
-                    <button class="btn waves-effect waves-light btn-colour" type="submit" name="action">
-                        Edit Recipe
-                        <i class="material-icons right">send</i>
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
-</section>
-
+            </form>
+        </div>
+    </section>
 {% endblock %}

@@ -1,41 +1,39 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<!-- Edit user information form with HTML validation  -->
-
-<section>
-    <div class="container">
-        <h3 class="title-font">Edit User Info</h3>
-        <form method="POST" action="{{ url_for('edit_user', user_id=user._id) }}">
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">face</i>
-                    <input id="username" name="username" value="{{ user.username }}" type="text" class="validate" minlength="5" maxlength="20" required/>
-                    <label for="username">Username</label>
+    <!-- Edit user information form with HTML validation  -->
+    <section>
+        <div class="container">
+            <h3 class="title-font">Edit User Info</h3>
+            <form method="POST" action="{{ url_for('edit_user', user_id=user._id) }}">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">face</i>
+                        <input id="username" name="username" value="{{ user.username }}" type="text" class="validate" minlength="5" maxlength="20" required/>
+                        <label for="username">Username</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">email</i>
-                    <input id="email" name="email" value="{{ user.email }}" type="email" class="validate" required/>
-                    <label for="email">E-mail</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
+                        <input id="email" name="email" value="{{ user.email }}" type="email" class="validate" required/>
+                        <label for="email">E-mail</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col s12 center-align">
-                    <a href="{{ url_for('index', user=session.user) }}" class="btn waves-effect waves-light light-blue darken-2">Cancel<i class="material-icons right">cancel</i></a>                    
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <a href="{{ url_for('index', user=session.user) }}" class="btn waves-effect waves-light light-blue darken-2">Cancel<i class="material-icons right">cancel</i></a>                    
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col s12 center-align">
-                    <button class="btn waves-effect waves-light btn-colour" type="submit" name="action">
-                        Edit User
-                        <i class="material-icons right">edit</i>
-                    </button>                    
-                </div>
-            </div>            
-        </form>
-    </div>
-</section>
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <button class="btn waves-effect waves-light btn-colour" type="submit" name="action">
+                            Edit User
+                            <i class="material-icons right">edit</i>
+                        </button>                    
+                    </div>
+                </div>            
+            </form>
+        </div>
+    </section>
 {% endblock %}

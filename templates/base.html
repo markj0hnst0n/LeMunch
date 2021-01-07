@@ -110,14 +110,14 @@
                         </div>
                     </div>
                 {% endif %}
-            <section>
-                <!-- Flash messages to display on all pages if necessary --> 
-                {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
-                    <div class="container center-align">
-                        <h4>{{ message }}</h4>
-                    </div>
-                {% endfor %} {% endif %} {% endwith %}
-            </section>
+            {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+                <section>
+                    <!-- Flash messages to display on all pages if necessary --> 
+                        <div class="container center-align">
+                            <h4>{{ message }}</h4>
+                        </div>
+                </section>
+            {% endfor %} {% endif %} {% endwith %}
             <div class="row">
                 <div class="col s12 offset-l1 col l10">
                     <!-- Area where content is injected from other templates -->

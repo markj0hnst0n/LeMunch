@@ -1,42 +1,40 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<!-- User registration form -->
-
-<section>
-    <div class="container">
-        <h1 class="title-font">Sign Up</h1>
-        <div class="row">
-            <form class="col s12" method="POST" action="{{url_for('add_user')}}">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">face</i>
-                        <input id="username" name="username" type="text" minlength="5" maxlength="20" class="validate" required/>
-                        <label for="username">Username</label>
+    <!-- User registration form -->
+    <section>
+        <div class="container">
+            <h1 class="title-font">Sign Up</h1>
+            <div class="row">
+                <form class="col s12" method="POST" action="{{url_for('add_user')}}">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">face</i>
+                            <input id="username" name="username" type="text" minlength="5" maxlength="20" class="validate" required/>
+                            <label for="username">Username</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">email</i>
+                            <input id="email" name="email" type="email" class="validate" required/>
+                            <label for="email">E-mail</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">settings</i>
+                            <input id="password" name="password" type="password" minlength="5" maxlength="20 class="validate" required/>
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">settings</i>
+                            <input id="password1" name="password1" type="password" minlength="5" maxlength="20 class="validate" required/>
+                            <label for="password1">Confirm Password</label>
+                        </div>
                     </div>
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">email</i>
-                        <input id="email" name="email" type="email" class="validate" required/>
-                        <label for="email">E-mail</label>
-                    </div>
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">settings</i>
-                        <input id="password" name="password" type="password" minlength="5" maxlength="20 class="validate" required/>
-                        <label for="password">Password</label>
-                    </div>
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">settings</i>
-                        <input id="password1" name="password1" type="password" minlength="5" maxlength="20 class="validate" required/>
-                        <label for="password1">Confirm Password</label>
-                    </div>
-                </div>
-                <button class="btn waves-effect waves-light btn-colour" type="submit" name="action">
-                    Submit
-                    <i class="material-icons right">send</i>
-                </button>
-            </form>
+                    <button class="btn waves-effect waves-light btn-colour" type="submit" name="action">
+                        Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 {% endblock %}
