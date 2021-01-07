@@ -166,9 +166,17 @@ for fonts used in the project.
 
 [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) for testing code health, accessibility, speed and search engine optimisation.
 
+# Information Architechture
+
+The project required a non-relational database and Mongo db was recommended to use so the project was written using it to store the required data.
+
+Below is a representation of how the data will be stored in collections and which collections relate to each other.
+
 ## Conceptual Database Design
 
 ![](readme/images/conceptual-database-design.png)
+
+In the diagram below you can find the collections required with information on each key:value pair's title, key and value data type.
 
 ## Logical Data Model
 
