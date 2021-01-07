@@ -182,13 +182,14 @@ Github address for the project: https://github.com/markj0hnst0n/fauxdjsmilestone
 
 3. Make sure the Procfile and requirements.txt are pushed to git.
 
-4. An SMTP server must be used to use to send and receive contact emails from the app.  I have used Amazon Simple Email Service with 2 verified email addresses, one for sending the email and one for receiving it.  You will need to check the security that the type of security the email server uses there are 2 types SSL or TLS and the type of security dictates which port you should use.
+4. An SMTP server must be used to use to send and receive contact emails from the app.  I have used Amazon Simple Email Service with 2 verified email addresses, one for sending the email and one for receiving it.  You will need to check the security that the type of security the email server uses there are 2 types SSL or TLS and the type of security dictates which port you should use.  You will also have to amend the app config vars on lines 32 and 33 accordingly depending on security system used.
 
 5. You must also have an account with MongoDB, a database and the relevant names must be used to connect to the database collections as shown in lines 41 - 44 of the app.py file.
 
 6. Log in to or create a Heroku account and create a new app by clicking ‘New’ then ‘Create New App’ then choose a name and the relevant region for the app.
 
 7. On the app page click the ‘Settings’ tab and then the ‘Reveal Config Vars’ button and the following variables need to be set as key value pairs:
+
 
 |   KEY	|  VALUE    |
 |-------|-------|
@@ -209,8 +210,6 @@ SECRET_KEY | &lt;your STMP email server&gt; |
 9. In the ‘Automatic deploys’ section click on the ‘Enable Automatic Deploys’ button the in the ‘Manual deploy’ section click the ‘Deploy Branch’ button as long as ‘master’ is the selected branch.
 
 10. Once the app has been successfully built you should receive a message saying ‘Your app was successfully deployed’ you can then click on the ‘View’ button or the ‘Open app’ button at the top of the page to go to the deployed app.
-
-step by step deployment info
 
 ## Run Locally
 
