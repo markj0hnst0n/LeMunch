@@ -230,7 +230,7 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 
 #### W3C HTML Validation
 
-Raw code from the following pages were run through w3x HTML validator without any errors or warnings:
+Raw code from the following pages were run through w3c HTML validator without any errors or warnings:
 
 - Index page
 - Main profile page
@@ -247,8 +247,8 @@ Raw code from the following pages were run through w3x HTML validator without an
 
 #### W3C CSS Validation
 
+Custom static CSS file run through w3c CSS validator without any issues.
+
 #### Google Lighthouse Testing information
-
-
 
 PDFs of expanded Google Lighthouse testing for Performance, Accessability, Best Practices and Search Engine Optimisation can be found [here](https://github.com/markj0hnst0n/LeMunch/tree/master/testing/google-lighthouse-testing)
