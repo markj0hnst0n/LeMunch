@@ -13,14 +13,6 @@ To go to the live site click [here](http://le-munch-flask-markjohnston.herokuapp
 
 # UX
 
-## Conceptual Database Design
-
-![](readme/images/conceptual-database-design.png)
-
-## Logical Data Model
-
-![](readme/images/logical-data-model.png)
-
 ## User Stories
 
 There will be 2 main user types and the user types are not mutually exclusive.  The same user could fall into both categories dependent on the their behaviour.
@@ -120,30 +112,38 @@ for the structure of the website
 [CSS 3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets#CSS_3)
 for the look of the website
 
-[Materialize](https://materializecss.com/) website framework with html, css and javascript.
+[Flask Web Framework](https://flask.palletsprojects.com/en/1.1.x/)
+framework for the back end application to connect database to front end web page.
 
-[Fontawesome](https://fontawesome.com/) for icons.
+[Mongo DB](https://www.mongodb.com/)
+for database storage.
+
+[Python 3 Language](https://www.python.org/)
+to write code for data manipulation at the back end of the app within the flask framework.
+
+[Materialize](https://materializecss.com/)
+website framework with html, css and javascript.
+
+[Fontawesome](https://fontawesome.com/)
+for icons.
 
 [Javascript](https://en.wikipedia.org/wiki/JavaScript)
 for the logic of the game.  To manipulate the HTML and CSS on the screen.
 
 [jQuery](https://en.wikipedia.org/wiki/JQuery)
-To manipulate the HTML and CSS on the screen.
+to manipulate the HTML and CSS on the screen.
 
 [JShint](https://jshint.com/)
-To validate javscript code.
+to validate javscript code.
 
 [Coolors](https://coolors.co/)
-For help with colours and colours scheme.
+for help with colours and colours scheme.
 
 [Post Images](https://postimages.org/)
-To allow users to upload photos and get addresses for their pictures.
-
-[PicResize](https://picresize.com/)
-For image formatting.
+to allow users to upload photos and get addresses for their pictures.
 
 [Webformatter](https://webformatter.com/)
-For formatting HTML, CSS and javascript code.
+for formatting HTML, CSS and javascript code.
 
 [Asana](https://asana.com/)
 for project management
@@ -151,20 +151,28 @@ for project management
 [Balsamiq Wireframes](https://balsamiq.com/wireframes/)
 for creating Wireframes for initial visual development
 
-[Gitpod](https://www.gitpod.io/) for writing and testing code.
+[Gitpod](https://www.gitpod.io/)
+for writing and testing code.
 
-[GitHub](https://github.com/) for storing code.
+[GitHub](https://github.com/)
+for storing code.
 
-[Google Fonts](https://fonts.google.com/) for fonts used in the project.
+[Google Fonts](https://fonts.google.com/)
+for fonts used in the project.
 
 [Google Chrome Development Tools](https://developers.google.com/web/tools/chrome-devtools) for testing code on various device sizes during development and debugging.
 
-[Amazon Web Services](https://aws.amazon.com/)
-Simple Email Service for STMP mail server
+[Amazon Web Services](https://aws.amazon.com/) Simple Email Service for STMP mail server.
 
-[Troy](http://troy.labs.daum.net/) to test website on different device types and sizes
+[Google Lighthouse](https://developers.google.com/web/tools/lighthouse) for testing code health, accessibility, speed and search engine optimisation.
 
-[Google Lighthouse](https://developers.google.com/web/tools/lighthouse) for testing code health, accessibility, speed and search engine optimisation
+## Conceptual Database Design
+
+![](readme/images/conceptual-database-design.png)
+
+## Logical Data Model
+
+![](readme/images/logical-data-model.png)
 
 # Testing
 
