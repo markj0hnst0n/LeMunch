@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <!-- Form for adding recipe information to database.  HTML for validation used included regex for picture URL if used but user does not have to supply a picture.
+    <!-- Form for adding recipe information to database.  HTML validation used regex expresison used so that user inserts picture URL.  Picture is not, however a required input.
         POST method is called when submitted. -->
     <section>
         <div class="container">
@@ -36,7 +36,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">camera_alt</i>
-                        <input id="recipe_image" name="recipe_image" type="text" pattern="^https?://.+" class="validate"/>
+                        <input id="recipe_image" name="recipe_image" type="text" pattern="^https?://.+(?:jpe?|pn)g|gif|bmp$" class="validate"/>
                         <label for="recipe_image">Picture</label>
                     </div>
                 </div>
