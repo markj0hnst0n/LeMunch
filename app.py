@@ -279,7 +279,7 @@ def add_recipe():
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     """
-    Displays edit recipe form pre filled with the recipe information to
+    Displays edit recipe form pre-filled with the recipe information to
     edit. If request method is POST it takes information from the form
     and adds it to the database.
     Uses the .lower() method to normalize and user entered data so
@@ -367,8 +367,10 @@ def browse_like():
 @app.route('/search', methods=["GET", "POST"])
 def search():
     """
-    Displays all the recipes in the recipe data for the user to browse sorted
-    with those with the most likes at the top of the page.
+    Renders 'search' page and if method is post it checks
+    the recipe collection for the search data entered in
+    the search form and displays any recipe which matches
+    the search data.
     """
     search_page = 1
     user = user_collection.find_one({"username": session["user"]})
@@ -420,7 +422,7 @@ def search():
 @app.route('/view_recipe/<recipe_id>')
 def view_recipe(recipe_id):
     """
-    Displays a specific recipe from the recipe collection and also calls
+    Displays the recipe from the recipe collection and also calls
     the likes collection to see if the user has liked that recipe.
     """
     recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
@@ -501,9 +503,9 @@ def like_recipe(recipe_id):
 def contact():
     """
     Displays a contact form so that users can contact the site administrators.
-    If the request method is post it will use the Flask-mail dependency to send
+    If the request method is post it will use the Flask-Mail extension to send
     an email to the administrators on behalf of the user with their query as
-    defined in the form.
+    defined in the contact form.
     """
     if request.method == 'POST':
         recipient = os.environ.get('RECIPIENT')
@@ -526,8 +528,8 @@ def contact():
 
 
 """
-The functions below handle and HTTP errors that may be incurred so that the
-user does not leave the app if this happens.
+The functions below handle and HTTP errors that may be incurred. Ensures that
+the user does not leave the app in the event of an error.
 """
 
 
