@@ -15,16 +15,14 @@
                             <!-- Jinja for loop to display all recipe types from database -->
                             {% for type in recipe_types %}
                             <option value="{{ type.type_name }}">{{ type.type_name|title }}</option>
-                            <label for="recipe_type">Type</label>
                             {% endfor %}
                         </select>
-                        <label class="hi-contrast" for="recipe_type">Recipe Type</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">stars</i>
-                        <input id="recipe_name" name="recipe_name" type="text" minlength="5" maxlength="50" validate" required />
+                        <input id="recipe_name" name="recipe_name" type="text" minlength="5" maxlength="50" class="validate" required />
                         <label for="recipe_name">Recipe Name</label>
                     </div>
                 </div>

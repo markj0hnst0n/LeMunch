@@ -230,6 +230,8 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 
 #### W3C HTML Validation
 
+Raw code from Index page, main profile page, browse page,
+
 #### W3C CSS Validation
 
 #### Google Lighthouse Testing information
