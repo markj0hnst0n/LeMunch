@@ -174,7 +174,7 @@ See separate Testing.md file [here](testing/testing.md)
 
 ## Using Heroku
 
-Github address for the project: https://github.com/markj0hnst0n/fauxdjsmilestoneproj1/
+Github address for the project: https://github.com/markj0hnst0n/LeMunch
 
 1. Create a requirements.txt file so that Heroku knows which dependencies to install to ensure the app works correctly.  This can be done by using the command “pip3 freeze —local > requirements.txt on the command line interface.
 
@@ -213,8 +213,6 @@ SECRET_KEY | &lt;your STMP email server&gt; |
 10. Once the app has been successfully built you should receive a message saying ‘Your app was successfully deployed’ you can then click on the ‘View’ button or the ‘Open app’ button at the top of the page to go to the deployed app.
 
 ## Run Locally
-
-In the GitHub Repository from the project (#)
 
 In the GitHub Repository from the project (https://github.com/markj0hnst0n/LeMunch)
 
