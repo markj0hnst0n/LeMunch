@@ -271,7 +271,7 @@ In the GitHub Repository from the project (https://github.com/markj0hnst0n/LeMun
 
         python3 app.py
 
-10. The app should now be running at: http://0.0.0.0:500
+10. The app should now be running at: http://0.0.0.0:5000
 
 # Credits
 

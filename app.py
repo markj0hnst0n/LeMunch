@@ -390,35 +390,6 @@ def search():
     return render_template('search.html', user=user, search_page=search_page)
 
 
-"""
-@app.route('/search', methods=["GET"])
-def search():
-    user = user_collection.find_one({"username": session["user"]})
-    query = request.form.get("query")
-    search_page = 1
-    if request.method == "GET":
-        if query:
-            all_recipes = list(recipe_collection.find({"$text":
-                            {"$search": query}}).sort("datetime", -1))
-            if len(all_recipes) == 0:
-                flash("No recipes found, please search again")
-                return render_template('search.html',
-                                        user=user,
-                                        all_recipes=all_recipes,
-                                        search_page=search_page)
-            return render_template('search.html',
-                                    user=user,
-                                    all_recipes=all_recipes,
-                                    search_page=search_page)
-        else:
-            all_recipes = []
-            return render_template("search.html",
-                                user=user,
-                                all_recipes=all_recipes,
-                                search_page=search_page)
-"""
-
-
 @app.route('/view_recipe/<recipe_id>')
 def view_recipe(recipe_id):
     """
