@@ -5,8 +5,8 @@
 ![](readme/images/intro-picture.png)
 
 Le Munch is here to help you decide what to have for your next meal!  You can upload your own recipes so you have your own online cookbook and
-search and browse through other users recipes to give you ideas of what to cook.  Develop your love of food by deep diving on food pics and 
-connecting with other users through the recipes they've uploaded.
+search and browse through other users recipes to give you ideas of what to cook.  Develop your love of food by deep diving on food pics and you
+can like recipes to show your support for the food you like and to help other users find the most popular dishes on the site.
 
 To go to the live site click [here](http://le-munch-flask-markjohnston.herokuapp.com/)
 
@@ -19,25 +19,23 @@ There will be 2 main user types and the user types are not mutually exclusive.  
 
 The uploader user will be the primary content creators and will produce the recipes for the site.  Their goal is to show off what they can do and see how popular their recipes are.
 
-- As an uploader user I want to upload a recipe so that other users can see if for inspiration about their own meals and so that I have a record for my online cookbook.
+- As an uploader I want to upload a recipe so that other users can see if for inspiration about their own meals and so that I have a record for my online cookbook.
 
-- As an uploader user I want functionality to upload a photo to so that users are enticed to read my recipes.
+- As an uploader I want functionality to upload a photo to so that users are enticed to read my recipes.
 
-- As an uploader user I want to be able to edit and delete recipes so that I can customise my online cookbook to suit my ongoing needs.
+- As an uploader I want to be able to edit and delete recipes so that I can customise my online cookbook to suit my ongoing needs.
 
-- As an uploader user I want other users to be able to ‘upvote’ or ‘like’ my recipes so that I can understand how popular they are.
+- As an uploader I want other users to be able to ‘upvote’ or ‘like’ my recipes so that I can understand how popular they are.
 
-- As an uploader user I want to be able to add, edit the type of recipe so that other users easily can browse the right category to find recipes to suit their needs.
+- As an uploader I want to be able to add, edit the type of recipe so that other users easily can browse the right category to find recipes to suit their needs.
 
 The browser user will be mainly focused on looking at recipe pictures and recipe content.  They can give their approval to recipes through ‘likes’ or ‘upvotes’ and are mainly there to find inspiration for what to cook or look at nice food pictures.
 
-- As a browser user I want to be able to browse by recipes ranked by likes so that I can see the most popular recipes to get inspiration about what to cook.
+- As a browser I want to be able to browse by recipes ranked by likes so that I can see the most popular recipes to get inspiration about what to cook.
 
-- As a browser user I want to be able to browse other users so that I can see who is creating the most popular recipes to get inspiration about what to cook.
+- As a browser I want to be able to sort the browsed recipes by newest so that I can see the latest recipes on the site and not just htose I've seen before.
 
-- As a browser user I want to be able to search other users so that I can look up my favourite users.
-
-- As a browser user I want to be able to search by recipes so that I can find my favourite recipes to see how other cooks do them.
+- As a browser I want to be able to search by recipes so that I can find my favourite recipes to see how other cooks do them.
 
 Site owner goal
 
@@ -72,23 +70,23 @@ Blue is used for the cancel buttons and some fo the buttons are a lighter green 
 
 #### Navbar
 
-- Easily navigate the website via the navbar
+- Easily navigate the website via the navbar.
 
 #### Sign up or Login
 
-- Sign Up / Sign In to the website so that a unique user is created or their unique profile is added
+- Sign Up / Sign In to the website so that a unique user is created or their unique profile is added.
 
 #### Edit Profile
 
-- Edit user info
+- Edit user info.
 
 #### Profile page
 
-- Use the tabs to navigate easily once a user is logged in
+- Use the tabs to navigate easily once a user is logged in.
 
 #### Recipe upload
 
-- Add/upload recipes
+- Add/upload recipes.
 
 #### Browse
 
@@ -96,7 +94,11 @@ Blue is used for the cancel buttons and some fo the buttons are a lighter green 
 
 #### Search function
 
-- Search for my favourite recipe
+- Search for my favourite recipe.
+
+#### View Recipe
+
+- Shows all the relevant information of a recipe for a browser.
 
 #### Like/Upvote
 
@@ -181,6 +183,11 @@ In the diagram below you can find the collections required with information on e
 ## Logical Data Model
 
 ![](readme/images/logical-data-model.png)
+
+## Security considerations
+
+An env.py file was used to store all environment variables and all sensitive information.  HTML form valiation was used to ensure user input was handled in a secure fashion
+including regex statement for pictures to make sure that a correct picture URL was used.
 
 # Testing
 
