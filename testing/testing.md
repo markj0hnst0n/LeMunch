@@ -210,23 +210,23 @@ Below is a table showing some (but by no means all) the bugs encountered in this
 
 |   Bug	|  Fix	|
 |-------|-------|
-| Not connecting to database to show user info | correct database not used in MongoURI.  Updated.
-| Not displaying recipe type names in add recipe page | incorrect syntax when attempting to call type name from database
-| Not redirecting to profile page correctly after adding recipe | redirect syntax not in the correct format to read session cookie data
-| Showing edit and delete recipe buttons on browse page for all users | added if statement checking if user in recipe database is user in session
-| Recipe link options displaying in a disjointed way on small screens | removed right align class and now they appear more uniform|
-| User delete function works on my recipes page but not on browse page | user variable being used was for user was 'session.user' which did not access the database for the user so no database actions could be completed.  Had to refactor the routes using this variable to call the database.
-| Error page brought up when edit recipe was clicked after going back to profile in home  | same issue as previous bug and same fix
+| Not connecting to database to show user info | Correct database not used in MongoURI.  Updated
+| Not displaying recipe type names in add recipe page | Incorrect syntax when attempting to call type name from database
+| Not redirecting to profile page correctly after adding recipe | Redirect syntax not in the correct format to read session cookie data
+| Showing edit and delete recipe buttons on browse page for all users | Added if statement checking if user in recipe database is user in session
+| Recipe link options displaying in a disjointed way on small screens | Removed right align class and now they appear more uniform
+| User delete function works on my recipes page but not on browse page | User variable being used was for user was 'session.user' which did not access the database for the user so no database actions could be completed.  Had to refactor the routes using this variable to call the database.
+| Error page brought up when edit recipe was clicked after going back to profile in home  | Same issue as previous bug and same fix
 | Previous user variable fix only worked for user delete function but broke edit recipe function | Changed back to session user variable for edit recipe and delete recipe
 | Delete user function didn't work correctly again | I had moved the modal for this to base.html which created an error when routing to signin.html as the user variable was not define.   I moved the modal content to profile.html and browse.html and this fixed the issue.  Now routes correctly back to signin page after user is deleted.
-| Delete recipe modals where only coming up for one recipe even when button was clicked for other recipes | appears to be an issue with materialize modals.  Stopped using materialize modal for delete recipe.  The problem lies with the fact that there are multiple identical html elements and the modal only selects the first one.
+| Delete recipe modals where only coming up for one recipe even when button was clicked for other recipes | Appears to be an issue with materialize modals.  Stopped using materialize modal for delete recipe.  The problem lies with the fact that there are multiple identical html elements and the modal only selects the first one.
 | When user was edited the profile screen did not display any recipes | I was using the database user as the variable for the profile instead of the session user so the jinja tmeplate was not calling the correct information from the database
-| On add recipe screen there was whitespace present in the recipe description textarea | put the html tag on one line which fixed issue
-| Change password function does not upadte database when both new passwords match | new_password id not called correcly as there was a rouge space
-| Add ingredient and remove ingredient buttons weren't working on edit recipe screen | had a class name wrong so the javascript function wasn't calling correctly
+| On add recipe screen there was whitespace present in the recipe description textarea | Put the html tag on one line which fixed issue
+| Change password function does not upadte database when both new passwords match | new_password id not called correcly as there was a rogue space
+| Add ingredient and remove ingredient buttons weren't working on edit recipe screen | Had a class name wrong so the javascript function wasn't calling correctly
 | When like/unlike button is clicked by user it continues to decrement below zero | The likes database was not being called accurately with both user data and recipe data resulting in errors
-| Browse, view recipe and profile pages did not display recipe information in a user friendly manner on all devices | refactored HTML code and simplfied using materialize grid
-| Side nav in all pages which display has been moved while putting splash page in.  It does not show correctly at the side of the page as it should.  It is currently in 1 line at the top | changed div row and column structure until I got the layout i was looking for
+| Browse, view recipe and profile pages did not display recipe information in a user friendly manner on all devices | Refactored HTML code and simplfied using materialize grid
+| Side nav in all pages which display has been moved while putting splash page in.  It does not show correctly at the side of the page as it should.  It is currently in 1 line at the top | Changed div row and column structure until I got the layout i was looking for
 | Contact mails not working correctly when contact form was submitted | Had to allow gmail to use less secure apps and enable 'display unlock captcha' in settings
 | Contact emails only work for 1 day then you are again required to use the 'display unlock catcha' in google security settings | Switched to Amazon SES SMTP relay server
 
