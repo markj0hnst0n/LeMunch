@@ -263,7 +263,7 @@ Github address for the project: https://github.com/markj0hnst0n/LeMunch
 |-------|-------|
 IP | 0.0.0.0 |
 PORT | 5000 |
-DEBUG_VALUE | TRUE |
+DEBUG_VALUE | FALSE |
 MONGO_URI | &lt;your MongoDB connection string&gt; |
 MAIL_SERVER | &lt;your STMP email server&gt; |
 MAIL_PORT | 587 if the mail server uses TLS and 465 if the mail server uses SSL security |
@@ -316,7 +316,7 @@ In the GitHub Repository from the project (https://github.com/markj0hnst0n/LeMun
         os.environ['SENDER'] = "<E-mail address to send contact email>"
         os.environ['RECIPIENT'] = "<E-mail address to receive contact email>"
         os.environ['MAIL_PORT'] = "587 if the mail server uses TLS and 465 if the mail server uses SSL security"
-        os.environ['DEBUG_VALUE'] = "TRUE"
+        os.environ['DEBUG_VALUE'] = "FALSE"
 
 
 9. In the command line use the following command:
