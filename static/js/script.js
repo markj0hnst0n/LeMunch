@@ -1,4 +1,4 @@
-window.onload = function(){ document.querySelector("#preloader").style.display = "none"; }
+window.onload = function(){ document.querySelector("#preloader").style.display = "none"; };
 
 $(document).ready(function () {
     /*
@@ -65,7 +65,7 @@ $(document).ready(function () {
 	
 	$(ingredient_wrapper).on("click",".remove_field", function(e){ //user click on remove ingredient
 		e.preventDefault(); $(this).parent('div').remove(); ingredient_count--;
-    })
+    });
     
     $(add_method_step_button).click(function(e){ //on add method step button click
 		e.preventDefault();
@@ -77,5 +77,5 @@ $(document).ready(function () {
 	
 	$(method_fields_wrapper).on("click",".remove_field", function(e){ //user click on remove method step
 		e.preventDefault(); $(this).parent('div').remove(); method_step_count--;
-    })
+    });
 });
