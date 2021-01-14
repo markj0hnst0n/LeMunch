@@ -104,7 +104,14 @@ Blue is used for the cancel buttons and some fo the buttons are a lighter green 
 
 - Upvote/like recipe.  Each user can only like a recipe once.
 
+### Features not implimented
 
+Next steps for the project:
+
+- Admin user to edit categories and have more control over the user database.  This can be done by direct database access at the moment but accessibility of these functions in the app is desireable
+- User profile page
+- The ability to search for users
+- Connect with users (follow/friend function)
 
 # Technologies Used
 
