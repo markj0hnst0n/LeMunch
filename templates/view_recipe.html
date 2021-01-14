@@ -21,7 +21,7 @@
                     <div class="col s12 m6 right-align hide-on-small-only">
                         <div class="card-content">
                             <h5>Description</h5>
-                            <p>{{ recipe.description }}</p>
+                            <p>{{ recipe.description|title }}</p>
                         </div>
                         <div class="card-content">
                             <h6>{{ recipe.recipe_type|title }} recipe</h6>
@@ -45,7 +45,7 @@
                         </div>
                         <div class="card-content">
                             <h5>Description</h5>
-                            <p>{{ recipe.description }}</p>
+                            <p>{{ recipe.description|title }}</p>
                         </div>
                         <div class="card-content">
                             <h6>This recipe has been liked {{ recipe.likes }} times</h6>
