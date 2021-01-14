@@ -60,7 +60,7 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 
 #### Preloader
 
-- Indeterminate time loading bar from materialize displays a the top of the page when page is loading and disappears when correct information has all loaded
+- Indeterminate time loading bar from materialize displays a the top of the page when page is loading and disappears when correct information has all loaded :heavy_check_mark:
 
 #### Navbar (Navigation Bar)
 

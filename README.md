@@ -33,7 +33,7 @@ The browser user will be mainly focused on looking at recipe pictures and recipe
 
 - As a browser I want to be able to browse by recipes ranked by likes so that I can see the most popular recipes to get inspiration about what to cook.
 
-- As a browser I want to be able to sort the browsed recipes by newest so that I can see the latest recipes on the site and not just htose I've seen before.
+- As a browser I want to be able to sort the browsed recipes by newest so that I can see the latest recipes on the site and not just those I've seen before.
 
 - As a browser I want to be able to search by recipes so that I can find my favourite recipes to see how other cooks do them.
 
@@ -53,15 +53,14 @@ Basic wireframes for this project were created using Balsamiq below is a link to
 
 ![](readme/images/colour_scheme.png)
 
-I used the coolors site to generate a colour scheme based on a dark purple the base colour.  I liked that the deep colour matched the colour
+I used the coolors site to generate a colour scheme based on a dark purple (Independence) as the base colour.  I liked that the deep colour matched the colour
 of an aubergine as it's a favourite vegetable of mine and my wife.  Purple is also our eldest daughter's favourite colour so it made sense to use it as a starting point.
 
-The green used for a lot of text is dark to make it more readable against the pink background for visually impaired users also black #000000 was used for form elements too to increase readbility for these users.
+Hookers green used for a lot of text is dark to make it more readable against the pink background for visually impaired users also black #000000 was used for form elements too to increase readbility for these users.
 
-The orange used is to make link text more readable against the white background used for the recipe cards.
+Bright Navy Blue is used for the cancel buttons and some fo the buttons are a lighter green as accent colours.
 
-Blue is used for the cancel buttons and some fo the buttons are a lighter green as accent colours.
-
+The Apricot used is to make link text more readable against the white background used for the recipe cards.
 
 [Coolors](https://coolors.co/)
 
@@ -76,7 +75,11 @@ Blue is used for the cancel buttons and some fo the buttons are a lighter green 
 
 - Sign Up / Sign In to the website so that a unique user is created or their unique profile is added.
 
-#### Edit Profile
+#### Change password
+
+- Users may securely change their password.
+
+#### Edit User data
 
 - Edit user info.
 
