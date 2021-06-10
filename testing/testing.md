@@ -22,7 +22,6 @@ On Chrome Developer Tools the following devices were emulated to check responsiv
 - iPhone X
 - iPad
 
-
 These physical devices were also used for testing:
 
 - Macbook Pro 15-inch retina screen
@@ -33,8 +32,8 @@ These physical devices were also used for testing:
 #### Verdict
 
 Le Munch adapts to most tested screen sizes and devices and displays as expected but on very small screen widths there were some issues.
-Samsung fold device when emulated on google dev tools made some contact link jump to a new line.  This was not deemed to be too big an issue
-as the dev tools only show 1 half of the screen.  It is assumed that this would display correctly on the device.
+Samsung fold device when emulated on google dev tools made some contact link jump to a new line. This was not deemed to be too big an issue
+as the dev tools only show 1 half of the screen. It is assumed that this would display correctly on the device.
 
 ### Cross-browser Compatability
 
@@ -72,14 +71,14 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 
 #### Footer
 
-- Social Media icons display for twitter, instagram and facebook.  Clicking these takes user to the appropriate site :heavy_check_mark:
+- Social Media icons display for twitter, instagram and facebook. Clicking these takes user to the appropriate site :heavy_check_mark:
 - Copyright information displays in the bottom left and contact link displays in the bottom right :heavy_check_mark:
 
 #### Vertical Sidenav for user admin
 
 - Displays on larger screens functions, 'change user password', 'edit usder data' and 'logout' :heavy_check_mark:
 - Clicking on 'change user password', 'edit user data' takes you to the correct screen :heavy_check_mark:
-- Clicking logout takes user back to the index/splash page and logs them out.  Feedback is provided to user via a message :heavy_check_mark:
+- Clicking logout takes user back to the index/splash page and logs them out. Feedback is provided to user via a message :heavy_check_mark:
 - Burger icon displays on smaller screens to give access to user admin functions, 'change user password', 'edit user data' and 'logout' :heavy_check_mark:
 - Hovering over Vertical sidenav elements on larger screens provides user feedback :heavy_check_mark:
 
@@ -89,7 +88,6 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 - Displays 'my recipes', 'browse' and 'search' functions and clicking on these take you to the correct page :heavy_check_mark:
 - Hovering over green 'profile' navbar options provides user feedback :heavy_check_mark:
 - Current screen green 'profile' navbar option is highlighted :heavy_check_mark:
-
 
 ### Behaviour of App Pages
 
@@ -122,14 +120,14 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 - Header text displays with personalised user information :heavy_check_mark:
 - Old password, new password and confirm password inputs display and go red if not filled in as they are required :heavy_check_mark:
 - Cancel button displays and clicking takes customer back to profile without taking any action :heavy_check_mark:
-- Submit button displays and clicking proceeds with password change.  User feedback is provided that the password has been changed when the user is directed back to the profile page :heavy_check_mark:
+- Submit button displays and clicking proceeds with password change. User feedback is provided that the password has been changed when the user is directed back to the profile page :heavy_check_mark:
 
 #### Edit User Data page (edit_user.html)
 
 - Header text displays :heavy_check_mark:
-- Username and email inputs display.  They are pre-populated with current user information and go red if not filled in as they are required :heavy_check_mark:
+- Username and email inputs display. They are pre-populated with current user information and go red if not filled in as they are required :heavy_check_mark:
 - Cancel button displays and clicking takes customer back to profile without taking any action :heavy_check_mark:
-- Submit button displays and clicking proceeds with edit of data.  User feedback is provided that the information has been changed when the user is directed back to the profile page :heavy_check_mark:
+- Submit button displays and clicking proceeds with edit of data. User feedback is provided that the information has been changed when the user is directed back to the profile page :heavy_check_mark:
 
 #### Profile page (profile.html)
 
@@ -137,29 +135,29 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 - Personalised greeting for user displays with instructions on how to use page :heavy_check_mark:
 - If user has no recipes message is displayed inviting them to add recipe :heavy_check_mark:
 - Add recipe button displays and hovering over it provides information on what clicking the button does :heavy_check_mark:
-- If user has recipes uploaded to database they display in card form in order with the newest at the top.  User can scroll down to access older recipes :heavy_check_mark:
+- If user has recipes uploaded to database they display in card form in order with the newest at the top. User can scroll down to access older recipes :heavy_check_mark:
 - If the user has provided a picture URL is displays the picture in the recipe card if not it uses a static image not displayed picture :heavy_check_mark:
 - A description of the recipe and the number of likes it has are displayed :heavy_check_mark:
-- View recipe and edit recipe links display in the recipe card.  Clicking the links displays the correct page.  Hovering over the links provides user feedback  :heavy_check_mark:
+- View recipe and edit recipe links display in the recipe card. Clicking the links displays the correct page. Hovering over the links provides user feedback :heavy_check_mark:
 
 #### Browse page (browse.html)
 
 - Instructions on how to use page display at the top :heavy_check_mark:
 - Add recipe button displays and hovering over it provides information on what clicking the button does :heavy_check_mark:
-- Sort by buttons 'Newest' and 'Likes' display.  'Newest' is highlighted as the default which displays the recipes in date order descending with the newest at the top :heavy_check_mark:
+- Sort by buttons 'Newest' and 'Likes' display. 'Newest' is highlighted as the default which displays the recipes in date order descending with the newest at the top :heavy_check_mark:
 - Clicking 'likes' sort the recipes in descending order and those with the most likes are at the top :heavy_check_mark:
-- All recipes uploaded to database they display in card form.  The user and scroll down to view recipes :heavy_check_mark:
+- All recipes uploaded to database they display in card form. The user and scroll down to view recipes :heavy_check_mark:
 - Picture URL is displays the picture in the recipe card if not it uses a static image not displayed picture :heavy_check_mark:
 - A description of the recipe, the number of likes it has and who created it are displayed :heavy_check_mark:
-- In the recipe card, view recipe is displayed for all users and edit recipe is displayed if the current user created the recipe.  Clicking the links displays the correct page.  Hovering over the links provides user feedback  :heavy_check_mark:
+- In the recipe card, view recipe is displayed for all users and edit recipe is displayed if the current user created the recipe. Clicking the links displays the correct page. Hovering over the links provides user feedback :heavy_check_mark:
 
 #### Search page (search.html)
 
 - Instructions on how to use page display at the top :heavy_check_mark:
 - Search input displays and goes red if not filled in as it is required :heavy_check_mark:
 - Submit button displays and clicking proceeds with search :heavy_check_mark:
-- If search is successful a message displays informing the user and recipes are displayed in the same format as on the browse page.  User can use the form to search again :heavy_check_mark:
-- If search is unsuccessful a message displays informing the user and they can use the form to search again.  Message invites them to do so :heavy_check_mark:
+- If search is successful a message displays informing the user and recipes are displayed in the same format as on the browse page. User can use the form to search again :heavy_check_mark:
+- If search is unsuccessful a message displays informing the user and they can use the form to search again. Message invites them to do so :heavy_check_mark:
 
 #### View recipe page (view_recipe.html)
 
@@ -167,21 +165,21 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 - A description of the recipe, its type, the number of likes it has, whether the current user likes it and who created it are displayed :heavy_check_mark:
 - The ingredients and method steps are displayed below other recipe elements :heavy_check_mark:
 - Back button is displayed and clicking it takes the user back to the profile page :heavy_check_mark:
-- Floating action button is displayed in the bottom right corner and hovering over it (clicking on smaller screens) provides the user with options to click.  Hovering over the option will tell the user what the button does :heavy_check_mark:
+- Floating action button is displayed in the bottom right corner and hovering over it (clicking on smaller screens) provides the user with options to click. Hovering over the option will tell the user what the button does :heavy_check_mark:
 - From the floating action button the user can edit the current recipe, like the current recipe, add a new recipe or delete the current recipe :heavy_check_mark:
 - Clicking add or edit from the floating action button takes the user to the crrrect screen :heavy_check_mark:
-- Clicking like from the floating action button keeps them on the view page and increases the number of likes the recipe has.  Clicking like again will unlike the recipe and user will be provided with feedback telling them this if they hover over the button.  Like button also displays lighter when current user likes the recipe :heavy_check_mark:
+- Clicking like from the floating action button keeps them on the view page and increases the number of likes the recipe has. Clicking like again will unlike the recipe and user will be provided with feedback telling them this if they hover over the button. Like button also displays lighter when current user likes the recipe :heavy_check_mark:
 
 #### Add recipe page (add_recipe.html)
 
 - Header text displays :heavy_check_mark:
-- Recipe type input displays and go red if not filled in as it is required.  Options are called from the recipe type database :heavy_check_mark:
+- Recipe type input displays and go red if not filled in as it is required. Options are called from the recipe type database :heavy_check_mark:
 - Name, description, ingredients and method steps inputs display and go red if not filled in as they are required :heavy_check_mark:
 - Picture input can be left blank or URL for an uploaded picture can be entered in the correct format :heavy_check_mark:
 - Instructions on how to upload a picture to a 3rd party resource are included and clicking the link takes the user to a site where they can obtain an appropriate file from a picture they upload :heavy_check_mark:
 - Add buttons for ingredient and step are displayed if user wants to increase the number of these elements dynamically :heavy_check_mark:
 - Remove buttons for ingredient and step are displayed if user wants to decrease the number of these elements dynamically :heavy_check_mark:
-- Submit button displays and clicking proceeds with adding recipe.  User feedback is provided that it has been successful when they are routed to the profile page :heavy_check_mark:
+- Submit button displays and clicking proceeds with adding recipe. User feedback is provided that it has been successful when they are routed to the profile page :heavy_check_mark:
 - Cancel button displays and clicking takes customer back to profile without taking any action :heavy_check_mark:
 
 #### Edit recipe page (edit_recipe.html)
@@ -190,14 +188,14 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 - All inputs pre-populated with information from the database for the current fields :heavy_check_mark:
 - Information displays in the same way as above for the add recipe funtion including add and remove buttons for ingredients and method steps :heavy_check_mark:
 - Remove buttons for ingredient and step are displayed if user wants to decrease the number of these elements dynamically :heavy_check_mark:
-- Submit button displays and clicking proceeds with editing recipe.  User feedback is provided that it has been successful when they are routed to the profile page :heavy_check_mark:
+- Submit button displays and clicking proceeds with editing recipe. User feedback is provided that it has been successful when they are routed to the profile page :heavy_check_mark:
 - Cancel button displays and clicking takes customer back to profile without taking any action :heavy_check_mark:
 
 #### Contact page (contact.html)
 
 - Header text displays :heavy_check_mark:
 - Name, email, password and query inputs display and go red if not filled in as they are required :heavy_check_mark:
-- Submit button displays and clicking proceeds with sending contact email to the app admin.  Users are routed back to the profile screen and provided with feedback that their request has been sent :heavy_check_mark:
+- Submit button displays and clicking proceeds with sending contact email to the app admin. Users are routed back to the profile screen and provided with feedback that their request has been sent :heavy_check_mark:
 
 #### Error pages (403.html, 404.html, 405.html, 500.html)
 
@@ -208,27 +206,28 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 
 Below is a table showing some (but by no means all) the bugs encountered in this project and how they were fixed.
 
-|   Bug	|  Fix	|
-|-------|-------|
-| Not connecting to database to show user info | Correct database not used in MongoURI.  Updated
-| Not displaying recipe type names in add recipe page | Incorrect syntax when attempting to call type name from database
-| Not redirecting to profile page correctly after adding recipe | Redirect syntax not in the correct format to read session cookie data
-| Showing edit and delete recipe buttons on browse page for all users | Added if statement checking if user in recipe database is user in session
-| Recipe link options displaying in a disjointed way on small screens | Removed right align class and now they appear more uniform
-| User delete function works on my recipes page but not on browse page | User variable being used was for user was 'session.user' which did not access the database for the user so no database actions could be completed.  Had to refactor the routes using this variable to call the database.
-| Error page brought up when edit recipe was clicked after going back to profile in home  | Same issue as previous bug and same fix
-| Previous user variable fix only worked for user delete function but broke edit recipe function | Changed back to session user variable for edit recipe and delete recipe
-| Delete user function didn't work correctly again | I had moved the modal for this to base.html which created an error when routing to signin.html as the user variable was not define.   I moved the modal content to profile.html and browse.html and this fixed the issue.  Now routes correctly back to signin page after user is deleted.
-| Delete recipe modals where only coming up for one recipe even when button was clicked for other recipes | Appears to be an issue with materialize modals.  Stopped using materialize modal for delete recipe.  The problem lies with the fact that there are multiple identical html elements and the modal only selects the first one.
-| When user was edited the profile screen did not display any recipes | I was using the database user as the variable for the profile instead of the session user so the jinja tmeplate was not calling the correct information from the database
-| On add recipe screen there was whitespace present in the recipe description textarea | Put the html tag on one line which fixed issue
-| Change password function does not upadte database when both new passwords match | new_password id not called correcly as there was a rogue space
-| Add ingredient and remove ingredient buttons weren't working on edit recipe screen | Had a class name wrong so the javascript function wasn't calling correctly
-| When like/unlike button is clicked by user it continues to decrement below zero | The likes database was not being called accurately with both user data and recipe data resulting in errors
-| Browse, view recipe and profile pages did not display recipe information in a user friendly manner on all devices | Refactored HTML code and simplfied using materialize grid
-| Side nav in all pages which display has been moved while putting splash page in.  It does not show correctly at the side of the page as it should.  It is currently in 1 line at the top | Changed div row and column structure until I got the layout i was looking for
-| Contact mails not working correctly when contact form was submitted | Had to allow gmail to use less secure apps and enable 'display unlock captcha' in settings
-| Contact emails only work for 1 day then you are again required to use the 'display unlock catcha' in google security settings | Switched to Amazon SES SMTP relay server
+| Bug                                                                                                                                                                                    | Fix                                                                                                                                                                                                                                                                                     |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Not connecting to database to show user info                                                                                                                                           | Correct database not used in MongoURI. Updated                                                                                                                                                                                                                                          |
+| Not displaying recipe type names in add recipe page                                                                                                                                    | Incorrect syntax when attempting to call type name from database                                                                                                                                                                                                                        |
+| Not redirecting to profile page correctly after adding recipe                                                                                                                          | Redirect syntax not in the correct format to read session cookie data                                                                                                                                                                                                                   |
+| Showing edit and delete recipe buttons on browse page for all users                                                                                                                    | Added if statement checking if user in recipe database is user in session                                                                                                                                                                                                               |
+| Recipe link options displaying in a disjointed way on small screens                                                                                                                    | Removed right align class and now they appear more uniform                                                                                                                                                                                                                              |
+| User delete function works on my recipes page but not on browse page                                                                                                                   | User variable being used was for user was 'session.user' which did not access the database for the user so no database actions could be completed. Had to refactor the routes using this variable to call the database.                                                                 |
+| Error page brought up when edit recipe was clicked after going back to profile in home                                                                                                 | Same issue as previous bug and same fix                                                                                                                                                                                                                                                 |
+| Previous user variable fix only worked for user delete function but broke edit recipe function                                                                                         | Changed back to session user variable for edit recipe and delete recipe                                                                                                                                                                                                                 |
+| Delete user function didn't work correctly again                                                                                                                                       | I had moved the modal for this to base.html which created an error when routing to signin.html as the user variable was not define. I moved the modal content to profile.html and browse.html and this fixed the issue. Now routes correctly back to signin page after user is deleted. |
+| Delete recipe modals where only coming up for one recipe even when button was clicked for other recipes                                                                                | Appears to be an issue with materialize modals. Stopped using materialize modal for delete recipe. The problem lies with the fact that there are multiple identical html elements and the modal only selects the first one.                                                             |
+| When user was edited the profile screen did not display any recipes                                                                                                                    | I was using the database user as the variable for the profile instead of the session user so the jinja tmeplate was not calling the correct information from the database                                                                                                               |
+| On add recipe screen there was whitespace present in the recipe description textarea                                                                                                   | Put the html tag on one line which fixed issue                                                                                                                                                                                                                                          |
+| Change password function does not upadte database when both new passwords match                                                                                                        | new_password id not called correcly as there was a rogue space                                                                                                                                                                                                                          |
+| Add ingredient and remove ingredient buttons weren't working on edit recipe screen                                                                                                     | Had a class name wrong so the javascript function wasn't calling correctly                                                                                                                                                                                                              |
+| When like/unlike button is clicked by user it continues to decrement below zero                                                                                                        | The likes database was not being called accurately with both user data and recipe data resulting in errors                                                                                                                                                                              |
+| Browse, view recipe and profile pages did not display recipe information in a user friendly manner on all devices                                                                      | Refactored HTML code and simplfied using materialize grid                                                                                                                                                                                                                               |
+| Side nav in all pages which display has been moved while putting splash page in. It does not show correctly at the side of the page as it should. It is currently in 1 line at the top | Changed div row and column structure until I got the layout i was looking for                                                                                                                                                                                                           |
+| Contact mails not working correctly when contact form was submitted                                                                                                                    | Had to allow gmail to use less secure apps and enable 'display unlock captcha' in settings                                                                                                                                                                                              |
+| Contact emails only work for 1 day then you are again required to use the 'display unlock catcha' in google security settings                                                          | Switched to Amazon SES SMTP relay server                                                                                                                                                                                                                                                |
+| if username is edited then user attempts to hit home button or any user related actions a 404 is returned                                                                              | updated session user variable in edit username function as this was causing 404 as session user was still using old username                                                                                                                                                            |
 
 ### Automated testing
 

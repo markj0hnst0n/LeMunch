@@ -56,7 +56,7 @@ def index():
     if 'user' in session:
         db_user = user_collection.find_one(
             {"username": session['user']}
-            )
+        )
         if db_user:
             return redirect(url_for('profile', user=db_user['username']))
     all_recipes = list(recipe_collection.find().sort("likes", -1).limit(3))
@@ -72,7 +72,7 @@ def signin():
     if 'user' in session:
         db_user = user_collection.find_one(
             {"username": session['user']}
-            )
+        )
         if db_user:
             return redirect(url_for('profile', user=db_user['username']))
     else:
@@ -122,7 +122,7 @@ def add_user():
         if form['password'] == form['password1']:
             user = user_collection.find_one(
                 {"username": form['username'].lower()}
-                )
+            )
             if user:
                 flash(f"{form['username']} already exists")
                 return redirect(url_for('add_user'))
@@ -184,6 +184,7 @@ def edit_user(user_id):
                     "email": request.form.get("email")
                     }}
         user_collection.update({"_id": ObjectId(user_id)}, edit)
+        session['user'] = request.form.get("username").lower()
         flash("User info updated")
         user = user_collection.find_one({"username": session["user"]})
         my_recipes = list(recipe_collection.find({"user": user})
