@@ -178,6 +178,8 @@ def edit_user(user_id):
     adn the user receives a flash message to confirm their action.
     """
     if request.method == "POST":
+        user_dict = user_collection.find_one({"_id": ObjectId(user_id)})
+        old_user = user_dict["username"]
         if request.form.get("password") == request.form.get("password1"):
             edit = {"$set": {
                     "username": request.form.get("username").lower(),
@@ -185,9 +187,13 @@ def edit_user(user_id):
                     }}
         user_collection.update({"_id": ObjectId(user_id)}, edit)
         session['user'] = request.form.get("username").lower()
+        recipe_edit = {"$set": {
+                       "user": request.form.get("username").lower(),
+                       }}
+        recipe_collection.update({"user": old_user}, recipe_edit)
         flash("User info updated")
-        user = user_collection.find_one({"username": session["user"]})
-        my_recipes = list(recipe_collection.find({"user": user})
+        new_user = user_collection.find_one({"username": session["user"]})
+        my_recipes = list(recipe_collection.find({"user": new_user})
                           .sort("datetime", -1))
         return redirect(url_for('profile', user=session["user"],
                         my_recipes=my_recipes))
@@ -195,7 +201,7 @@ def edit_user(user_id):
     return render_template('edit_user.html', user=user)
 
 
-@app.route('/change_password/<user_id>', methods=["GET", "POST"])
+@ app.route('/change_password/<user_id>', methods=["GET", "POST"])
 def change_password(user_id):
     """
     Displays change of password form.  For security no data is filled in

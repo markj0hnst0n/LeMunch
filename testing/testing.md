@@ -228,6 +228,9 @@ Below is a table showing some (but by no means all) the bugs encountered in this
 | Contact mails not working correctly when contact form was submitted                                                                                                                    | Had to allow gmail to use less secure apps and enable 'display unlock captcha' in settings                                                                                                                                                                                              |
 | Contact emails only work for 1 day then you are again required to use the 'display unlock catcha' in google security settings                                                          | Switched to Amazon SES SMTP relay server                                                                                                                                                                                                                                                |
 | if username is edited then user attempts to hit home button or any user related actions a 404 is returned                                                                              | updated session user variable in edit username function as this was causing 404 as session user was still using old username                                                                                                                                                            |
+| if username is edited then recipe collection is not updated with new username so user loses their recipes                                                                              |
+
+recipe collection of user now updated when username is changed
 
 ### Automated testing
 
