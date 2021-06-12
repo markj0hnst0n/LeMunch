@@ -185,12 +185,16 @@ def edit_user(user_id):
                     "username": request.form.get("username").lower(),
                     "email": request.form.get("email")
                     }}
-        user_collection.update({"_id": ObjectId(user_id)}, edit)
+        user_collection.update_one({"_id": ObjectId(user_id)}, edit)
         session['user'] = request.form.get("username").lower()
         recipe_edit = {"$set": {
                        "user": request.form.get("username").lower(),
                        }}
-        recipe_collection.update({"user": old_user}, recipe_edit)
+        like_edit = {"$set": {
+            "username": request.form.get("username").lower(),
+        }}
+        recipe_collection.update_many({"user": old_user}, recipe_edit)
+        likes_collection.update_many({"username": old_user}, like_edit)
         flash("User info updated")
         new_user = user_collection.find_one({"username": session["user"]})
         my_recipes = list(recipe_collection.find({"user": new_user})
@@ -309,7 +313,7 @@ def edit_recipe(recipe_id):
                 "method": method_lower,
                 "user": session["user"],
             }}
-            recipe_collection.update({"_id": ObjectId(recipe_id)}, edit)
+            recipe_collection.update_one({"_id": ObjectId(recipe_id)}, edit)
             flash("Recipe Edited")
             return redirect(url_for('profile', user=session["user"]))
         recipe = recipe_collection.find_one({"_id": ObjectId(recipe_id)})
@@ -446,7 +450,7 @@ def like_recipe(recipe_id):
         }
     )
     if user_like:
-        recipe_collection.update(
+        recipe_collection.update_one(
             {"_id": ObjectId(recipe_id)},
             {"$set":
                 {"likes": like_count - 1}})
@@ -458,9 +462,9 @@ def like_recipe(recipe_id):
                         user_like=user_like,
                         user=session["user"], recipe_user=recipe['user']))
     else:
-        recipe_collection.update({"_id": ObjectId(recipe_id)},
-                                 {"$set":
-                                 {"likes": like_count + 1}})
+        recipe_collection.update_one({"_id": ObjectId(recipe_id)},
+                                     {"$set":
+                                      {"likes": like_count + 1}})
         likes_collection.insert_one(
             {
                 'username': session["user"],
